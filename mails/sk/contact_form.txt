@@ -1,0 +1,17 @@
+Dobrý deň,
+
+Vaša správa bola úspešne odoslaná zákazníckemu servisu obchodu {shop_name}
+
+Vaša správa:
+
+{message}
+
+Označenie objednávky: {order_name}
+
+Priložený súbor: {attached_file}
+
+Odpovieme Vám čo najskôr.
+
+S pozdravom,
+
+{shop_url} vytvorený systémom PrestaShop™

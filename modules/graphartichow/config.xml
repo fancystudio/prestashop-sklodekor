@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <module>
+            <name>graphartichow</name>
+            <displayName><![CDATA[Artichow]]></displayName>
+            <version><![CDATA[1]]></version>
+            <description><![CDATA[Artichow je knižnica ktor&aacute; umožňuje zobraziť jednoduch&eacute; obr&aacute;zkov&eacute; grafy použit&iacute;m PHP a GD.]]></description>
+            <author><![CDATA[PrestaShop]]></author>
+            <tab><![CDATA[administration]]></tab>
+            <is_configurable>0</is_configurable>
+            <need_instance>0</need_instance>
+	<limited_countries></limited_countries>
+        </module>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <module>
+            <name>blockpaymentlogo</name>
+            <displayName><![CDATA[Blok: Log&aacute; platobn&yacute;ch syst&eacute;mov]]></displayName>
+            <version><![CDATA[0.2]]></version>
+            <description><![CDATA[Prid&aacute; blok zobrazuj&uacute;ci r&ocirc;zne log&aacute; platobn&yacute;ch syst&eacute;mov.]]></description>
+            <author><![CDATA[PrestaShop]]></author>
+            <tab><![CDATA[front_office_features]]></tab>
+            <is_configurable>1</is_configurable>
+            <need_instance>0</need_instance>
+	<limited_countries></limited_countries>
+        </module>

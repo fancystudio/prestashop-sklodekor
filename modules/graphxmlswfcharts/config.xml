@@ -3,7 +3,7 @@
             <name>graphxmlswfcharts</name>
             <displayName><![CDATA[XML/SWF Charts]]></displayName>
             <version><![CDATA[1]]></version>
-            <description><![CDATA[XML/SWF Charts je v&yacute;konn&yacute; n&aacute;stroj využ&iacute;vaj&uacute;ci Adobe Flash pre vytv&aacute;ranie atrakt&iacute;vnych webov&yacute;ch tabuliek a grafov z dynamick&yacute;ch d&aacute;t.]]></description>
+            <description><![CDATA[XML/SWF Charts are simple, yet powerful tools using Adobe Flash to create attractive web charts and graphs from dynamic data.]]></description>
             <author><![CDATA[PrestaShop]]></author>
             <tab><![CDATA[administration]]></tab>
             <is_configurable>0</is_configurable>

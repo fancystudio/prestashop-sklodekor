@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
         <module>
             <name>blocktags</name>
-            <displayName><![CDATA[Blok Tagy (&scaron;t&iacute;tky)]]></displayName>
+            <displayName><![CDATA[Tags block]]></displayName>
             <version><![CDATA[1.1]]></version>
-            <description><![CDATA[Prid&aacute; blok obsahuj&uacute;ci oblak tagov (&scaron;t&iacute;tkov).]]></description>
+            <description><![CDATA[Adds a block containing product tags.]]></description>
             <author><![CDATA[PrestaShop]]></author>
             <tab><![CDATA[front_office_features]]></tab>
             <is_configurable>1</is_configurable>

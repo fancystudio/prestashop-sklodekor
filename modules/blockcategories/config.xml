@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
         <module>
             <name>blockcategories</name>
-            <displayName><![CDATA[Blok Kateg&oacute;rie]]></displayName>
+            <displayName><![CDATA[Categories block]]></displayName>
             <version><![CDATA[2.0]]></version>
-            <description><![CDATA[Prid&aacute; blok, ktor&yacute; obsahuje menu s kateg&oacute;riami produktov.]]></description>
+            <description><![CDATA[Adds a block featuring product categories.]]></description>
             <author><![CDATA[PrestaShop]]></author>
             <tab><![CDATA[front_office_features]]></tab>
             <is_configurable>1</is_configurable>

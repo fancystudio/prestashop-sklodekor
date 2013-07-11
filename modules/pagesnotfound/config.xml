@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
         <module>
             <name>pagesnotfound</name>
-            <displayName><![CDATA[Str&aacute;nka nebola n&aacute;jden&aacute;]]></displayName>
+            <displayName><![CDATA[Pages not found]]></displayName>
             <version><![CDATA[1.1]]></version>
-            <description><![CDATA[Zobrazenie požiadaviek str&aacute;nok od Va&scaron;ich n&aacute;v&scaron;tevn&iacute;kov, ktor&eacute; neboli n&aacute;jden&yacute;.]]></description>
+            <description><![CDATA[Display the pages requested by your visitors that have not been found.]]></description>
             <author><![CDATA[PrestaShop]]></author>
             <tab><![CDATA[analytics_stats]]></tab>
             <is_configurable>0</is_configurable>

@@ -1,0 +1,10 @@
+.slider-bg{
+	background-image: url(../img/slider_bg.jpg);
+	width: 100%;
+	height: 580px;
+	display: block;
+	background-repeat: no-repeat;
+	background-position: center top;
+	margin-bottom:200px;
+
+	}

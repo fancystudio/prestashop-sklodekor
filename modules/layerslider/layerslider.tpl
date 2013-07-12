@@ -13,5 +13,7 @@
 	</div>	
 </div>	
 <script type="text/javascript">
-	$('#layerslider').layerSlider();
+	$('#layerslider').layerSlider({
+		skinsPath : 'modules/layerslider/lib/layerslider/skins/'
+	});
 </script>	

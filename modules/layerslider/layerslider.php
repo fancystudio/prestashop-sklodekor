@@ -40,10 +40,9 @@ public function hookDisplayRightColumn( $params ){
 }
   
 public function hookDisplayHeader($params){
-  $this->context->controller->addCSS( $this->_path . 'lib/layerslider/ls/layerslider/css/layerslider.css' , 'all' );
-  $this->context->controller->addJS( $this->_path . 'lib/layerslider/ls/layerslider/js/layerslider.kreaturamedia.jquery.js' , 'all' );
-  $this->context->controller->addJS( $this->_path . 'js/test.js' , 'all' );
-
+  $this->context->controller->addCSS( $this->_path . 'css/style.css' , 'all' );
+  $this->context->controller->addCSS( $this->_path . 'lib/layerslider/css/layerslider.css' , 'all' );
+  $this->context->controller->addJS( $this->_path . 'lib/layerslider/js/layerslider.kreaturamedia.jquery.js' , 'all' );
  //return $this->Display(__FILE__, 'layerslider.tpl', $this->getCacheId());
 
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
         <module>
             <name>blocksupplier</name>
-            <displayName><![CDATA[Suppliers block]]></displayName>
+            <displayName><![CDATA[Blok Dod&aacute;vatelia]]></displayName>
             <version><![CDATA[1]]></version>
-            <description><![CDATA[Adds a block displaying product suppliers.]]></description>
+            <description><![CDATA[Prid&aacute; blok zobrazuj&uacute;ci dod&aacute;vateľov.]]></description>
             <author><![CDATA[PrestaShop]]></author>
             <tab><![CDATA[front_office_features]]></tab>
             <is_configurable>1</is_configurable>

@@ -1,0 +1,8 @@
+Bonjour,
+
+Une demande de désinscription à notre newsletter a été demandée pour l'adresse {email}. Celle-ci est à présent effective. 
+
+Si vous n'êtes pas à l'origine de cette demande merci de vous réinscrire en allant à la rubrique "Mon compte" et recochez "inscription à la newsletter". 
+Si vous n'êtes pas encore client, cliquez sur le lien ci-dessous et rentrez votre adresse dans le bloc inférieur gauche "NewsLetter":
+
+{shop_url}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
         <module>
             <name>carriercompare</name>
-            <displayName><![CDATA[Shipping Estimate]]></displayName>
+            <displayName><![CDATA[Odhad času prepravy]]></displayName>
             <version><![CDATA[1.2]]></version>
             <description><![CDATA[Compares carrier choices before checkout.]]></description>
             <author><![CDATA[PrestaShop]]></author>

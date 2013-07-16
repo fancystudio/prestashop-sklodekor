@@ -1,0 +1,6 @@
+Hola,
+
+En relación con su suscripción a nuestro boletín, tenemos el placer de ofrecerle el siguiente cupón de descuento: {discount}
+
+{shop_name}
+{shop_url}

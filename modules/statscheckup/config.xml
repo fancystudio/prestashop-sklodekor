@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
         <module>
             <name>statscheckup</name>
-            <displayName><![CDATA[Catalog evaluation]]></displayName>
+            <displayName><![CDATA[Ohodnotenie katal&oacute;gu]]></displayName>
             <version><![CDATA[1]]></version>
-            <description><![CDATA[Quick evaluation of your catalog quality.]]></description>
+            <description><![CDATA[R&yacute;chle zhodnotenie kvality V&aacute;&scaron;ho katal&oacute;gu.]]></description>
             <author><![CDATA[PrestaShop]]></author>
             <tab><![CDATA[analytics_stats]]></tab>
             <is_configurable>0</is_configurable>

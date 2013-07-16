@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
         <module>
             <name>sekeywords</name>
-            <displayName><![CDATA[Search engine keywords]]></displayName>
+            <displayName><![CDATA[Kľ&uacute;čov&eacute; slov&aacute; pre vyhľad&aacute;vače]]></displayName>
             <version><![CDATA[1]]></version>
-            <description><![CDATA[Display which keywords have led visitors to your website.]]></description>
+            <description><![CDATA[Zobraz&iacute;, ktor&eacute; kľ&uacute;čov&eacute; slov&aacute; viedli n&aacute;v&scaron;tevn&iacute;kov na Va&scaron;e webov&eacute; str&aacute;nky.]]></description>
             <author><![CDATA[PrestaShop]]></author>
             <tab><![CDATA[analytics_stats]]></tab>
             <is_configurable>0</is_configurable>

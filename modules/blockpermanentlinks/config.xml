@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
         <module>
             <name>blockpermanentlinks</name>
-            <displayName><![CDATA[Permanent links block]]></displayName>
+            <displayName><![CDATA[Blok Trval&eacute; odkazy]]></displayName>
             <version><![CDATA[0.1]]></version>
-            <description><![CDATA[Adds a block that displays permanent links such as sitemap, contact, etc...]]></description>
+            <description><![CDATA[Prid&aacute; blok zobrazuj&uacute;ci odkazy ako Mapa str&aacute;nky, Kontakt atď.]]></description>
             <author><![CDATA[PrestaShop]]></author>
             <tab><![CDATA[front_office_features]]></tab>
             <is_configurable>0</is_configurable>

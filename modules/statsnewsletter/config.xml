@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
         <module>
             <name>statsnewsletter</name>
-            <displayName><![CDATA[Newsletter]]></displayName>
+            <displayName><![CDATA[Zasielanie noviniek]]></displayName>
             <version><![CDATA[1]]></version>
-            <description><![CDATA[Display newsletter registrations.]]></description>
+            <description><![CDATA[Zobraziť registr&aacute;cie zasielania noviniek]]></description>
             <author><![CDATA[PrestaShop]]></author>
             <tab><![CDATA[analytics_stats]]></tab>
             <is_configurable>0</is_configurable>

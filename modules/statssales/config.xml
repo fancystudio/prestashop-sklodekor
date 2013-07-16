@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
         <module>
             <name>statssales</name>
-            <displayName><![CDATA[Sales and orders]]></displayName>
+            <displayName><![CDATA[Predaj a objedn&aacute;vky]]></displayName>
             <version><![CDATA[1]]></version>
-            <description><![CDATA[Display sales evolution and orders by status.]]></description>
+            <description><![CDATA[Zobrazuje v&yacute;voj predaja a objedn&aacute;vok na z&aacute;klade stavov]]></description>
             <author><![CDATA[PrestaShop]]></author>
             <tab><![CDATA[analytics_stats]]></tab>
             <is_configurable>0</is_configurable>

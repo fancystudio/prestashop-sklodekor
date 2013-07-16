@@ -1,0 +1,6 @@
+Hola,
+
+Gracias por suscribirse a nuestro boletín.
+
+{shop_name}
+{shop_url}

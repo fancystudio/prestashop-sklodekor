@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
         <module>
             <name>crossselling</name>
-            <displayName><![CDATA[Cross Selling]]></displayName>
+            <displayName><![CDATA[S&uacute;visiace produkty]]></displayName>
             <version><![CDATA[0.1]]></version>
             <description><![CDATA[Customers who bought this product also bought:]]></description>
             <author><![CDATA[PrestaShop]]></author>

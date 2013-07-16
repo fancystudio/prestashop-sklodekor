@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
         <module>
             <name>statsproduct</name>
-            <displayName><![CDATA[Product details]]></displayName>
+            <displayName><![CDATA[Detaily produktu]]></displayName>
             <version><![CDATA[1]]></version>
-            <description><![CDATA[Get detailed statistics for each product.]]></description>
+            <description><![CDATA[Z&iacute;skajte podrobn&eacute; &scaron;tatistiky pre každ&yacute; produkt.]]></description>
             <author><![CDATA[PrestaShop]]></author>
             <tab><![CDATA[analytics_stats]]></tab>
             <is_configurable>0</is_configurable>

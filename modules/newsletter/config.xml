@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
         <module>
             <name>newsletter</name>
-            <displayName><![CDATA[Newsletter]]></displayName>
+            <displayName><![CDATA[Zasielanie noviniek]]></displayName>
             <version><![CDATA[2]]></version>
             <description><![CDATA[Generates a .CSV file for mass mailings]]></description>
             <author><![CDATA[PrestaShop]]></author>

@@ -1,1 +1,20 @@
-tinyMCE.addI18n('fr.emotions_dlg',{cry:"En pleurs",cool:"Cool",desc:"\u00c9motic\u00f4nes",title:"Ins\u00e9rer une \u00e9motic\u00f4ne",yell:"Criant",wink:"Clin d\'\u0153il",undecided:"Incertain","tongue_out":"Langue tir\u00e9e",surprised:"Surpris",smile:"Sourire",sealed:"Bouche cousue","money_mouth":"Avare",laughing:"Rigolant",kiss:"Bisou",innocent:"Innocent",frown:"D\u00e9\u00e7u","foot_in_mouth":"Pied de nez",embarassed:"Embarrass\u00e9",usage:"Utilisez les fl\u00e8ches gauche et droite pour naviguer."});
+tinyMCE.addI18n('fr.emotions_dlg',{
+title:"Insérer  des emoticones",
+desc:"Emoticones",
+cool:"Cool",
+cry:"Cry",
+embarassed:"Embarassed",
+foot_in_mouth:"Foot in mouth",
+frown:"Frown",
+innocent:"Innocent",
+kiss:"Kiss",
+laughing:"Laughing",
+money_mouth:"Money mouth",
+sealed:"Sealed",
+smile:"Smile",
+surprised:"Surprised",
+tongue_out:"Tongue out",
+undecided:"Undecided",
+wink:"Wink",
+yell:"Yell"
+});

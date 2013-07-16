@@ -1,0 +1,12 @@
+Hola,
+
+La dirección de correo {email} acaba de ser dada de baja de nuestro boletín.
+
+Para suscribirse otra vez:
+
+· Si tiene una cuenta de cliente en nuestra tienda electrónica: entre en su cuenta, pulse en "Mis datos personales", marque la casilla "Inscribirse a nuestra newsletter" y pulse el botón "Guardar".
+
+· Si todavía no se ha registrado en nuestra tienda electrónica: vaya a nuestra tienda, escriba su dirección de correo en el bloque NEWSLETTER (BOLETÍN) y pulse el botón. Recibirá un correo con un enlace para confirmar su suscripción.
+
+{shop_name}
+{shop_url}

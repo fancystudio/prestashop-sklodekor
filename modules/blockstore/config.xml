@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
         <module>
             <name>blockstore</name>
-            <displayName><![CDATA[Store locator block]]></displayName>
+            <displayName><![CDATA[Blok Kamenn&eacute; predajne]]></displayName>
             <version><![CDATA[1]]></version>
-            <description><![CDATA[Displays a store locator link directly on your webiste.]]></description>
+            <description><![CDATA[Zobrazuje blok s odkazom na vyhľad&aacute;vač Va&scaron;ich kamenn&yacute;ch obchodov.]]></description>
             <author><![CDATA[PrestaShop]]></author>
             <tab><![CDATA[front_office_features]]></tab>
             <is_configurable>1</is_configurable>

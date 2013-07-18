@@ -130,6 +130,7 @@ class AdminNewsletterController extends ModuleAdminController
 			$countCustomers =$this->countCustomers();
 			$countOptCustomers =$this->countOptCustomers();
 			$countBlockSub = $this->countBlockSub();
+			$countBlockSub = $this->countBlockSub();
 			$countNoReadCustomers = $this->countNoReadCustomers();
 			$countCsvCustomers = $this->countCsvCustomers();
 			
@@ -330,7 +331,8 @@ class AdminNewsletterController extends ModuleAdminController
 	          </div>
 	          <h2> '.$this->l('Block Subscribers').' </h2>
 	          <div style="margin-left: 15px">
-	              <input type="checkbox" name="$sNewsletter" value="1" /> '.$this->l('Newsletter Block Subscribers').'&nbsp;(<b>'.$countBlockSub.'</b>) <br /><br /> 
+	              <input type="checkbox" name="$sNewsletter" value="1" /> '.$this->l('Newsletter Block Subscribers').'&nbsp;(<b>'.$countBlockSub.'</b>) <br />
+	              <br /> 
 	          </div>
 			<h2> '.$this->l('By gender').' </h2>
 	          <div style="margin-left: 15px">
@@ -1169,7 +1171,10 @@ class AdminNewsletterController extends ModuleAdminController
 	{
 		return Db::getInstance()->getValue('SELECT count(*) as nb FROM  `'._DB_PREFIX_.'newsletter` ');
 	}
-
+private function usersBlockSub() 
+	{
+		return Db::getInstance()->getValue('SELECT email as nb FROM  `'._DB_PREFIX_.'newsletter` ');
+	}
 	private function getBlockSubscribers()
 	{
   	return Db::getInstance()->ExecuteS("

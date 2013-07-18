@@ -132,7 +132,6 @@ class AdminNewsletterController extends ModuleAdminController
 			$countBlockSub = $this->countBlockSub();
 			$countNoReadCustomers = $this->countNoReadCustomers();
 			$countCsvCustomers = $this->countCsvCustomers();
-			
 
 			$tagtl = Tools::getAdminTokenLite('AdminModules');
 			$tagt2 = Tools::getAdminTokenLite('AdminTranslations');
@@ -330,8 +329,15 @@ class AdminNewsletterController extends ModuleAdminController
 	          </div>
 	          <h2> '.$this->l('Block Subscribers').' </h2>
 	          <div style="margin-left: 15px">
-	              <input type="checkbox" name="$sNewsletter" value="1" /> '.$this->l('Newsletter Block Subscribers').'&nbsp;(<b>'.$countBlockSub.'</b>) <br /><br /> 
-	          </div>
+	              <input type="checkbox" name="$sNewsletter" value="1" /> '.$this->l('Newsletter Block Subscribers').'&nbsp;(<b>'.$countBlockSub.'</b>) <br />
+	              ';
+	              $this->html .= '<span class="showBlockSubscribers">zobraziť</span><br />'; 
+	              $this->html .= '<ul class="blockSubscribersClass" style="display:none">';
+	              foreach($this->getBlockSubscribers() as $blockSubscribers){
+	              	$this->html .= '<li>'.$blockSubscribers['email'].'</li>';
+	              }
+	              $this->html .= '</ul><br/>';
+	          $this->html .= '</div>
 			<h2> '.$this->l('By gender').' </h2>
 	          <div style="margin-left: 15px">
 				<input type="radio" name="sexCustomers" value="0"  checked="checked" onClick="hide();"/> '.$this->l('None').'<br/><br/>
@@ -373,7 +379,7 @@ class AdminNewsletterController extends ModuleAdminController
 			    $this->html .=  "<input type=\"checkbox\" name=\"groupname\" value=\"$id_group2\"  /> $name2 <strong>($compte2)</strong>&nbsp;&nbsp;" ;
 					}
 		   		$this->html .= '
-						<script type="text/javascript">
+						<script type="text/javascript"> 
 							document.getElementById("collapse").style.display = "none";
 							function display()
 							{
@@ -383,6 +389,16 @@ class AdminNewsletterController extends ModuleAdminController
 							{
 								document.getElementById("collapse").style.display = "none";
 							}
+							var isBlockSubscribersShow = false;
+							$(".showBlockSubscribers").click(function(){
+								if(isBlockSubscribersShow){
+									$(".blockSubscribersClass").hide();
+									isBlockSubscribersShow = false;	
+								}else{
+									$(".blockSubscribersClass").show();
+									isBlockSubscribersShow = true;
+								}
+							});
 						</script>
 				</p><br/><br/>
 				<input type="radio" name="sCustomers" value="6"  onClick="hide();"/> '.$this->l('Customers who have not read the latest newsletter').'&nbsp;(<b>'.$countNoReadCustomers.'</b>)<br/><br/>
@@ -1169,7 +1185,10 @@ class AdminNewsletterController extends ModuleAdminController
 	{
 		return Db::getInstance()->getValue('SELECT count(*) as nb FROM  `'._DB_PREFIX_.'newsletter` ');
 	}
-
+	private function usersBlockSub() 
+	{
+		return Db::getInstance()->getValue('SELECT email as nb FROM  `'._DB_PREFIX_.'newsletter` ');
+	}
 	private function getBlockSubscribers()
 	{
   	return Db::getInstance()->ExecuteS("

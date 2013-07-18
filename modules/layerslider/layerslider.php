@@ -42,7 +42,6 @@ public function hookDisplayRightColumn( $params ){
 public function hookDisplayHeader($params){
   $this->context->controller->addCSS( $this->_path . 'lib/layerslider/css/layerslider.css' , 'all' );
   $this->context->controller->addJS( $this->_path . 'lib/layerslider/js/layerslider.kreaturamedia.jquery.js' , 'all' );
-
 }
 
 

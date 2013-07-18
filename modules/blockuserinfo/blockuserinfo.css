@@ -58,7 +58,7 @@
 #header_user_info a {
 	display:inline-block;
 	margin:0 0 0 10px;
-	padding:3px 0 0 34px;
+	
 	line-height: 11px;
 	border-left:1px solid #727174
 }
@@ -70,7 +70,7 @@
 }
 *:first-child+html #header_user_info a {line-height:14px;}
 #header_user_info a.login {
-	padding: 14px 0px 14px 15px;
+	padding: 15px 0px 14px 15px;
 	font-size: 1em;
 	/*background: url('img/icon/login.gif') no-repeat 10px 0*/
 	}

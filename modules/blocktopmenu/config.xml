@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
         <module>
             <name>blocktopmenu</name>
-            <displayName><![CDATA[Top horizontal menu]]></displayName>
+            <displayName><![CDATA[Horn&eacute; horizont&aacute;lne menu]]></displayName>
             <version><![CDATA[1.5]]></version>
-            <description><![CDATA[Add a new horizontal menu to the top of your e-commerce website.]]></description>
+            <description><![CDATA[Pridať nov&eacute; menu v hlavičke obchodu]]></description>
             <author><![CDATA[PrestaShop]]></author>
             <tab><![CDATA[front_office_features]]></tab>
             <is_configurable>1</is_configurable>

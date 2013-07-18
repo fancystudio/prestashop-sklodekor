@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
         <module>
             <name>newsletteradmin</name>
-            <displayName><![CDATA[Newsletter pour Prestashop]]></displayName>
-            <version><![CDATA[2.8]]></version>
-            <description><![CDATA[Envoyer des newsletters depuis votre Back-Office]]></description>
+            <displayName><![CDATA[Newsletter for Prestashop]]></displayName>
+            <version><![CDATA[3.0]]></version>
+            <description><![CDATA[Sending newsletter from the Back-Office]]></description>
             <author><![CDATA[eolia@eolia.o2switch.net]]></author>
             <tab><![CDATA[emailing]]></tab>
-	<confirmUninstall>Supprimer votre module de Newsletter ?</confirmUninstall>
+	<confirmUninstall>Delete your Newsletter module ?</confirmUninstall>
             <is_configurable>0</is_configurable>
             <need_instance>1</need_instance>
 	<limited_countries></limited_countries>

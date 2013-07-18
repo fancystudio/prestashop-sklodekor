@@ -1,1 +1,10 @@
 cache/
+modules/.DS_Store
+
+.DS_Store
+
+cache/.DS_Store
+
+cache/smarty/.DS_Store
+
+themes/sklodekor/modules/blockuserinfo/.DS_Store

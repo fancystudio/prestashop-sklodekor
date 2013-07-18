@@ -2,7 +2,7 @@
 	
 	<!-- Menu -->
 	
-		<ul class="nav nav-pills pull-left">
+		<ul class="nav nav-pills pull-right">
 			{$MENU}
 			{if $MENU_SEARCH}
 				<li class="sf-search noBack" style="float:right">

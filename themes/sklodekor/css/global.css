@@ -124,7 +124,7 @@ p em {font-style:italic}
 
 /* link **************************************************************************************** */
 a, a:active, a:visited {
-	color:#333;
+	/*color:#333;*/
 	text-decoration:none;
 	outline: medium none
 }

@@ -35,6 +35,7 @@
 {/if}
 <link href="{$css_dir}bootstrap.css" rel="stylesheet">
 <link href="{$css_dir}bootstrap-responsive.css" rel="stylesheet">
+<link href="{$css_dir}style.css" rel="stylesheet">
 {if isset($js_files)}
 	{foreach from=$js_files item=js_uri}
 	<script type="text/javascript" src="{$js_uri}"></script>
@@ -54,7 +55,7 @@
 		<div id="page" class="container_9 clearfix">
 
 			<!-- Header -->
-			<div id="header" class="container">
+			<div id="header" class="container header">
 				<a id="header_logo" class="pull-left"href="{$base_dir}" title="{$shop_name|escape:'htmlall':'UTF-8'}">
 					<img class="logo" src="{$logo_url}" alt="{$shop_name|escape:'htmlall':'UTF-8'}" {if $logo_image_width}width="{$logo_image_width}"{/if} {if $logo_image_height}height="{$logo_image_height}" {/if} />
 				</a>

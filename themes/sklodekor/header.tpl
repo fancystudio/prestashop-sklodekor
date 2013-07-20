@@ -52,7 +52,7 @@
 			<p>{l s='You cannot place a new order from your country.'} <span class="bold">{$geolocation_country}</span></p>
 		</div>
 		{/if}
-		<div id="page" class="container_9 clearfix">
+		<!--<div id="page" class="container_9 clearfix">-->
 
 			<!-- Header -->
 			<div id="header" class="container header">
@@ -62,14 +62,14 @@
 				
 					{$HOOK_TOP}
 				
-			</div>
+			<!--</div>-->
 
-			<div id="columns" class="grid_9 alpha omega clearfix">
+			<!--<div id="columns" class="grid_9 alpha omega clearfix">
 				<!-- Left -->
-				<div id="left_column" class="column grid_2 alpha">
+			<!--	<div id="left_column" class="column grid_2 alpha">
 					{$HOOK_LEFT_COLUMN}
 				</div>
 
 				<!-- Center -->
-				<div id="center_column" class=" grid_5">
-	{/if}
+			<!--	<div id="center_column" class=" grid_5">
+	{/if}-->

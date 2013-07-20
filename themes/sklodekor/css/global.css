@@ -573,8 +573,8 @@ div.star_hover a, div.star a:hover { background-position: 0 -32px }
 		FOOTER
 ************************************************************************************************ */
 #footer {
-	color:#fff;
-	background:#333
+	color:#727174;
+	background:#ededed
 }
 	.blockcategories_footer,
 	#footer .myaccount ,
@@ -582,7 +582,7 @@ div.star_hover a, div.star a:hover { background-position: 0 -32px }
 	#social_block,
 	#block_contact_infos {
 		float:left;
-		width:175px
+		width:270px
 	}
 	.blockcategories_footer {margin-left:0}
 #footer .title_block {
@@ -591,15 +591,15 @@ div.star_hover a, div.star a:hover { background-position: 0 -32px }
 }
 #footer .title_block ,
 #footer .title_block  a {
-	font-weight:normal;
+	font-weight:200;
 	font-size:14px;
-	color:#fff
+	color:#727174
 }
 #footer a {color:#fff}
 #footer a:hover {text-decoration:underline}
 #footer ul {list-style-type:none}
 #footer li {padding:7px 0}
-#footer li a {color:#fff}
+#footer li a {color:#727174; font-weight: 200}
 
 #footer .myaccount {padding: 15px 10px}
 #footer .myaccount .title_block, #footer .myaccount h4 {

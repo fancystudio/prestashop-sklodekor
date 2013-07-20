@@ -13,7 +13,8 @@
                 value="{if isset($value) && $value}{$value}{else}{l s='your e-mail' mod='blockmultiletter'}{/if}"
                 onfocus="javascript:if(this.value=='{l s='your e-mail' mod='blockmultiletter'}')this.value='';"
                 onblur="javascript:if(this.value=='')this.value='{l s='your e-mail' mod='blockmultiletter'}';"
-                class="span3"/>
+                class="span12" 
+                style="border-color:#727174"/>
             <!--<select name="action">
                 <option value="0"{if isset($action) && $action == 0} selected="selected"{/if}>{l s='Subscribe' mod='blockmultiletter'}</option>
                 <option value="1"{if isset($action) && $action == 1} selected="selected"{/if}>{l s='Unsubscribe' mod='blockmultiletter'}</option>

@@ -1,3 +1,8 @@
+html, body {
+    height: 100%; !important
+	font-weight: 200
+}
+
 .header{
 	padding: 20px 0 20px 0;
 	font-weight: 200;
@@ -7,4 +12,63 @@
 	font-size: 1em;
 	margin-top: 4px;
 	margin-bottom:0px !important;
+	}
+	
+.footer-back{
+	color: #727174 !important;
+	}
+		
+.copyright{
+	background-color:#ededed;
+	font-size:0.75em;
+	padding: 20px 0 20px 0;
+	color: 727174#;
+	}
+	
+.scrollup {
+	width: 40px;
+	height: 40px;
+	opacity: 0.3;
+	position: fixed;
+	bottom: 0;
+	right: 20px;
+	display: none;
+	line-height: 40px;
+	text-align: center;
+	background: #666;
+	color: #FFF;
+}
+
+.nice-colums{
+	font-weight: 200;
+	}
+	
+#footer .newsletter-bottom .input-append input.button_mini {
+	top: 0;
+	right: 0;
+	z-index: 3;
+	width: 30px;
+	height: 30px;
+	padding: 0;
+	margin: 0;
+	background: url("http://www.online-drogeria.sk/themes/multishop/css/../img/main-sprite.png") no-repeat scroll -248px 0 transparent;
+	text-indent: -300px;
+	overflow: hidden;
+	border-radius: 0px !important;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: none;
+	border-top-color: #727174;
+	border-right-color: #727174;
+	border-bottom-color: #727174;
+	border-left-color: #727174;
+}
+
+.submitnews{
+	border-color: #727174;
 	}

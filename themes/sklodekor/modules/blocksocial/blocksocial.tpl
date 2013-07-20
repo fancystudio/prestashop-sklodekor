@@ -25,10 +25,10 @@
 *}
 
 <div id="social_block">
-	<p class="title_block">{l s='Follow us' mod='blocksocial'}</p>
+	<h4 class="title_block">{l s='Follow us' mod='blocksocial'}</h4>
 	<ul>
-		{if $facebook_url != ''}<li class="facebook"><a href="{$facebook_url|escape:html:'UTF-8'}">{l s='Facebook' mod='blocksocial'}</a></li>{/if}
-		{if $twitter_url != ''}<li class="twitter"><a href="{$twitter_url|escape:html:'UTF-8'}">{l s='Twitter' mod='blocksocial'}</a></li>{/if}
+		{if $facebook_url != ''}<li class="facebook"><span class="fb-icon"></span><a href="{$facebook_url|escape:html:'UTF-8'}">{l s='Facebook' mod='blocksocial'}</a></li>{/if}
+		{if $twitter_url != ''}<li class="twitter"><span class="tw-icon"></span><a href="{$twitter_url|escape:html:'UTF-8'}">{l s='Twitter' mod='blocksocial'}</a></li>{/if}
 		{if $rss_url != ''}<li class="rss"><a href="{$rss_url|escape:html:'UTF-8'}">{l s='RSS' mod='blocksocial'}</a></li>{/if}
 	</ul>
 </div>

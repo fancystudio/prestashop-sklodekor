@@ -1,5 +1,5 @@
 <!-- Block Newsletter module-->
-<div class="span3">
+<div class="span3" id="social_block">
 	<h4>{l s='Newsletter' mod='blockmultiletter'}</h4>
 	<div class="block_content newsletter-bottom">
 	{if isset($msg) && $msg}
@@ -14,7 +14,7 @@
                 onfocus="javascript:if(this.value=='{l s='your e-mail' mod='blockmultiletter'}')this.value='';"
                 onblur="javascript:if(this.value=='')this.value='{l s='your e-mail' mod='blockmultiletter'}';"
                 class="span12" 
-                style="border-color:#727174"/>
+                style="border-color:#727174; font-weight:200"/>
             <!--<select name="action">
                 <option value="0"{if isset($action) && $action == 0} selected="selected"{/if}>{l s='Subscribe' mod='blockmultiletter'}</option>
                 <option value="1"{if isset($action) && $action == 1} selected="selected"{/if}>{l s='Unsubscribe' mod='blockmultiletter'}</option>

@@ -45,7 +45,7 @@
 {else}
 	<!-- MODULE Block footer -->
 	<div class="block_various_links" id="block_various_links_footer">
-		<p class="title_block">{l s='Information' mod='blockcms'}</p>
+		<h4>{l s='Information' mod='blockcms'}</h4>
 		<ul>
 			{if !$PS_CATALOG_MODE}<li class="first_item"><a href="{$link->getPageLink('prices-drop')}" title="{l s='Specials' mod='blockcms'}">{l s='Specials' mod='blockcms'}</a></li>{/if}
 			<li class="{if $PS_CATALOG_MODE}first_{/if}item"><a href="{$link->getPageLink('new-products')}" title="{l s='New products' mod='blockcms'}">{l s='New products' mod='blockcms'}</a></li>

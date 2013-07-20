@@ -38,8 +38,8 @@
     </div>
     <div class="copyright">
         
-            <div class="container"">
-                <span class="pull-right ">Copyright © 2012 - 2013 sklodekor.sk All rights reserved. Designed & powered by:
+            <div class="container">
+                <span class="pull-right footer-copyright" >Copyright © 2012 - 2013 sklodekor.sk All rights reserved. Designed & powered by:
 <a href="http://www.fancy-studio.sk" onclick="window.open(this.href, 'OffSite').focus(); return false;">
  <img src="themes/sklodekor/img/fancy-logo.png" alt="fancy studio" width="81" height="16" style="margin-left:4px" /></a>                
           </span>

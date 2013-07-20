@@ -299,7 +299,7 @@ table.table_block  td {
 		text-align:left;
 		font-weight: bold;
 	}
-		.block .title_block a, .block h4 a {color:#fff}
+	
 	.block ul {list-style-type:none}
 		.block li.last {	border:none}
 			.block li a {
@@ -586,7 +586,6 @@ div.star_hover a, div.star a:hover { background-position: 0 -32px }
 	}
 	.blockcategories_footer {margin-left:0}
 #footer .title_block {
-	padding-bottom: 10px;
 	text-transform:uppercase
 }
 #footer .title_block ,
@@ -595,13 +594,13 @@ div.star_hover a, div.star a:hover { background-position: 0 -32px }
 	font-size:14px;
 	color:#727174
 }
-#footer a {color:#fff}
+#footer a {}
 #footer a:hover {text-decoration:underline}
 #footer ul {list-style-type:none}
 #footer li {padding:7px 0}
 #footer li a {color:#727174; font-weight: 200}
 
-#footer .myaccount {padding: 15px 10px}
+#footer .myaccount {padding: 20px 10px}
 #footer .myaccount .title_block, #footer .myaccount h4 {
 	padding:0 0 10px 0;
 	background:none;
@@ -1981,7 +1980,7 @@ div.star_hover a, div.star a:hover { background-position: 0 -12px }
 
 /*************** Block CMS ***************/
 /* footer */
-#footer .block_various_links {padding:15px 10px;}
+#footer .block_various_links {padding:0px 10px;}
 
 /* Block CMS links */
 .informations_block_left li {border-bottom:1px dotted #eee}
@@ -2068,10 +2067,7 @@ tr.subitem > td:first-child + td {
 
 	
 /*************** Block SOCIAL ***************/
-#social_block {padding:15px 10px;}
-#social_block li {padding-left:22px !important;}
-#social_block li.facebook {background:url(../../../modules/blocksocial/img/sprite_pict_social_block.png) no-repeat 0 6px;}
-#social_block li.twitter {background:url(../../../modules/blocksocial/img/sprite_pict_social_block.png) no-repeat 0 -26px;}
+#social_block {padding:0px 10px;}
 #social_block li.rss {background:url(../../../modules/blocksocial/img/sprite_pict_social_block.png) no-repeat 0 -56px;}
 
 

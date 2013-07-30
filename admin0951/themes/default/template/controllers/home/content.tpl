@@ -29,8 +29,7 @@
 <div id="dashboard">
 <div id="homepage">
 
-
-	<div id="column_left">
+	<div id="column_left" {if $employee->id != 1}style="display:none"{/if}>
 		{if $upgrade}
 		<div id="blockNewVersionCheck">
 		{if $upgrade->need_upgrade}

@@ -558,8 +558,8 @@ $(document).ready(function()
 	{
 		$('#bigpic').attr('rel', $('#bigpic').attr('src').replace('thickbox', 'large'));
 		$('img.jqzoom').jqueryzoom({
-			xzoom: 200, //zooming div default width(default width value is 200)
-			yzoom: 200, //zooming div default width(default height value is 200)
+			xzoom: 380, //zooming div default width(default width value is 200)
+			yzoom: 415, //zooming div default width(default height value is 200)
 			offset: 21 //zooming div default offset(default offset value is 10)
 			//position: "right" //zooming div position(default position value is "right")
 		});

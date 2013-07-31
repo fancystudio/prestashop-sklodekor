@@ -23,10 +23,10 @@
 	cursor:pointer;
 }
 
-#pb-right-column #image-block #view_full_size .span_link {
+#image-block #view_full_size .span_link {
 	position:absolute;
-	bottom:10px;
-	left:32%;
+	bottom:170px;
+	left:21%;
 	display:block;
 	padding:0 12px 0 30px;
 	line-height:20px;

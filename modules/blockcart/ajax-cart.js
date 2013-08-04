@@ -625,6 +625,7 @@ var ajaxCart = {
 		{
 			$('.ajax_cart_no_product').hide();
 			$('.ajax_cart_quantity').text(jsonData.nbTotalProducts);
+			$('.ajax_cart_quantity').removeClass('hidden');
 			$('.ajax_cart_quantity').fadeIn('slow');
 			$('.ajax_cart_total').fadeIn('slow');
 

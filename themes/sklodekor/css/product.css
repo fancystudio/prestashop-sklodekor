@@ -536,3 +536,124 @@ ul#uploadable_files,ul#text_fields {
 .accessories_block div ul li .s_title_block a, .accessories_block div ul li .s_title_block span  {
 	font-weight:bold;
 }
+
+/* iosSlider ***************************************************************************** */
+
+.iosSlider {
+	width: 900px;
+	height: 300px;
+}
+
+.iosSlider .slider {
+	width: 100%;
+	height: 100%;
+}
+
+.iosSlider .slider .item {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 300px;
+	margin: 0 0 0 0;
+	background: #aaa;
+}
+
+.iosSlider .slider .item .caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	
+	width: 886px;
+	padding: 7px;
+	text-align: center;
+	display: none;
+}
+			
+.iosSlider .slider .item .caption .bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	
+	background: #000;
+	opacity: 0.5;
+	filter: alpha(opacity:50);
+	z-index: 0;
+}
+
+.iosSlider .slider .item .caption span {
+	font: normal 11px/15px "Helvetica Neue",Helvetica,Arial,sans-serif;
+	color: #fff;
+	text-shadow: 0 -1px 0 #333;
+	
+	position: relative;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+.iosSlider .slider #item1 {
+	background: url(../../_resources/h-slider-1.jpg) no-repeat 0 0;
+}
+
+.iosSlider .slider #item2 {
+	background: url(../../_resources/h-slider-2.jpg) no-repeat 0 0;
+}
+
+.iosSlider .slider #item3 {
+	background: url(../../_resources/h-slider-3.jpg) no-repeat 0 0;
+}
+
+.iosSlider .slider #item4 {
+	background: url(../../_resources/h-slider-4.jpg) no-repeat 0 0;
+}
+
+.iosSliderButtons {
+	margin: 10px 0 0 205px;
+	width: 490px;
+	height: 60px;
+}
+
+.iosSliderButtons .button {
+	float: left;
+	margin: 0 0 0 10px;
+	width: 115px;
+	height: 60px;
+	opacity: 0.5;
+	filter: alpha(opacity:50);
+}
+
+.iosSliderButtons .button .border {
+	border: 5px solid #000;
+	opacity: 0.5;
+	width: 105px;
+	height: 50px;
+}
+
+.iosSliderButtons #item1 {
+	background: url(../../_resources/h-slider-1-thumb.jpg) no-repeat 0 0;
+}
+
+.iosSliderButtons #item2 {
+	background: url(../../_resources/h-slider-2-thumb.jpg) no-repeat 0 0;
+}
+
+.iosSliderButtons #item3 {
+	background: url(../../_resources/h-slider-3-thumb.jpg) no-repeat 0 0;
+}
+
+.iosSliderButtons #item4 {
+	background: url(../../_resources/h-slider-4-thumb.jpg) no-repeat 0 0;
+}
+
+.iosSliderButtons .first {
+	margin-left: 0;
+}
+			
+.iosSliderButtons .selected,
+.iosSliderButtons .button:hover {
+	opacity: 1;
+	filter: alpha(opacity:100);
+}

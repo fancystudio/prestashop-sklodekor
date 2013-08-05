@@ -174,6 +174,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 {/if}
 //]]>
 </script>
+<div class="sub-page-wrapper" style="background-color:">
 <div class="container">
 {include file="$tpl_dir./breadcrumb.tpl"}
 </div>
@@ -250,8 +251,8 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 	</div>
 
 	<!-- left infos-->
-	<div class="span6 offset1">
-		<h1>{$product->name|escape:'htmlall':'UTF-8'}</h1>
+	<div class="span6 offset1 produkt-detail">
+		<h2>{$product->name|escape:'htmlall':'UTF-8'}</h2>
 
 		{if $product->description_short OR $packItems|@count > 0}
 		<div id="short_description_block">
@@ -422,6 +423,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 {/if}
 
 </div><!--container-->
+</div><!--sub-page-wrapper-->
 
 
 </div>

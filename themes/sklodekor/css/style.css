@@ -1,3 +1,17 @@
+@font-face {
+	font-family: 'helvetica-light';
+	src: url('../css/fonts/helvetica_lt_45_light.eot');
+	src: local('☺'), url('../css/fonts/helvetica_lt_45_light.woff') format('woff'), 
+	url('../css/fonts/helvetica_lt_45_light.ttf') format('truetype'), 
+	url('../css/fonts/helvetica_lt_45_light.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
+
+
 html, body {
     height: 100%; !important
 	font-weight: 200
@@ -108,4 +122,31 @@ html, body {
 	margin-top: -2px;
 	margin-right: 10px;
 	
+	}
+
+
+.breadcrumb {
+	background-color: transparent;
+	color: white;
+}
+.sub-page-wrapper{
+	background-image: url(../../../modules/layerslider/img/slider_bg.jpg);
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+
+.produkt-detail h2{
+	/*font-family: helvetica-light !important;*/
+	font-weight:100;
+	color: #e5373e;
+	font-size: 2.5em;
+	margin-top: 0px;
+	padding-top:0px;
+	letter-spacing:1px;
+	}
+	
+.produkt-detail p{
+	color: white;
+	font-weight:100;
+	letter-spacing:1px;
 	}

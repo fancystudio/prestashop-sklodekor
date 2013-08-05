@@ -1,6 +1,8 @@
+{debug}
 {include file="$tpl_dir./errors.tpl"}
 {if $errors|@count == 0}
 <script src = "themes/sklodekor/js/iosslider/_src/jquery.iosslider.js"></script>
+<script src = "themes/sklodekor/js/isotope-master/jquery.isotope.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 
@@ -18,6 +20,19 @@ $(document).ready(function() {
 		keyboardControls: true
 	});
 	
+	var $container = $('.vzory');
+	$('.click').click(function(){
+	    var selector = $(this).attr('name');
+	    $container.isotope({
+	        filter: selector,
+	        animationOptions: {
+	            duration: 750,
+	            easing: 'linear',
+	            queue: false
+	        }
+	    });
+	  return false;
+	  });
 	function slideContentChange(args) {
 		
 		/* indicator */
@@ -439,21 +454,49 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 									{/foreach}
 								</select>
 							{elseif ($group.group_type == 'color')}
-								<ul id="color_to_pick_list" class="clearfix">
-									{assign var="default_colorpicker" value=""}
-									{foreach from=$group.attributes key=id_attribute item=group_attribute}
-									<li{if $group.default == $id_attribute} class="selected"{/if}>
-										<a id="color_{$id_attribute|intval}" name="{$group.name}" class="color_pick{if ($group.default == $id_attribute)} selected{/if}" style="background: {$colors.$id_attribute.value};" title="{$colors.$id_attribute.name}" onclick="colorPickerClick(this);getProductAttribute();">
-											{if file_exists($col_img_dir|cat:$id_attribute|cat:'.jpg')}
-												<img src="{$img_col_dir}{$id_attribute}.jpg" alt="{$colors.$id_attribute.name}" width="20" height="20" /><br />
+								{if $group.name == 'vzor'}
+									<ul class="vzoryMenu">
+										<li class="click" name="*">všetko</li>
+										<li class="click" name=".kategoria1">.kategoria1</li>
+										<li class="click" name=".kategoria2">.kategoria2</li>
+										<li class="click" name=".kategoria3">.kategoria3</li>
+										<li class="click" name=".kategoria4">.kategoria4</li>
+									</ul>
+									<div id="color_to_pick_list" class="clearfix">
+										<div class="vzory">
+											{assign var="default_colorpicker" value=""}
+											{foreach from=$group.attributes key=id_attribute item=group_attribute}
+											<div class="{if $group.default == $id_attribute} selected{/if}{$colors.$id_attribute.value}">
+												<a id="color_{$id_attribute|intval}" name="{$group.name}" class="color_pick{if ($group.default == $id_attribute)} selected{/if}" style="background: {$colors.$id_attribute.value};" title="{$colors.$id_attribute.name}" onclick="colorPickerClick(this);getProductAttribute();">
+													{if file_exists($col_img_dir|cat:$id_attribute|cat:'.jpg')}
+														<img src="{$img_col_dir}{$id_attribute}.jpg" alt="{$colors.$id_attribute.name}" width="200" height="200" /><br />
+													{/if}
+												</a>
+											</div>
+											{if ($group.default == $id_attribute)}
+												{$default_colorpicker = $id_attribute}
 											{/if}
-										</a>
-									</li>
-									{if ($group.default == $id_attribute)}
-										{$default_colorpicker = $id_attribute}
-									{/if}
-									{/foreach}
-								</ul>
+											{/foreach}
+										</div>
+									</div>
+								{else}
+									<ul id="color_to_pick_list" class="clearfix">
+										{assign var="default_colorpicker" value=""}
+										{foreach from=$group.attributes key=id_attribute item=group_attribute}
+										{$colors.$id_attribute.value}
+										<li{if $group.default == $id_attribute} class="selected"{/if}>
+											<a id="color_{$id_attribute|intval}" name="{$group.name}" class="color_pick{if ($group.default == $id_attribute)} selected{/if}" style="background: {$colors.$id_attribute.value};" title="{$colors.$id_attribute.name}" onclick="colorPickerClick(this);getProductAttribute();">
+												{if file_exists($col_img_dir|cat:$id_attribute|cat:'.jpg')}
+													<img src="{$img_col_dir}{$id_attribute}.jpg" alt="{$colors.$id_attribute.name}" width="200" height="200" /><br />
+												{/if}
+											</a>
+										</li>
+										{if ($group.default == $id_attribute)}
+											{$default_colorpicker = $id_attribute}
+										{/if}
+										{/foreach}
+									</ul>
+								{/if}
 								<input type="hidden" class="color_pick_hidden" name="{$groupName}" value="{$default_colorpicker}" />
 							{elseif ($group.group_type == 'radio')}
 								<ul>

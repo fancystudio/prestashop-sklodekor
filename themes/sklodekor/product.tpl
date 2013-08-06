@@ -1,26 +1,20 @@
-{debug}
 {include file="$tpl_dir./errors.tpl"}
 {if $errors|@count == 0}
-<script src = "themes/sklodekor/js/iosslider/_src/jquery.iosslider.js"></script>
-<script src = "themes/sklodekor/js/isotope-master/jquery.isotope.min.js"></script>
+<script src="themes/sklodekor/js/iosslider/_src/jquery.iosslider.js"></script>
+<script src="themes/sklodekor/js/isotope-master/jquery.isotope.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 
-	$('.iosSlider').iosSlider({
-		scrollbar: true,
-		snapToChildren: true,
-		desktopClickDrag: true,
-		infiniteSlider: true, 
-		navSlideSelector: $('.iosSliderButtons .button'),
-		scrollbarHeight: '2px',
-		scrollbarBorderRadius: '0',
-		scrollbarOpacity: '0.5',
-		onSlideChange: slideContentChange,
-		onSliderLoaded: slideContentChange,
-		keyboardControls: true
-	});
-	
+	$('.iosSlider').iosSlider();
 	var $container = $('.vzory');
+	$container.isotope({
+        filter: '*',
+        animationOptions: {
+            duration: 750,
+            easing: 'linear',
+            queue: false
+        }
+    });
 	$('.click').click(function(){
 	    var selector = $(this).attr('name');
 	    $container.isotope({
@@ -33,22 +27,6 @@ $(document).ready(function() {
 	    });
 	  return false;
 	  });
-	function slideContentChange(args) {
-		
-		/* indicator */
-		$('.iosSliderButtons .button').removeClass('selected');
-		$('.iosSliderButtons .button:eq(' + (args.currentSlideNumber - 1) + ')').addClass('selected');
-		
-		/* update height of the first slider */
-
-						setTimeout(function() {
-							var setHeight = $('.doubleSlider-1 .item:eq(' + (args.currentSlideNumber-1) + ')').outerHeight(true);
-							$('.doubleSlider-1').animate({ height: setHeight }, 300);
-						},300);
-		
-		
-	}
-	
 });
 </script>
 
@@ -216,40 +194,37 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 	<div class="span4">
 		<!-- product img-->
 		<div id="image-block">
-		<div class = 'iosSlider'>
-		
-			<div class = 'slider'>
-		{if isset($images) && count($images) > 0}
-			{foreach from=$images item=image name=thumbnails}
-				{assign var=imageBigIds value="`$product->id`-`$image.id_image`"}
-				<div class = 'item' id = 'item1' style="background: url({$link->getImageLink($product->link_rewrite, $imageBigIds, 'large_default')}) no-repeat 0 0;">
-					<div class = 'caption'>
-						<span><strong>1 Touch Me.</strong> | Hardware accelerated using CSS3 for supported iOS, Android and WebKit</span>
-						<div class = 'bg'></div>
-					</div>
-				</div>
-			{/foreach}
+		{if $have_image}
+			<span id="view_full_size">
+				<img src="{$link->getImageLink($product->link_rewrite, $cover.id_image, 'large_default')}"{if $jqZoomEnabled} class="jqzoom"{/if} title="{$product->name|escape:'htmlall':'UTF-8'}" alt="{$product->name|escape:'htmlall':'UTF-8'}" id="bigpic" width="{$largeSize.width}" height="{$largeSize.height}"/>
+				<span class="span_link">{l s='Maximize'}</span>
+			</span>
 		{else}
-			<div class = 'item' id = 'item1' style="background: url({$img_prod_dir}{$lang_iso}-default-large_default.jpg) no-repeat 0 0;">
-				<div class = 'caption'>
-					<span><strong>1 Touch Me.</strong> | Hardware accelerated using CSS3 for supported iOS, Android and WebKit</span>
-					<div class = 'bg'></div>
-				</div>
-			</div>
+			<span id="view_full_size">
+				<img src="{$img_prod_dir}{$lang_iso}-default-large_default.jpg" id="bigpic" alt="" title="{$product->name|escape:'htmlall':'UTF-8'}" width="{$largeSize.width}" height="{$largeSize.height}" />
+				<span class="span_link">{l s='Maximize'}</span>
+			</span>
 		{/if}
-		</div>
-		</div>
 		</div>
 		{if isset($images) && count($images) > 0}
 		<!-- thumbnails -->
-		<div class = 'iosSliderButtons'>
-			{if isset($images)}
-				{foreach from=$images item=image name=thumbnails}
-				{assign var=imageIds value="`$product->id`-`$image.id_image`"}
-					<div class = 'button first' id = 'item1' style="background: url({$link->getImageLink($product->link_rewrite, $imageIds, 'medium_default')}) no-repeat 0 0;">
-					</div>	
-				{/foreach}
-			{/if}
+		<div id="views_block" class="clearfix {if isset($images) && count($images) < 2}hidden{/if}">
+		{if isset($images) && count($images) > 3}<span class="view_scroll_spacer"><a id="view_scroll_left" class="hidden" title="{l s='Other views'}" href="javascript:{ldelim}{rdelim}">{l s='Previous'}</a></span>{/if}
+		<div id="thumbs_list">
+			<ul id="thumbs_list_frame">
+				{if isset($images)}
+					{foreach from=$images item=image name=thumbnails}
+					{assign var=imageIds value="`$product->id`-`$image.id_image`"}
+					<li id="thumbnail_{$image.id_image}">
+						<a href="{$link->getImageLink($product->link_rewrite, $imageIds, 'thickbox_default')}" rel="other-views" class="thickbox{if $smarty.foreach.thumbnails.first} shown{/if}" title="{$image.legend|htmlspecialchars}">
+							<img id="thumb_{$image.id_image}" src="{$link->getImageLink($product->link_rewrite, $imageIds, 'medium_default')}" alt="{$image.legend|htmlspecialchars}" height="{$mediumSize.height}" width="{$mediumSize.width}" />
+						</a>
+					</li>
+					{/foreach}
+				{/if}
+			</ul>
+		</div>
+		{if isset($images) && count($images) > 3}<a id="view_scroll_right" title="{l s='Other views'}" href="javascript:{ldelim}{rdelim}">{l s='Next'}</a>{/if}
 		</div>
 		{/if}
 		{if isset($images) && count($images) > 1}<p class="resetimg clear"><span id="wrapResetImages" style="display: none;"><img src="{$img_dir}icon/cancel_11x13.gif" alt="{l s='Cancel'}" width="11" height="13"/> <a id="resetImages" href="{$link->getProductLink($product)}" onclick="$('span#wrapResetImages').hide('slow');return (false);">{l s='Display all pictures'}</a></span></p>{/if}
@@ -455,10 +430,15 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 				<!-- attributes -->
 				<div id="attributes">
 				<div class="clear"></div>
+				{assign var="index" value=1}
 				{foreach from=$groups key=id_attribute_group item=group}
 					{if $group.attributes|@count}
 						<fieldset class="attribute_fieldset">
-							<label class="attribute_label" for="group_{$id_attribute_group|intval}">{$group.name|escape:'htmlall':'UTF-8'} :&nbsp;</label>
+							{if $group.name != 'výška'}
+								<span class="attributeIndex">{$index}.</span>
+								<label class="attribute_label" for="group_{$id_attribute_group|intval}">{$group.name|escape:'htmlall':'UTF-8'} :&nbsp;</label>
+								{assign var="index" value=$index+1}	
+							{/if}
 							{assign var="groupName" value="group_$id_attribute_group"}
 							<div class="attribute_list">
 							{if ($group.group_type == 'select')}
@@ -468,7 +448,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 									{/foreach}
 								</select>
 							{elseif ($group.group_type == 'color')}
-								{if $group.name == 'vzor'}
+								{if $group.name == 'Vzor'}
 									<ul class="vzoryMenu">
 										<li class="click" name="*">všetko</li>
 										<li class="click" name=".kategoria1">.kategoria1</li>

@@ -39,10 +39,22 @@ $(document).ready(function() {
 		$('.iosSliderButtons .button').removeClass('selected');
 		$('.iosSliderButtons .button:eq(' + (args.currentSlideNumber - 1) + ')').addClass('selected');
 		
+		/* update height of the first slider */
+
+						setTimeout(function() {
+							var setHeight = $('.doubleSlider-1 .item:eq(' + (args.currentSlideNumber-1) + ')').outerHeight(true);
+							$('.doubleSlider-1').animate({ height: setHeight }, 300);
+						},300);
+		
+		
 	}
 	
 });
 </script>
+
+
+
+
 <script type="text/javascript">
 // <![CDATA[
 
@@ -242,12 +254,12 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 		{/if}
 		{if isset($images) && count($images) > 1}<p class="resetimg clear"><span id="wrapResetImages" style="display: none;"><img src="{$img_dir}icon/cancel_11x13.gif" alt="{l s='Cancel'}" width="11" height="13"/> <a id="resetImages" href="{$link->getProductLink($product)}" onclick="$('span#wrapResetImages').hide('slow');return (false);">{l s='Display all pictures'}</a></span></p>{/if}
 		<!-- usefull links-->
-		<ul id="usefull_link_block">
+		<!--<ul id="usefull_link_block">
 			{if $HOOK_EXTRA_LEFT}{$HOOK_EXTRA_LEFT}{/if}
 			<li class="print"><a href="javascript:print();">{l s='Print'}</a></li>
 			{if $have_image && !$jqZoomEnabled}
 			{/if}
-		</ul>
+		</ul>-->
 	</div>
 
 	<!-- left infos-->

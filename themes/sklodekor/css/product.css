@@ -611,8 +611,8 @@ ul#uploadable_files,ul#text_fields {
 }
 
 .iosSliderButtons {
-	margin: 10px 0 0 205px;
-	width: 490px;
+	margin: 10px 0 0 0px;
+	width: 450px;
 	height: 60px;
 }
 

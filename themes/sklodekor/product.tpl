@@ -433,7 +433,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 				{assign var="index" value=1}
 				{foreach from=$groups key=id_attribute_group item=group}
 					{if $group.attributes|@count}
-						<fieldset class="attribute_fieldset">
+						<fieldset class="attribute_fieldset group_{$id_attribute_group|intval}">
 							{if $group.name != 'výška'}
 								<span>{$index}.</span>
 								<label class="attribute_label" for="group_{$id_attribute_group|intval}">{$group.name|escape:'htmlall':'UTF-8'} :&nbsp;</label>

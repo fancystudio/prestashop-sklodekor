@@ -429,7 +429,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 				{if isset($groups)}
 				<!-- attributes -->
 				<div id="attributes">
-				<div class="clear"></div>
+				<!--<div class="clear"></div>-->
 				{assign var="index" value=1}
 				{foreach from=$groups key=id_attribute_group item=group}
 					{if $group.attributes|@count}
@@ -463,7 +463,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 											<div class="{if $group.default == $id_attribute} selected{/if}{$colors.$id_attribute.value}">
 												<a id="color_{$id_attribute|intval}" name="{$group.name}" class="color_pick{if ($group.default == $id_attribute)} selected{/if}" style="background: {$colors.$id_attribute.value};" title="{$colors.$id_attribute.name}" onclick="colorPickerClick(this);getProductAttribute();">
 													{if file_exists($col_img_dir|cat:$id_attribute|cat:'.jpg')}
-														<img src="{$img_col_dir}{$id_attribute}.jpg" alt="{$colors.$id_attribute.name}" width="200" height="200" /><br />
+														<img src="{$img_col_dir}{$id_attribute}.jpg" alt="{$colors.$id_attribute.name}" width="auto" height="auto" /><br />
 													{/if}
 												</a>
 											</div>
@@ -481,7 +481,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 										<li{if $group.default == $id_attribute} class="selected"{/if}>
 											<a id="color_{$id_attribute|intval}" name="{$group.name}" class="color_pick{if ($group.default == $id_attribute)} selected{/if}" style="background: {$colors.$id_attribute.value};" title="{$colors.$id_attribute.name}" onclick="colorPickerClick(this);getProductAttribute();">
 												{if file_exists($col_img_dir|cat:$id_attribute|cat:'.jpg')}
-													<img src="{$img_col_dir}{$id_attribute}.jpg" alt="{$colors.$id_attribute.name}" width="200" height="200" /><br />
+													<img src="{$img_col_dir}{$id_attribute}.jpg" alt="{$colors.$id_attribute.name}" width="auto" height="auto" /><br />
 												{/if}
 											</a>
 										</li>

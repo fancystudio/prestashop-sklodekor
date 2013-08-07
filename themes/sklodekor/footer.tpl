@@ -14,7 +14,7 @@
     <!-- Footer -->
     <div id="footer" class="footer">
         <div id="footer-back">
-            <div class="container"  style="border-bottom: solid 1px #727174;">
+            <div class="container">
                 <div class="row-fluid nice-columns">
                     {$HOOK_FOOTER}
                 </div>

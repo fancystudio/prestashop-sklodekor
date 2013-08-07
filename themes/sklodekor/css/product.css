@@ -370,16 +370,7 @@ span.view_scroll_spacer {
 	padding:4px 3px 4px 11px;
 }
 
-.content_prices #add_to_cart span {
-	z-index:10;
-	display:block;
-	position:absolute;
-	top:0;
-	left:-12px;
-	height:26px;
-	width:26px;
-	background:url(../img/icon/pict_add_cart.png) no-repeat 0 0 transparent;
-}
+
 
 /* */
 .buttons_bottom_block {

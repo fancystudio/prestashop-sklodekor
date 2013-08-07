@@ -73,7 +73,7 @@
 				//]]>
 				{literal}
 				function vat_number()
-				{
+				{	
 					if ($('#company').val() != ''){
 						$('#vat_number_block').show();
 						$('.dni').show();
@@ -94,6 +94,7 @@
 				}
 				
 				$(document).ready(function() {
+					
 					$('#company').blur(function(){
 						vat_number();
 					});
@@ -122,13 +123,13 @@
 					<input type="password" class="text" name="passwd" id="passwd" />
 					<span class="form_info">{l s='(five characters min.)'}</span>
 				</p>
-				<p class="radio required">
+				<!--<p class="radio required">
 					<span>{l s='Title'}</span>
 					{foreach from=$genders key=k item=gender}
 						<input type="radio" name="id_gender" id="id_gender{$gender->id_gender}" value="{$gender->id_gender}" {if isset($smarty.post.id_gender) && $smarty.post.id_gender == $gender->id_gender}checked="checked"{/if} />
 						<label for="id_gender{$gender->id_gender}" class="top">{$gender->name}</label>
 					{/foreach}
-				</p>
+				</p>-->
 				<p class="required text">
 					<label for="firstname">{l s='First name'} <sup>*</sup></label>
 					<input type="text" class="text" id="customer_firstname" name="customer_firstname" onblur="$('#firstname').val($(this).val());" value="{if isset($guestInformations) && $guestInformations.customer_firstname}{$guestInformations.customer_firstname}{/if}" />
@@ -190,7 +191,7 @@
 					<label for="company">{l s='Company'}</label>
 					<input type="text" class="text" id="company" name="company" value="{if isset($guestInformations) && $guestInformations.company}{$guestInformations.company}{/if}" />
 				</p>
-				<p class="required text dni">
+				<p class="required text dni" style="display:none;">
 					<label for="dni">{l s='Identification number'}</label>
 					<input type="text" class="text" name="dni" id="dni" value="{if isset($guestInformations) && $guestInformations.dni}{$guestInformations.dni}{/if}" />
 				</p>

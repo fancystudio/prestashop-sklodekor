@@ -151,4 +151,14 @@ html, body {
 	letter-spacing:1px;
 	}
 	
-attr-label
+.attribute_fieldset span {	
+	display: block;
+	background-color: #e5373e;
+	width: 30px;
+	text-align: center;
+	padding: 5px 0 5px 0;
+	color: white;
+	font-weight:200;
+	margin: -7px 10px 0 0;
+	float:left;
+}

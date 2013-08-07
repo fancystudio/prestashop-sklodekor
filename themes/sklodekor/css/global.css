@@ -574,7 +574,7 @@ div.star_hover a, div.star a:hover { background-position: 0 -32px }
 ************************************************************************************************ */
 #footer {
 	color:#727174;
-	background:#ededed
+	border-top: solid 1px #2d2c2b;
 }
 	.blockcategories_footer,
 	#footer .myaccount ,

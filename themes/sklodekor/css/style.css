@@ -27,6 +27,10 @@ html, body {
 	font-size: 17.5px !important;
 	}
 	
+.nice-columns ul{
+	margin-left: 0px !important;
+	}
+	
 
 .header{
 	padding: 20px 0 20px 0;
@@ -44,10 +48,10 @@ html, body {
 	}
 		
 .copyright{
-	background-color:#ededed;
+	background-color:#2d2c2b;
 	font-size:0.75em;
 	padding: 20px 0 20px 0;
-	color: 727174#;
+	color: white;
 	}
 	
 .scrollup {
@@ -159,6 +163,6 @@ html, body {
 	padding: 5px 0 5px 0;
 	color: white;
 	font-weight:200;
-	margin: -7px 10px 0 0;
+	margin: -7px 15px 0 0;
 	float:left;
 }

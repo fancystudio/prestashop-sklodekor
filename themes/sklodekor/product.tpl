@@ -236,6 +236,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 			{/if}
 		</ul>-->
 	</div>
+    
 
 	<!-- left infos-->
 	<div class="span6 offset1 produkt-detail">
@@ -311,6 +312,22 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 					<span id="pretaxe_price"><span id="pretaxe_price_display">{convertPrice price=$product->getPrice(false, $smarty.const.NULL)}</span>&nbsp;{l s='tax excl.'}</span>
 				{/if}
 			</div>
+            
+
+        <!-- AddThis Button BEGIN -->
+        <div class="addthis_toolbox addthis_default_style ">
+            <a class="addthis_button_preferred_1"></a>
+            <a class="addthis_button_preferred_2"></a>
+            <a class="addthis_button_preferred_3"></a>
+            <a class="addthis_button_preferred_4"></a>
+            <a class="addthis_button_compact"></a>
+            <a class="addthis_counter addthis_bubble_style"></a>
+        </div>
+        <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=xa-50a7c0cd7f40895e"></script>
+        <!-- AddThis Button END -->
+            
+            
+            
 			<p id="reduction_percent" {if !$product->specificPrice OR $product->specificPrice.reduction_type != 'percentage'} style="display:none;"{/if}><span id="reduction_percent_display">{if $product->specificPrice AND $product->specificPrice.reduction_type == 'percentage'}-{$product->specificPrice.reduction*100}%{/if}</span></p>
 			<p id="reduction_amount" {if !$product->specificPrice OR $product->specificPrice.reduction_type != 'amount' || $product->specificPrice.reduction|intval ==0} style="display:none"{/if}>
 				<span id="reduction_amount_display">
@@ -320,8 +337,18 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 				</span>
 			</p>
             
-            <div class="info-box pull-left">ahoj
-            ahoj
+            <div class="info-box pull-left">
+            <div class="configure-product-box">Konfigurovať </br>produkt
+            </div><!-- configure product-->
+            
+            <div class="configure-product-attr-box">
+            <p><span>Rozmer:</span></p>
+            <p>800x2000mm</p>
+            <p><span>Povrchová úprava:</span></p>
+            <p>grafická potlač</p>
+            <p><span>kovanie:</span></p>
+            <p>studio rondo</p>
+            </div><!-- configure-product-attr-bo-->
             </div>
 			
             

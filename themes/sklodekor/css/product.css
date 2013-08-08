@@ -343,7 +343,8 @@ span.view_scroll_spacer {
 .content_prices #add_to_cart {
 	position:relative;
 	float:left;
-	padding:0;
+	padding-left:75;
+	
 }
 
 .content_prices #add_to_cart .exclusive,.content_prices #add_to_cart .exclusive_disabled {

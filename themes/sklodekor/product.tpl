@@ -244,7 +244,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 		{if $product->description_short OR $packItems|@count > 0}
 		<div id="short_description_block">
 			{if $product->description_short}
-				<div id="short_description_content" class="rte align_justify">{$product->description_short}</div>
+				<div id="short_description_content" class="rte align_justify"><span>Popis:</span>{$product->description_short}</div>
 			{/if}
 			{if $product->description}
 			<p class="buttons_bottom_block"><a href="javascript:{ldelim}{rdelim}" class="button">{l s='More details'}</a></p>
@@ -290,10 +290,10 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 			<p class="online_only">{l s='Online only'}</p>
 			{/if}
 
-			<div class="price">
-				<p class="our_price_display">
+			<div class="price pull-left">
+				<p class="our_price_display"><span class="cena">{l s='Price:'}</span>
 				{if $priceDisplay >= 0 && $priceDisplay <= 2}
-					<span id="our_price_display">{convertPrice price=$productPrice}</span>
+					<span id="our_price_display">{convertPrice price=$productPrice}</span><span class="dph">s DPH</span>
 					<!--{if $tax_enabled  && ((isset($display_tax_label) && $display_tax_label == 1) OR !isset($display_tax_label))}
 						{if $priceDisplay == 1}{l s='tax excl.'}{else}{l s='tax incl.'}{/if}
 					{/if}-->
@@ -319,7 +319,13 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 				{/if}
 				</span>
 			</p>
-			{if $product->specificPrice AND $product->specificPrice.reduction && $product->specificPrice.reduction > 0}
+            
+            <div class="info-box pull-left">ahoj
+            ahoj
+            </div>
+			
+            
+            {if $product->specificPrice AND $product->specificPrice.reduction && $product->specificPrice.reduction > 0}
 				<p id="old_price"><span class="bold">
 				{if $priceDisplay >= 0 && $priceDisplay <= 2}
 					{if $productPriceWithoutReduction > $productPrice}
@@ -414,7 +420,9 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 
 
 </div>
-<div class="container">
+<div class="container product-configuration">
+
+			<h3><span class="inner-text">Konfigurácia produktu</span><span class="line"><span></h3>
 			<!-- hidden datas -->
 			<p class="hidden">
 				<input type="hidden" name="token" value="{$static_token}" />

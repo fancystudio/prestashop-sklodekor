@@ -137,6 +137,7 @@ html, body {
 	background-image: url(../../../modules/layerslider/img/slider_bg.jpg);
 	background-repeat: no-repeat;
 	background-position: center top;
+	background-color: #232222;
 }
 
 .produkt-detail h2{
@@ -153,8 +154,62 @@ html, body {
 	color: white;
 	font-weight:100;
 	letter-spacing:1px;
+	padding-left: 75px;
+	position:relative;
 	}
 	
+#short_description_content span{
+	position: absolute;
+	color: white;
+	font-weight: 100;
+	margin-top: -2px;
+	}
+	
+.info-box{
+	clear: both;
+	margin: 20px 0 35px 0;
+	}
+	
+.our_price_display {
+	color: #e5373e !important;
+	}
+	
+.our_price_display .cena{
+	position: absolute;
+	left: 0px;
+	font-size: 14px;
+	bottom: 8px;
+	}
+	
+.our_price_display .dph{
+	font-size: 14px;
+	margin-left: 10px;
+	}
+	
+.product-configuration h3{
+	width:100%;
+	text-align:center;
+	border:none;
+	padding: 20px 0 20px 0 !important;
+	position:relative;
+	}
+	
+h3 .line {
+	width: 100%;
+	height: 1px;
+	background-color: #d5d2d1;
+	position: absolute;
+	left: 0px;
+	top: 50%;
+}
+h3 .inner-text {
+	background-color:white;
+	padding: 10px;
+	z-index:1;
+	position:relative;
+	color: #727174;
+}
+
 .attribute_fieldset span {	
 	display: block;
 	background-color: #e5373e;
@@ -177,9 +232,13 @@ html, body {
 	
 .group_4{
 	float: left;
-	margin-top: -76px;
+	margin-top: -130px;
 	}
 	
 .group_8{
 	clear: both
+	}
+	
+.group_4 .color_pick	{
+	padding: 15px 15px 30px 15px
 	}

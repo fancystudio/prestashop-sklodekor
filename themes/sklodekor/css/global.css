@@ -152,15 +152,12 @@ span.button_mini, span.button_small, span.button, span.button_large,
 span.exclusive_mini, span.exclusive_small, span.exclusive, span.exclusive_large, span.exclusive_large_disabled {
 	position:relative;
 	display:inline-block;
-	padding:5px 7px;
-	border:1px solid #cc9900;
-	-moz-border-radius: 3px !important;
-	-webkit-border-radius: 3px !important;
-	border-radius: 3px !important;
-	font-weight:bold;
-	color:#000;
-	background:url(../img/bg_bt.gif) repeat-x 0 0 #f4b61b;
+	padding:5px 10px 5px 10px !important;
+	font-weight:200;
+	color:white;
 	cursor: pointer;
+	background-color: #e5373e;
+	border:none;
 }
 *:first-child+html input.button_mini, *:first-child+html input.button_small, *:first-child+html input.button, *:first-child+html input.button_large,
 *:first-child+html input.button_mini_disabled, *:first-child+html input.button_small_disabled, *:first-child+html input.button_disabled, *:first-child+html input.button_large_disabled,
@@ -565,7 +562,7 @@ div.star_hover a, div.star a:hover { background-position: 0 -32px }
 .breadcrumb .navigation-pipe {margin:0 3px 0 5px}
 .breadcrumb img {
 	position:relative;
-	top:5px
+	top:-2px
 }
 
 

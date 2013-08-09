@@ -22,27 +22,28 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
-
+<div class="sub-page-wrapper">
+<div class="container subcategory">
 {include file="$tpl_dir./breadcrumb.tpl"}
 {include file="$tpl_dir./errors.tpl"}
 
 {if isset($category)}
 	{if $category->id AND $category->active}
-		<h1>
+		<h2 class="span12">
 			{strip}
 				{$category->name|escape:'htmlall':'UTF-8'}
 				{if isset($categoryNameComplement)}
 					{$categoryNameComplement|escape:'htmlall':'UTF-8'}
 				{/if}
 			{/strip}
-		</h1>
-		
+		</h2>
+		<!--
 		<div class="resumecat category-product-count">
 			{include file="$tpl_dir./category-count.tpl"}
-		</div>
+		</div>-->
 		
 		{if $scenes || $category->description || $category->id_image}
-		<div class="content_scene_cat">
+		<div class="content_scene_cat span12">
 			{if $scenes}
 				<!-- Scenes -->
 				{include file="$tpl_dir./scenes.tpl" scenes=$scenes}
@@ -57,8 +58,8 @@
 
 			{if $category->description}
 				<div class="cat_desc">
-				{if strlen($category->description) > 120}
-					<p id="category_description_short">{$category->description|truncate:120}</p>
+				{if strlen($category->description) > 500}
+					<p id="category_description_short">{$category->description|truncate:500}</p>
 					<p id="category_description_full" style="display:none">{$category->description}</p>
 					<a href="#" onclick="$('#category_description_short').hide(); $('#category_description_full').show(); $(this).hide(); return false;" class="lnk_more">{l s='More'}</a>
 				{else}
@@ -91,30 +92,39 @@
 			</ul>
 			<br class="clear"/>
 		</div>
+        
+        
+        
 		{/if}
 
 		{if $products}
-			<div class="content_sortPagiBar">
+        
+         </div><!--conteiner-wrapper-->
+          </div><!--conteiner-->
+          <div class="container">
+        
+			{* <div class="content_sortPagiBar">
 				{include file="$tpl_dir./pagination.tpl"}
 				<div class="sortPagiBar clearfix">
 					{include file="./product-sort.tpl"}
 					{include file="./product-compare.tpl"}
 					{include file="./nbr-product-page.tpl"}
 				</div>
-			</div>
+			</div> *}
 			
 			{include file="./product-list.tpl" products=$products}
 			
-			<div class="content_sortPagiBar">
+			{* <div class="content_sortPagiBar">
 				<div class="sortPagiBar clearfix">
 					{include file="./product-sort.tpl"}
 					{include file="./product-compare.tpl"}
 					{include file="./nbr-product-page.tpl"}
-				</div>
+				</div>*}
 				{include file="./pagination.tpl"}
 			</div>
-		{/if}
+		{/if} 
 	{elseif $category->id}
 		<p class="warning">{l s='This category is currently unavailable.'}</p>
 	{/if}
 {/if}
+</div><!--conteiner-->

@@ -164,7 +164,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 {/if}
 //]]>
 </script>
-<div class="sub-page-wrapper" style="background-color:">
+<div class="sub-page-wrapper">
 <div class="container">
 {include file="$tpl_dir./breadcrumb.tpl"}
 </div>
@@ -338,7 +338,9 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 			</p>
             
             <div class="info-box pull-left">
-            <div class="configure-product-box">Konfigurovať </br>produkt
+            <div class="configure-product-box">
+            <span class="conf-whell"></span>
+            Konfigurovať </br>produkt
             </div><!-- configure product-->
             
             <div class="configure-product-attr-box">

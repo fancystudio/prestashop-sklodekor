@@ -8,21 +8,13 @@ h1{margin-bottom:10px;}
 }
 
 .content_scene_cat {
-	padding:5px;
-	border:1px solid #ccc;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	border-radius: 3px;
-	-moz-box-shadow: 0 1px 1px #e2e2e2;
-	-webkit-box-shadow: 0 1px 1px #e2e2e2;
-	box-shadow: 0 1px 1px #e2e2e2;
+	color: white;
 }
 
 .cat_desc {
 	font-size:12px;
 	line-height:18px;
 }
-.cat_desc p {padding:0 10px 5px 10px}
 .cat_desc .lnk_more {
    padding:0 10px;
    color:#0088CC;

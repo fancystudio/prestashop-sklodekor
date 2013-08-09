@@ -131,8 +131,16 @@ html, body {
 
 .breadcrumb {
 	background-color: transparent;
+	color: #e5373e;
+	margin: 0;
+	font-weight: 200;
+	padding: 15px 30px;
+}
+
+.breadcrumb a{
 	color: white;
 }
+
 .sub-page-wrapper{
 	background-image: url(../../../modules/layerslider/img/slider_bg.jpg);
 	background-repeat: no-repeat;
@@ -140,16 +148,25 @@ html, body {
 	background-color: #232222;
 }
 
-.produkt-detail h2{
+h2{
 	/*font-family: helvetica-light !important;*/
 	font-weight:100;
 	color: #e5373e;
 	font-size: 2.5em;
-	margin-top: -7px;
 	padding-top:0px;
 	letter-spacing:1px;
+	text-transform: uppercase;
 	}
 	
+.produkt-detail h2{
+	margin-top: -7px;
+	}
+	
+.subcategory h2{	
+	padding-top: 5px;
+	font-size: 3em;
+}
+
 .produkt-detail p{
 	font-weight:100;
 	padding-left: 75px;
@@ -158,17 +175,19 @@ html, body {
 	}
 	
 #short_description_content span{
-	position: absolute;
 	color: white;
-	font-weight: 100;
-	margin-top: -2px;
+	position: absolute;
+	margin-top: -5px;
 	font-size: 13px;
+	font-weight: 100;
 	}
 	
-#short_description_content p{
+#short_description_content p, .cat_desc p{
 	font-size: 12px;
 	line-height: 15px;
 	letter-spacing: 1px;
+	color: white;
+	font-weight: 100;
 	}
 	
 .info-box{
@@ -192,8 +211,17 @@ html, body {
 	
 .info-box .configure-product-box{
 	line-height: 16px;
+	color: #727174;
 	}
-	
+
+.info-box .configure-product-box .conf-whell{	
+	display:block;
+	width:34px;
+	height:34px;
+	background: url("img/spirite.png") no-repeat scroll -54px 0px transparent;
+	margin: 6px auto;
+	}
+
 .info-box .configure-product-attr-box{
 	border-left: 1px solid #494747;
 	width: 49%;

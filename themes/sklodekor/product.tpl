@@ -2,6 +2,7 @@
 {if $errors|@count == 0}
 <script src="themes/sklodekor/js/iosslider/_src/jquery.iosslider.js"></script>
 <script src="themes/sklodekor/js/isotope-master/jquery.isotope.min.js"></script>
+<script src="themes/sklodekor/js/jquery.scrollTo-1.4.3.1-min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 
@@ -28,9 +29,17 @@ $(document).ready(function() {
 	  return false;
 	  });
 });
+
+
 </script>
 
-
+{literal}
+<script type="text/javascript">
+	function slideDown(){
+		$('body').scrollTo('.product-configuration', {duration:600});
+	}
+</script>
+{/literal}
 
 
 <script type="text/javascript">
@@ -339,7 +348,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
             
             <div class="info-box pull-left">
             <div class="configure-product-box">
-            <span class="conf-whell"></span>
+            <span class="conf-whell" onclick="slideDown();"></span>
             Konfigurovať </br>produkt
             </div><!-- configure product-->
             

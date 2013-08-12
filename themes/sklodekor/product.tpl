@@ -3,9 +3,10 @@
 <script src="themes/sklodekor/js/iosslider/_src/jquery.iosslider.js"></script>
 <script src="themes/sklodekor/js/isotope-master/jquery.isotope.min.js"></script>
 <script src="themes/sklodekor/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script src="themes/sklodekor/js/jquery.select_skin.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-
+	$(".attribute_select").select_skin();
 	$('.iosSlider').iosSlider();
 	var $container = $('.vzory');
 	$container.isotope({
@@ -479,13 +480,18 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 				{assign var="index" value=1}
 				{foreach from=$groups key=id_attribute_group item=group}
 					{if $group.attributes|@count}
+						{if $group.name != "výška"}
 						<fieldset class="attribute_fieldset group_{$id_attribute_group|intval}">
+						{/if}
 							{if $group.name != 'výška'}
 								<span>{$index}.</span>
 								<label class="attribute_label" for="group_{$id_attribute_group|intval}">{$group.name|escape:'htmlall':'UTF-8'} :&nbsp;</label>
 								{assign var="index" value=$index+1}	
 							{/if}
 							{assign var="groupName" value="group_$id_attribute_group"}
+							{if $group.name == "výška" || $group.name == "Rozmer"}
+							<span class="dropDownName">{if $group.name == "výška"}{$group.name}: {/if}{if $group.name == "Rozmer"}šírka: {/if}</span>
+							{/if}
 							<div class="attribute_list">
 							{if ($group.group_type == 'select')}
 								<select name="{$groupName}" id="group_{$id_attribute_group|intval}" class="attribute_select" onchange="findCombination();getProductAttribute();">
@@ -549,7 +555,9 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 								</ul>
 							{/if}
 							</div>
+						{if $group.name!= "Rozmer"}
 						</fieldset>
+						{/if}
 					{/if}
 				{/foreach}
 				</div>

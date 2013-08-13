@@ -294,6 +294,7 @@ h3 .inner-text {
 	font-weight:200;
 	margin: -7px 15px 0 0;
 	float:left;
+	clear:both;
 }
 
 .group_5, .group_6{
@@ -306,7 +307,6 @@ h3 .inner-text {
 	
 .group_4{
 	float: left;
-	margin-top: -130px;
 	}
 	
 .group_8{
@@ -326,4 +326,9 @@ h3 .inner-text {
 	bottom: -5px;
 	position: relative;
 	}
+	
+.dropDownName {
+	color: #727174 !important;
+	background-color: transparent !important;
+}
 	

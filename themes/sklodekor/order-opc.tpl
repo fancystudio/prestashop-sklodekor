@@ -83,6 +83,8 @@
 	var isPaymentStep = {$isPaymentStep|intval};
 	//]]>
 </script>
+
+<div class="container">
 	{if $productNumber}
 		<!-- Shopping Cart -->
 		{include file="$tpl_dir./shopping-cart.tpl"}
@@ -108,3 +110,4 @@
 		<p class="warning">{l s='Your shopping cart is empty.'}</p>
 	{/if}
 {/if}
+</div>

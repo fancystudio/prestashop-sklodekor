@@ -193,6 +193,8 @@ span.view_scroll_spacer {
 
 #attributes .attribute_list {
 	display:inline-block;
+	float:left;
+	clear:both;
 }
 
 .ie7 #attributes .attribute_list {

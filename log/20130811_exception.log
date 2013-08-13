@@ -1,0 +1,26 @@
+*ERROR* 	2013/08/11 - 15:08:57: Lost connection to MySQL server during query<br /><br /><pre>
+				SELECT *, ( IF ('2013-08-11 15:03:58' >= `from` AND '2013-08-11 15:03:58' <= `to`, 1, 0) +  IF (`id_group` = 1, 2, 0) +  IF (`id_group` = 1, 4, 0) +  IF (`id_group` = 1, 8, 0) +  IF (`id_group` = 1, 16, 0) +  IF (`id_customer` = 0, 32, 0)) AS `score`
+				FROM `ps_specific_price`
+				WHERE `id_product` IN (0, 8)
+				AND `id_product_attribute` IN (0, 60)
+				AND `id_shop` IN (0, 1)
+				AND `id_currency` IN (0, 1)
+				AND `id_country` IN (0, 37)
+				AND `id_group` IN (0, 1)
+				AND `id_customer` IN (0, 0)
+				AND
+				(
+					(`from` = '0000-00-00 00:00:00' OR '2013-08-11 15:03:58' >= `from`)
+					AND
+					(`to` = '0000-00-00 00:00:00' OR '2013-08-11 15:03:58' <= `to`)
+				)
+				AND id_cart IN (0, 0) AND IF(`from_quantity` > 1, `from_quantity`, 0) <= IF(id_product_attribute=0,0 ,1)
+				ORDER BY `id_product_attribute` DESC, `from_quantity` DESC, `id_specific_price_rule` ASC, `score` DESC LIMIT 1</pre> at line 607 in file classes/db/Db.php
+*ERROR* 	2013/08/11 - 15:21:44: Lost connection to MySQL server during query<br /><br /><pre>
+			SELECT `price_display_method`
+			FROM `ps_group`
+			WHERE `id_group` = 1 LIMIT 1</pre> at line 607 in file classes/db/Db.php
+*ERROR* 	2013/08/11 - 15:22:02: Lost connection to MySQL server during query<br /><br /><pre>
+			SELECT `price_display_method`
+			FROM `ps_group`
+			WHERE `id_group` = 1 LIMIT 1</pre> at line 607 in file classes/db/Db.php

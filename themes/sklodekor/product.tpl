@@ -481,7 +481,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 				{foreach from=$groups key=id_attribute_group item=group}
 					{if $group.attributes|@count}
 						{if $group.name != "výška"}
-						<fieldset class="attribute_fieldset group_{$id_attribute_group|intval}">
+						<fieldset class="attribute_fieldset group_{$id_attribute_group|intval} {if $group.name == 'Vzor'}vzoryClass{/if}">
 						{/if}
 							{if $group.name != 'výška'}
 								<span>{$index}.</span>
@@ -508,23 +508,22 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 										<li class="click" name=".kategoria3">.kategoria3</li>
 										<li class="click" name=".kategoria4">.kategoria4</li>
 									</ul>
-									<div id="color_to_pick_list" class="clearfix">
-										<div class="vzory">
-											{assign var="default_colorpicker" value=""}
-											{foreach from=$group.attributes key=id_attribute item=group_attribute}
-											<div class="{if $group.default == $id_attribute} selected{/if}{$colors.$id_attribute.value}">
-												<a id="color_{$id_attribute|intval}" name="{$group.name}" class="color_pick{if ($group.default == $id_attribute)} selected{/if}" style="background: {$colors.$id_attribute.value};" title="{$colors.$id_attribute.name}" onclick="colorPickerClick(this);getProductAttribute();">
-													{if file_exists($col_img_dir|cat:$id_attribute|cat:'.jpg')}
-														<img src="{$img_col_dir}{$id_attribute}.jpg" alt="{$colors.$id_attribute.name}" width="auto" height="auto" /><br />
-													{/if}
-												</a>
-											</div>
-											{if ($group.default == $id_attribute)}
-												{$default_colorpicker = $id_attribute}
-											{/if}
-											{/foreach}
+									<div id="color_to_pick_list" class="vzory" class="clearfix">
+										{assign var="default_colorpicker" value=""}
+										{foreach from=$group.attributes key=id_attribute item=group_attribute}
+										<div class="{if $group.default == $id_attribute} selected{/if}{$colors.$id_attribute.value}">
+											<a id="color_{$id_attribute|intval}" name="{$group.name}" class="color_pick{if ($group.default == $id_attribute)} selected{/if}" style="background: {$colors.$id_attribute.value};" title="{$colors.$id_attribute.name}" onclick="colorPickerClick(this);getProductAttribute();">
+												{if file_exists($col_img_dir|cat:$id_attribute|cat:'.jpg')}
+													<img src="{$img_col_dir}{$id_attribute}.jpg" alt="{$colors.$id_attribute.name}" width="auto" height="auto" /><br />
+												{/if}
+											</a>
 										</div>
+										{if ($group.default == $id_attribute)}
+											{$default_colorpicker = $id_attribute}
+										{/if}
+										{/foreach}
 									</div>
+								<input type="hidden" class="color_pick_hidden vzorHidden" name="{$groupName}" value="{$default_colorpicker}" />
 								{else}
 									<ul id="color_to_pick_list" class="clearfix">
 										{assign var="default_colorpicker" value=""}
@@ -532,9 +531,9 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 										{$colors.$id_attribute.value}
 										<li{if $group.default == $id_attribute} class="selected"{/if}>
 											<a id="color_{$id_attribute|intval}" name="{$group.name}" class="color_pick{if ($group.default == $id_attribute)} selected{/if}" style="background: {$colors.$id_attribute.value};" title="{$colors.$id_attribute.name}" onclick="colorPickerClick(this);getProductAttribute();">
-												{if file_exists($col_img_dir|cat:$id_attribute|cat:'.jpg')}
+												{*{if file_exists($col_img_dir|cat:$id_attribute|cat:'.jpg')} *}
 													<img src="{$img_col_dir}{$id_attribute}.jpg" alt="{$colors.$id_attribute.name}" width="auto" height="auto" /><br />
-												{/if}
+												{* {/if} *}
 											</a>
 										</li>
 										{if ($group.default == $id_attribute)}
@@ -542,8 +541,8 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 										{/if}
 										{/foreach}
 									</ul>
+								<input type="hidden" class="color_pick_hidden kovanieHidden" name="{$groupName}" value="{$default_colorpicker}" />
 								{/if}
-								<input type="hidden" class="color_pick_hidden" name="{$groupName}" value="{$default_colorpicker}" />
 							{elseif ($group.group_type == 'radio')}
 								<ul>
 									{foreach from=$group.attributes key=id_attribute item=group_attribute}

@@ -83,6 +83,7 @@ function findCombination(firstTime)
 	});
 	
 	//zobere vsetky kombinacie ktore maju iba jeden atribut cize kovanie, vzor, atd
+	console.log(typVzoruActual);
 	$.each(choice, function(key, value){
 		for (var combination = 0; combination < combinations.length; ++combination){
 			if (in_array(value.toString(),combinations[combination]['idsAttributes']) && (combinations[combination]['idsAttributes'].length == 1)){
@@ -655,6 +656,7 @@ function checkMinimalQuantity(minimal_quantity)
 function colorPickerClick(elt)
 {
 	id_attribute = $(elt).attr('id').replace('color_', '');
+	//console.log(id_attribute);
 	$(elt).parent().parent().children().removeClass('selected');
 	$(elt).fadeTo('fast', 1, function(){
 								$(this).fadeTo('fast', 0, function(){
@@ -663,6 +665,20 @@ function colorPickerClick(elt)
 										});
 									});
 								});
+	console.log(id_attribute);
+	
+	// pri zvoleni typu skla cire alebo cire s pieskovym vzorom odstrani vzory a odrata cenu 
+	// ak bol daky pred tym zvoleny
+	console.log($(".color_pick[title='číre']").attr("id"));
+	if(id_attribute == 21 || id_attribute == 22){ 
+		$(".vzorHidden").val("");
+		$("#idVzor").val("");
+		typVzoruActual = 0;
+		$(".vzoryClass").fadeOut(300);
+	}else{
+		$(".vzoryClass").fadeIn(300);
+	}
+	
 	$(elt).parent().parent().parent().children('.color_pick_hidden,#color_pick_hidden').val(id_attribute);
 	findCombination(false);
 }

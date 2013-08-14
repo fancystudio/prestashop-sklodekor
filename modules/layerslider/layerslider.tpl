@@ -1,5 +1,5 @@
 
-<div class="slider-wrap" style="width: 100%;height:500px;  margin: 0px auto; ">
+<div class="slider-wrap" style="width: 100%;height:100%;  margin: 0px auto; ">
 
 <div id="layerslider">
 

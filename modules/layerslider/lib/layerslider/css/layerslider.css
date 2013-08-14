@@ -11,6 +11,8 @@
 
 /* Global settings */
 
+#layerslider{height: 100%}
+
 .ls-container {
 	visibility: hidden;
 	position: relative;

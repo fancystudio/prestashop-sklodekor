@@ -1,12 +1,4 @@
-ul#product_list li h3 {
-	font-faimily: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-	font-weight:200!important;
-	padding:0 0 20px 0!important;
-	text-transform: uppercase!important;
-	background: url("img/spirite.png") no-repeat scroll -287px 45px transparent!important;
-	font-size: 20px !important;
-	color: #727174 !important;
-	}
+
 
 ul#product_list {
 	list-style-type: none;

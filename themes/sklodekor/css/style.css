@@ -1,6 +1,6 @@
 @font-face {
 	font-family: 'helvetica-light';
-	src: url('../css/fonts/helvetica_lt_45_light.eot');
+	src: url('themes/sklodekor/css/fonts/helvetica_lt_45_light.eot');
 	src: local('☺'), url('../css/fonts/helvetica_lt_45_light.woff') format('woff'), 
 	url('../css/fonts/helvetica_lt_45_light.ttf') format('truetype'), 
 	url('../css/fonts/helvetica_lt_45_light.svg') format('svg');
@@ -16,6 +16,16 @@ html, body {
     height: 100%; !important
 	font-weight: 200
 }
+
+h3 {
+	font-faimily: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	font-weight:200!important;
+	padding:0 0 20px 0!important;
+	text-transform: uppercase!important;
+	background: url("img/spirite.png") no-repeat scroll -287px 45px transparent!important;
+	font-size: 20px !important;
+	color: #727174 !important;
+	}
 
 .footer h4, .footer h4 a{
 	font-faimily: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
@@ -331,4 +341,28 @@ h3 .inner-text {
 	color: #727174 !important;
 	background-color: transparent !important;
 }
-	
+
+.main-three-column img{
+	display: block;
+	margin: 0 auto;
+	}
+
+.main-three-column p{
+	display: block;
+	width: 70%;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 40px;
+	color: #727174;
+}
+
+.main-three-column h3{
+	width: 70%;
+	margin: 0 auto;
+	margin-bottom: 30px;
+}
+
+.main-three-column{
+	padding-bottom: 150px;
+}
+

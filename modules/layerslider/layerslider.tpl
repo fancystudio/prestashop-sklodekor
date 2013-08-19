@@ -3,12 +3,12 @@
 
 <div id="layerslider">
 
-	<div class="ls-layer" rel="slidedelay: 3000">
-		<img class="ls-bg" src="modules/layerslider/img/slider_bg.jpg" alt="layer" style=" top:0px">
+	<div class="ls-layer" rel="slidedelay: 3000" style="overflow:visible">
+		<img class="ls-bg" src="modules/layerslider/img/slider_bg.jpg" alt="layer" style="top:0px; margin-top:0px !important;">
 
-		<img class="ls-s2" src="modules/layerslider/img/dvere.png" alt="sublayer" rel="durationin: 2000; easingin: easeOutExpo; slidedirection: top; delayin: 1000">
-		<img class="ls-s3" src="modules/layerslider/img/kreslo.png" alt="sublayer" rel="durationin: 2300; easingin: easeOutElastic; slidedirection: bottom; delayin: 1000">
-		<img class="ls-s5" src="modules/layerslider/img/police.png" alt="sublayer" rel="slidedirection: top" style="left:600px;">
+		<img class="ls-s2" src="modules/layerslider/img/dvere.png" alt="sublayer" style="top:127px; left:790px" rel="durationin: 500; easingin: easeOutExpo; slidedirection: left; delayin: 1000">
+		<img class="ls-s3" src="modules/layerslider/img/kreslo.png" alt="sublayer" style="top:371px; left:963px" rel="durationin: 2300; easingin: easeOutElastic; slidedirection: bottom; delayin: 1000">
+		<img class="ls-s5" src="modules/layerslider/img/police.png" alt="sublayer" rel="slidedirection: top" style="left:1250px; top: 115px;">
 
 	</div>
 	<div class="ls-layer" rel="slidedelay: 3000">
@@ -62,9 +62,9 @@ euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
 					skin : 'fullwidth',
 					thumbnailNavigation : 'hover',
 					hoverPrevNext : false,
-					responsive : false,
-					responsiveUnder : 1050,
-					sublayerContainer : 1050,
+					responsive : true,
+					responsiveUnder : 1914,
+					sublayerContainer : 1914,
 					autoStart : false,
 				});
 			});	

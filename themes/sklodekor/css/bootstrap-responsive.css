@@ -801,8 +801,8 @@
 
 @media (max-width: 767px) {
   body {
-    padding-right: 20px;
-    padding-left: 20px;
+    /*padding-right: 20px;
+    padding-left: 20px;*/
   }
   .navbar-fixed-top,
   .navbar-fixed-bottom,
@@ -895,6 +895,9 @@
   .modal.fade.in {
     top: 20px;
   }
+  
+  .container {padding-left: 20px !important;
+  			  padding-right: 20px !important}
 }
 
 @media (max-width: 480px) {

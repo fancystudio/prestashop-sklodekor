@@ -611,3 +611,9 @@ ul#uploadable_files,ul#text_fields {
        -o-transition-duration: 0s;
           transition-duration: 0s;
 }
+
+
+.vzory img{
+	width: 200px;
+	height: auto
+	}

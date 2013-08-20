@@ -274,8 +274,9 @@ h2{
 	width:100%;
 	text-align:center;
 	border:none;
-	padding: 20px 0 20px 0 !important;
+	padding: 30px 0 30px 0 !important;
 	position:relative;
+	background: none !important;
 	}
 	
 h3 .line {
@@ -333,7 +334,7 @@ h3 .inner-text {
 	width: 138px;
 	margin-bottom: -9px;
 	display: block;
-	bottom: -5px;
+	bottom: 40px;
 	position: relative;
 	}
 	
@@ -341,6 +342,8 @@ h3 .inner-text {
 	color: #727174 !important;
 	background-color: transparent !important;
 }
+
+.attribute_list{margin-bottom: 30px}
 
 .main-three-column img{
 	display: block;
@@ -366,3 +369,22 @@ h3 .inner-text {
 	padding-bottom: 150px;
 }
 
+.cmf-skinned-select{
+	border: 1px solid #727174;
+	width: 95px !important;
+	padding-left: 10px;
+	background: url("img/arrow-select.png") no-repeat scroll 85px 12px transparent;
+	}
+	
+.vzoryMenu {
+	float: left;
+	border-right: solid 1px #d5d2d1;
+	display: block;
+	padding: 35px 0;
+	width: 175px;
+	}
+	
+.vzoryMenu li{
+	line-height: 30px;
+	color: #727174;
+	}

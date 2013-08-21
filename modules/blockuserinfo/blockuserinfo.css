@@ -39,7 +39,7 @@
 	display: block;
 	}
 #shopping_cart a:hover span{text-decoration: none}
-#header_user #shopping_cart .ajax_cart_quantity { font-size: 13px; padding-left: 6px; }
+#header_user #shopping_cart .ajax_cart_quantity { font-size: 13px; padding-left: 7px; }
 #header_user #shopping_cart .ajax_cart_total { display:none !important; }
 
 

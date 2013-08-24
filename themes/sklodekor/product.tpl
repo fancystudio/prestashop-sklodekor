@@ -509,7 +509,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 										<li class="click" name=".kategoria3">slnko</li>
 										<li class="click" name=".kategoria4">abstraktné</li>
 									</ul>
-									<div id="color_to_pick_list" class="vzory" class="clearfix span9 pull-left">
+									<div id="color_to_pick_list" class="clearfix vzory span9 pull-left">
 										{assign var="default_colorpicker" value=""}
 										{foreach from=$group.attributes key=id_attribute item=group_attribute}
 										<div class="{if $group.default == $id_attribute} selected{/if}{$colors.$id_attribute.value}">

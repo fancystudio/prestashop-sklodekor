@@ -665,7 +665,6 @@ function colorPickerClick(elt)
 										});
 									});
 								});
-	console.log(id_attribute);
 	
 	// pri zvoleni typu skla cire alebo cire s pieskovym vzorom odstrani vzory a odrata cenu 
 	// ak bol daky pred tym zvoleny

@@ -219,7 +219,7 @@ span.view_scroll_spacer {
 #attributes .attribute_list #color_to_pick_list {
 	list-style-type:none;
 	/*width:125px;*/
-	/*width:auto;*/
+	width:auto;
 	margin-left: 0px;
 }
 

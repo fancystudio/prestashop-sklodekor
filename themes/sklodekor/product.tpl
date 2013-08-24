@@ -509,33 +509,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 										<li class="click" name=".kategoria3">slnko</li>
 										<li class="click" name=".kategoria4">abstraktné</li>
 									</ul>
-<<<<<<< HEAD
-                                    
-                                    
-									<div id="color_to_pick_list" class="pull-left">
-										<div class="vzory span9 pull-left">
-											{assign var="default_colorpicker" value=""}
-											{foreach from=$group.attributes key=id_attribute item=group_attribute}
-											<div class="{if $group.default == $id_attribute} selected{/if}{$colors.$id_attribute.value}">
-											<a id="color_{$id_attribute|intval}" 
-                                            name="{$group.name}" 
-                                            class="color_pick{if ($group.default == $id_attribute)} selected{/if}" 
-                                            style="background: {$colors.$id_attribute.value};" 
-                                            title="{$colors.$id_attribute.name}" 
-                                            onclick="colorPickerClick(this);getProductAttribute();">
-												{if file_exists($col_img_dir|cat:$id_attribute|cat:'.jpg')}
-												<img src="{$img_col_dir}{$id_attribute}.jpg" 
-                                                alt="{$colors.$id_attribute.name}" 
-                                                width="auto" height="auto" /><br />
-													{/if}
-												</a>
-											</div>
-											{if ($group.default == $id_attribute)}
-												{$default_colorpicker = $id_attribute}
-											{/if}
-											{/foreach}
-=======
-									<div id="color_to_pick_list" class="vzory" class="clearfix">
+									<div id="color_to_pick_list" class="vzory" class="clearfix span9 pull-left">
 										{assign var="default_colorpicker" value=""}
 										{foreach from=$group.attributes key=id_attribute item=group_attribute}
 										<div class="{if $group.default == $id_attribute} selected{/if}{$colors.$id_attribute.value}">
@@ -544,7 +518,6 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 													<img src="{$img_col_dir}{$id_attribute}.jpg" alt="{$colors.$id_attribute.name}" width="auto" height="auto" /><br />
 												{/if}
 											</a>
->>>>>>> 6bd9cd48c8954e7d328978497e4e69fd4e9dc93e
 										</div>
 										{if ($group.default == $id_attribute)}
 											{$default_colorpicker = $id_attribute}

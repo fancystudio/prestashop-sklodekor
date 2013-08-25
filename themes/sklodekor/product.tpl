@@ -482,7 +482,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 				{foreach from=$groups key=id_attribute_group item=group}
 					{if $group.attributes|@count}
 						{if $group.name != "výška"}
-						<fieldset class="attribute_fieldset group_{$id_attribute_group|intval} {if $group.name == 'Vzor'}vzoryClass{/if}">
+						<fieldset class="attribute_fieldset group_{$id_attribute_group|intval} {if $group.name == 'Vzor'}vzoryClass{/if}{if $group.name == 'strana dvery'}dvereClass{/if}{if $group.name == 'Typ skla'}typSklaClass{/if}">
 						{/if}
 							{if $group.name != 'výška'}
 								<span>{$index}.</span>

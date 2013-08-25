@@ -617,3 +617,6 @@ ul#uploadable_files,ul#text_fields {
 	width: 200px;
 	height: auto
 	}
+.dvereClass li span{
+	display:none;
+}

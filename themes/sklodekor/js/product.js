@@ -544,7 +544,7 @@ $(document).ready(function()
 		force:false,
 		cycle:false
 	});
-
+	
 	$('#thumbs_list').trigger('goto', 1);// SerialScroll Bug on goto 0 ?
 	$('#thumbs_list').trigger('goto', 0);
 
@@ -603,6 +603,7 @@ $(document).ready(function()
 		'transitionIn'	: 'elastic',
 		'transitionOut'	: 'elastic'
 	});
+	hideVzor();
 });
 
 function saveCustomization()
@@ -668,7 +669,7 @@ function colorPickerClick(elt)
 	
 	// pri zvoleni typu skla cire alebo cire s pieskovym vzorom odstrani vzory a odrata cenu 
 	// ak bol daky pred tym zvoleny
-	console.log($(".color_pick[title='číre']").attr("id"));
+	// console.log($(".color_pick[title='číre']").attr("id"));
 	if(id_attribute == 21 || id_attribute == 22){ 
 		$(".vzorHidden").val("");
 		$("#idVzor").val("");
@@ -765,5 +766,21 @@ function checkUrl()
 			else
 				window.location = url.substring(0, url.indexOf('#'));
 		}
+	}
+}
+function hideVzor(){
+	selectedCire = $(".typSklaClass a[title='číre']").attr("class");
+	selectedCeloPiekovane = $(".typSklaClass a[title='celoplošne pieskované']").attr("class");
+	if(selectedCire.indexOf("selected") != -1){
+		$(".vzorHidden").val("");
+		$("#idVzor").val("");
+		typVzoruActual = 0;
+		$(".vzoryClass").fadeOut(300);		
+	}
+	if(selectedCeloPiekovane.indexOf("selected") != -1){
+		$(".vzorHidden").val("");
+		$("#idVzor").val("");
+		typVzoruActual = 0;
+		$(".vzoryClass").fadeOut(300);		
 	}
 }

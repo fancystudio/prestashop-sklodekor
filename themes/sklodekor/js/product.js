@@ -83,7 +83,6 @@ function findCombination(firstTime)
 	});
 	
 	//zobere vsetky kombinacie ktore maju iba jeden atribut cize kovanie, vzor, atd
-	console.log(typVzoruActual);
 	$.each(choice, function(key, value){
 		for (var combination = 0; combination < combinations.length; ++combination){
 			if (in_array(value.toString(),combinations[combination]['idsAttributes']) && (combinations[combination]['idsAttributes'].length == 1)){
@@ -604,6 +603,10 @@ $(document).ready(function()
 		'transitionOut'	: 'elastic'
 	});
 	hideVzor();
+	$('.vzoryMenu .click').eq(0).addClass("selected");
+	$('.vzoryMenu .click').click(function() {
+		selectClickedOptionVzory(this);
+	});
 });
 
 function saveCustomization()
@@ -783,4 +786,8 @@ function hideVzor(){
 		typVzoruActual = 0;
 		$(".vzoryClass").fadeOut(300);		
 	}
+}
+function selectClickedOptionVzory(option){
+	$('.vzoryMenu .click').removeClass("selected");
+	$(option).addClass("selected");
 }

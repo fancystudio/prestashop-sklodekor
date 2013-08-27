@@ -356,9 +356,9 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
             
             <div class="configure-product-attr-box">
             <p><span>Rozmer:</span></p>
-            <p>800x2000mm</p>
+            <p><span class="widthConfigure">800</span>x<span class="heightConfigure">2000</span>mm</p>
             <p><span>Povrchová úprava:</span></p>
-            <p>grafická potlač</p>
+            <p class="typSklaConfigure">grafická potlač</p>
             <p><span>kovanie:</span></p>
             <p>studio rondo</p>
             </div><!-- configure-product-attr-bo-->
@@ -482,7 +482,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 				{foreach from=$groups key=id_attribute_group item=group}
 					{if $group.attributes|@count}
 						{if $group.name != "výška"}
-						<fieldset class="attribute_fieldset group_{$id_attribute_group|intval} {if $group.name == 'Vzor'}vzoryClass{/if}{if $group.name == 'Otváranie dverí'}dvereClass{/if}{if $group.name == 'Typ skla'}typSklaClass{/if}">
+						<fieldset class="attribute_fieldset group_{$id_attribute_group|intval} {if $group.name == 'Vzor'}vzoryClass{/if}{if $group.name == 'Otváranie dverí'}dvereClass{/if}{if $group.name == 'Typ skla'}typSklaClass{/if}{if $group.name == 'Kovanie'}kovanieClass{/if}{if $group.name == 'Rozmer'}rozmerClass{/if}">
 						{/if}
 							{if $group.name != 'výška'}
 								<span>{$index}.</span>

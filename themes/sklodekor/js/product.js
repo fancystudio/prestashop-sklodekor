@@ -95,6 +95,7 @@ function findCombination(firstTime)
 								typKovaniaActual = ps_round(((combinations[combination]['price']*taxRate)/100) + combinations[combination]['price']);
 							}
 							$("#idKovanie").attr("value",combinations[combination]['idCombination']);
+							console.log("typKovaniaActual: " + typKovaniaActual);
 						}
 						if(attributesCombinations[attributesCombination]["group"] == "vzor"){
 							if(combinations[combination]['specific_price']['price'] != 0){
@@ -553,6 +554,21 @@ $(document).ready(function()
 		function(){}
 	);
 
+//	kovanieIsSelected = false; // tadeto cesta nevedie
+//	$(".kovanieClass ul li").each(function( index ) {
+//		if($(this).hasClass("selected")){
+//			kovanieIsSelected = true;
+//		}
+//		//console.log( index + ": " + $(this).text() );
+//	});
+//	if(!kovanieIsSelected){
+//		$('.kovanieClass ul li,.kovanieClass ul li a').eq(0).addClass("selected");
+//		idKovanie = $('.kovanieClass ul li a').eq(0).attr('id').replace('color_', '');
+//		$(".kovanieHidden").val(idKovanie);
+//		$("#idKovanie").val(92);//doplnit
+//		typKovaniaActual = 10;
+//	}
+	
 	//set jqZoom parameters if needed
 	if (typeof(jqZoomEnabled) != 'undefined' && jqZoomEnabled)
 	{
@@ -602,11 +618,15 @@ $(document).ready(function()
 		'transitionIn'	: 'elastic',
 		'transitionOut'	: 'elastic'
 	});
+	
 	hideVzor();
+	
 	$('.vzoryMenu .click').eq(0).addClass("selected");
 	$('.vzoryMenu .click').click(function() {
 		selectClickedOptionVzory(this);
 	});
+	
+	configureProductInfoListener();
 });
 
 function saveCustomization()
@@ -790,4 +810,38 @@ function hideVzor(){
 function selectClickedOptionVzory(option){
 	$('.vzoryMenu .click').removeClass("selected");
 	$(option).addClass("selected");
+}
+function configureProductInfoListener(){
+	
+	$(".widthConfigure")
+		.html(
+			$(".rozmerClass .attribute_list:eq(0) option[selected='selected']").html()
+		);
+	$(".heightConfigure")
+		.html(
+			$(".rozmerClass .attribute_list:eq(1) select option[selected='selected']").html()
+		);
+	$(".typSklaConfigure")
+		.html(
+			$(".typSklaClass li[class='selected'] img").attr("alt")
+		);
+	
+	$(".rozmerClass .attribute_list:eq(0) select").change(function(){
+		$(".widthConfigure")
+		.html(
+			$(".rozmerClass .attribute_list:eq(0) select option[value='" + this.value + "']").html()
+		);
+	});
+	$(".rozmerClass .attribute_list:eq(1) select").change(function(){
+		$(".heightConfigure")
+		.html(
+			$(".rozmerClass .attribute_list:eq(1) select option[value='" + this.value + "']").html()
+		);
+	});
+	$(".typSklaClass a img").click(function(){
+		$(".typSklaConfigure")
+		.html(
+			$(this).attr("alt")
+		);
+	});
 }

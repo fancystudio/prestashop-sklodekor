@@ -95,7 +95,6 @@ function findCombination(firstTime)
 								typKovaniaActual = ps_round(((combinations[combination]['price']*taxRate)/100) + combinations[combination]['price']);
 							}
 							$("#idKovanie").attr("value",combinations[combination]['idCombination']);
-							console.log("typKovaniaActual: " + typKovaniaActual);
 						}
 						if(attributesCombinations[attributesCombination]["group"] == "vzor"){
 							if(combinations[combination]['specific_price']['price'] != 0){
@@ -544,7 +543,6 @@ $(document).ready(function()
 		force:false,
 		cycle:false
 	});
-	
 	$('#thumbs_list').trigger('goto', 1);// SerialScroll Bug on goto 0 ?
 	$('#thumbs_list').trigger('goto', 0);
 
@@ -680,7 +678,7 @@ function checkMinimalQuantity(minimal_quantity)
 function colorPickerClick(elt)
 {
 	id_attribute = $(elt).attr('id').replace('color_', '');
-	//console.log(id_attribute);
+
 	$(elt).parent().parent().children().removeClass('selected');
 	$(elt).fadeTo('fast', 1, function(){
 								$(this).fadeTo('fast', 0, function(){
@@ -692,16 +690,17 @@ function colorPickerClick(elt)
 	
 	// pri zvoleni typu skla cire alebo cire s pieskovym vzorom odstrani vzory a odrata cenu 
 	// ak bol daky pred tym zvoleny
-	// console.log($(".color_pick[title='číre']").attr("id"));
-	if(id_attribute == 21 || id_attribute == 22){ 
-		$(".vzorHidden").val("");
-		$("#idVzor").val("");
-		typVzoruActual = 0;
-		$(".vzoryClass").fadeOut(300);
-	}else{
-		$(".vzoryClass").fadeIn(300);
+	if($(elt).parents("fieldset").hasClass("typSklaClass")){
+		if(id_attribute == 21 || id_attribute == 22){ 
+			$(".vzorHidden").val("");
+			$("#idVzor").val("");
+			typVzoruActual = 0;
+			$(".vzoryClass").fadeOut(300);
+		}else{
+			$(".vzoryClass").fadeIn(300);
+		}
 	}
-	
+	console.log("voslo: " + id_attribute);
 	$(elt).parent().parent().parent().children('.color_pick_hidden,#color_pick_hidden').val(id_attribute);
 	findCombination(false);
 }

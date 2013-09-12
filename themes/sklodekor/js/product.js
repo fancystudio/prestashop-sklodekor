@@ -700,6 +700,9 @@ function colorPickerClick(elt)
 			$(".vzoryClass").fadeIn(300);
 		}
 	}
+	if($(elt).parents("fieldset").hasClass("vzoryClass")){
+		$("#bigpic").attr("src",$(elt).children("img").attr("src"));
+	}
 	console.log("voslo: " + id_attribute);
 	$(elt).parent().parent().parent().children('.color_pick_hidden,#color_pick_hidden').val(id_attribute);
 	findCombination(false);

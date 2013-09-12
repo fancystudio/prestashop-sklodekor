@@ -1,7 +1,6 @@
 {if $MENU != ''}
 	
 	<!-- Menu -->
-	
 		<ul class="nav nav-pills pull-right">
 			{$MENU}
 			{if $MENU_SEARCH}

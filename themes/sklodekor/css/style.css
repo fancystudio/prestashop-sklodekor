@@ -313,7 +313,23 @@ h3 .inner-text {
 	margin: -7px 15px 0 0;
 	float:left;
 	clear:both;
+	
 }
+
+#order-opc h3 span {
+	display: block;
+	background-color: #e5373e;
+	width: 30px;
+	text-align: center;
+	padding: 5px 0 5px 0;
+	color: white;
+	margin: -7px 15px 0 0;
+	float:left;
+	clear:both;
+	line-height:normal !important;
+	background-image:none
+	
+	}
 
 .group_5, .group_6{
 	width: 200px;

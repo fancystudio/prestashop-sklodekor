@@ -386,7 +386,7 @@
 				<p style="display: none;" id="opc_account_saved">
 					{l s='Account information saved successfully'}
 				</p>
-				<p class="required opc-required" style="clear: both;">
+				<p class="required opc-required">
 					<sup>*</sup>{l s='Required field'}
 				</p>
 				<!-- END Account -->

@@ -684,7 +684,7 @@ ul.idTabs li {
 }
 .cart_navigation .button,
 .cart_navigation .button_large {
-	
+	padding: 10px 10px 10px 10px !important;
 }
 
 
@@ -1243,14 +1243,15 @@ a.iframe {font-weight:bold}
 #order-opc #login_form fieldset p a {padding:0}
 
 #order-opc #new_account_form p.submit {
-	margin-right: 120px;
-	text-align:right
+	margin-right: 20px !important;
+	text-align: right;
+	float: right;
 }
-#order-opc #new_account_form p.opc-required {margin-left:20px}
+#order-opc #new_account_form p.opc-required {margin-left:20px !important}
 
 #order-opc .addresses {margin-bottom:20px}
 
-#order-opc #opc_delivery_methods h3 {margin-top:20px;}
+#order-opc #opc_delivery_methods h3 
 #order-opc #opc_delivery_methods textarea {
 	height:60px;
 	width:723px;

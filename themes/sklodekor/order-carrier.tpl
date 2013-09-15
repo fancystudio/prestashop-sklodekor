@@ -82,7 +82,7 @@
 {if !$opc}
 	<h1>{l s='Shipping:'}</h1>
 {else}
-	<h2><span>2</span> {l s='Delivery methods'}</h2>
+	<h4><span>2.</span> {l s='Delivery methods'}</h4>
 {/if}
 
 {if !$opc}

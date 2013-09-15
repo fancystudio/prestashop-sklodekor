@@ -303,7 +303,7 @@ h3 .inner-text {
 	color: #727174;
 }
 
-.attribute_fieldset span {	
+.attribute_fieldset span, #order-opc h4 span, #carrier_area h4 span, .payment-method span{	
 	display: block;
 	background-color: #e5373e;
 	width: 30px;
@@ -316,20 +316,11 @@ h3 .inner-text {
 	
 }
 
-#order-opc h3 span {
-	display: block;
-	background-color: #e5373e;
-	width: 30px;
-	text-align: center;
-	padding: 5px 0 5px 0;
-	color: white;
-	margin: -7px 15px 0 0;
-	float:left;
-	clear:both;
-	line-height:normal !important;
-	background-image:none
-	
+#login_form h3, .carrier_title, .condition_title, #opc_delivery_methods h3{
+	background: none !important
 	}
+
+
 
 .group_5, .group_6{
 	width: 200px;

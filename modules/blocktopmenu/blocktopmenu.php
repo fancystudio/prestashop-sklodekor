@@ -590,7 +590,7 @@ class Blocktopmenu extends Module
 							$default_language = Configuration::get('PS_LANG_DEFAULT');
 							$link = MenuTopLinks::get($link[0]['id_linksmenutop'], $default_language, (int)Shop::getContextShopID());
 						}
-						$this->_menu .= '<li><a href="'.$link[0]['link'].'"'.(($link[0]['new_window']) ? ' target="_blank"': '').'>'.$link[0]['label'].'</a></li>'.PHP_EOL;
+						$this->_menu .= '<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="'.$link[0]['link'].'"'.(($link[0]['new_window']) ? ' target="_blank"': '').'>'.$link[0]['label'].'</a></li>'.PHP_EOL;
 					}
 					break;
 			}
@@ -641,12 +641,12 @@ class Blocktopmenu extends Module
 		// filter the categories that the user is allowed to see and browse
 		if (!empty($is_intersected))
 		{
-			$this->_menu .= '<li '.$selected.'>';
-			$this->_menu .= '<a href="'.$category_link.'">'.$category->name.'</a>';
+			$this->_menu .= '<li '.$selected.' class="dropdown">';
+			$this->_menu .= '<a href="'.$category_link.'" class="dropdown-toggle" data-toggle="dropdown">'.$category->name.'</a>';
 
 			if (count($children))
 			{
-				$this->_menu .= '<ul>';
+				$this->_menu .= '<ul class="dropdown-menu">';
 
 				foreach ($children as $child)
 					$this->getCategory((int)$child['id_category'], (int)$id_lang, (int)$child['id_shop']);
@@ -724,13 +724,13 @@ class Blocktopmenu extends Module
 	{
 		$this->user_groups =  ($this->context->customer->isLogged() ? $this->context->customer->getGroups() : array(Configuration::get('PS_UNIDENTIFIED_GROUP')));
 		$this->page_name = Dispatcher::getInstance()->getController();
-		if (!$this->isCached('blocktopmenu.tpl', $this->getCacheId()))
-		{
+		//if (!$this->isCached('blocktopmenu.tpl', $this->getCacheId()))
+		//{
 			$this->makeMenu();
 			$this->smarty->assign('MENU_SEARCH', Configuration::get('MOD_BLOCKTOPMENU_SEARCH'));
 			$this->smarty->assign('MENU', $this->_menu);
 			$this->smarty->assign('this_path', $this->_path);
-		}
+		//}
 
 		$this->context->controller->addJS($this->_path.'js/hoverIntent.js');
 		$this->context->controller->addJS($this->_path.'js/superfish-modified.js');

@@ -1,7 +1,7 @@
 {if $MENU != ''}
 	
 	<!-- Menu -->
-		<ul class="nav nav-pills pull-right">
+		<ul class="nav nav-pills">
 			{$MENU}
 			{if $MENU_SEARCH}
 				<li class="sf-search noBack" style="float:right">

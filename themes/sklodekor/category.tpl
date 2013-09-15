@@ -23,13 +23,13 @@
 *  International Registered Trademark & Property of PrestaShop SA
 *}
 <div class="sub-page-wrapper">
-<div class="container subcategory">
+<div class="container subcategory"><div class="spna12">
 {include file="$tpl_dir./breadcrumb.tpl"}
 {include file="$tpl_dir./errors.tpl"}
 
 {if isset($category)}
 	{if $category->id AND $category->active}
-		<h2 class="span12">
+		<h2>
 			{strip}
 				{$category->name|escape:'htmlall':'UTF-8'}
 				{if isset($categoryNameComplement)}
@@ -43,7 +43,7 @@
 		</div>-->
 		
 		{if $scenes || $category->description || $category->id_image}
-		<div class="content_scene_cat span12">
+		<div class="content_scene_cat">
 			{if $scenes}
 				<!-- Scenes -->
 				{include file="$tpl_dir./scenes.tpl" scenes=$scenes}
@@ -63,7 +63,7 @@
 					<p id="category_description_full" style="display:none">{$category->description}</p>
 					<a href="#" onclick="$('#category_description_short').hide(); $('#category_description_full').show(); $(this).hide(); return false;" class="lnk_more">{l s='More'}</a>
 				{else}
-					<p>{$category->description}</p>
+					<p>{$category->description}</p></div>
 				{/if}
 				</div>
 			{/if}

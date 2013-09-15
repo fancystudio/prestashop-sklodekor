@@ -26,7 +26,7 @@
 {capture name=path}{l s='Your shopping cart'}{/capture}
 {include file="$tpl_dir./breadcrumb.tpl"}
 
-<h1 id="cart_title">{l s='Shopping-cart summary'}</h1>
+<h2 id="cart_title">{l s='Shopping-cart summary'}</h2>
 
 {if isset($account_created)}
 	<p class="success">
@@ -55,7 +55,7 @@
 	</script>
 	<p style="display:none" id="emptyCartWarning" class="warning">{l s='Your shopping cart is empty.'}</p>
 {if isset($lastProductAdded) AND $lastProductAdded}
-	<div class="cart_last_product">
+	<div class="cart_last_product" style="display:none !important">
 		<div class="cart_last_product_header">
 			<div class="left">{l s='Last product added'}</div>
 		</div>
@@ -67,7 +67,7 @@
 		<br class="clear" />
 	</div>
 {/if}
-<p>{l s='Your shopping cart contains:'} <span id="summary_products_quantity">{$productNumber} {if $productNumber == 1}{l s='product'}{else}{l s='products'}{/if}</span></p>
+<p style="color:white">{l s='Your shopping cart contains:'} <span id="summary_products_quantity">{$productNumber} {if $productNumber == 1}{l s='product'}{else}{l s='products'}{/if}</span></p></div></div><div class="container opc-kosik-blok">
 <div id="order-detail-content" class="table_block">
 	<table id="cart_summary" class="std">
 		<thead>

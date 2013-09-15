@@ -176,9 +176,9 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 </script>
 <div class="sub-page-wrapper">
 <div class="container">
-<div class="row">
+
 {include file="$tpl_dir./breadcrumb.tpl"}
-</div></div>
+</div>
 
 <div class="container">
 <div class="row">

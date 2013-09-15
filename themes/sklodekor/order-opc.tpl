@@ -83,7 +83,7 @@
 	var isPaymentStep = {$isPaymentStep|intval};
 	//]]>
 </script>
-
+<div class="sub-page-wrapper">
 <div class="container">
 	{if $productNumber}
 		<!-- Shopping Cart -->

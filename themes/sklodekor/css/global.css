@@ -684,7 +684,7 @@ ul.idTabs li {
 }
 .cart_navigation .button,
 .cart_navigation .button_large {
-	
+	padding: 10px 10px 10px 10px !important;
 }
 
 
@@ -1250,7 +1250,7 @@ a.iframe {font-weight:bold}
 
 #order-opc .addresses {margin-bottom:20px}
 
-#order-opc #opc_delivery_methods h3 {margin-top:20px;}
+#order-opc #opc_delivery_methods h3 
 #order-opc #opc_delivery_methods textarea {
 	height:60px;
 	width:723px;

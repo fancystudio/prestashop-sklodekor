@@ -277,6 +277,8 @@ function deleteProductFromSummary(id)
 	var id_address_delivery = 0;
 	var id_kovanie = 0;
 	var id_vzor = 0;
+	var id_dvere = 0;
+	var id_zarubna = 0;
 	var ids = 0;
 	ids = id.split('_');
 	productId = parseInt(ids[0]);
@@ -290,6 +292,10 @@ function deleteProductFromSummary(id)
 		id_kovanie = parseInt(ids[4]);
 	if (typeof(ids[5]) !== 'undefined')
 		id_vzor = parseInt(ids[5]);
+	if (typeof(ids[6]) !== 'undefined')
+		id_dvere = parseInt(ids[6]);
+	if (typeof(ids[7]) !== 'undefined')
+		id_zarubna = parseInt(ids[7]);
 	$.ajax({
 		type: 'POST',
 		headers: { "cache-control": "no-cache" },
@@ -303,6 +309,8 @@ function deleteProductFromSummary(id)
 			+'&ipa='+productAttributeId
 			+'&kovanie_id='+id_kovanie
 			+'&vzor_id='+id_vzor
+			+'&dvere_id='+id_dvere
+			+'&zarubna_id='+id_zarubna
 			+'&id_address_delivery='+id_address_delivery 
 			+ ((customizationId !== 0) ? '&id_customization=' + customizationId : '')
 			+'&token=' + static_token
@@ -355,12 +363,14 @@ function deleteProductFromSummary(id)
 							&& jsonData.summary.products[i].id_address_delivery == id_address_delivery
 							&& jsonData.summary.products[i].id_kovanie == id_kovanie
 							&& jsonData.summary.products[i].id_vzor == id_vzor
+							&& jsonData.summary.products[i].id_dvere == id_dvere
+							&& jsonData.summary.products[i].id_zarubna == id_zarubna
 							&& (parseInt(jsonData.summary.products[i].customization_quantity) > 0))
 								exist = true;
 					}
 					// if all customization removed => delete product line
 					if (!exist && customizationId)
-						$('#product_' + productId + '_' + productAttributeId + '_0_' + id_address_delivery + '_' + id_kovanie + '_' + id_vzor).fadeOut('slow', function() {
+						$('#product_' + productId + '_' + productAttributeId + '_0_' + id_address_delivery + '_' + id_kovanie + '_' + id_vzor + '_' + id_dvere + '_' + id_zarubna).fadeOut('slow', function() {
 							$(this).remove();
 							var line = $('#product_' + productId + '_' + productAttributeId + '_nocustom_' + id_address_delivery);
 							if (line.length > 0)
@@ -427,6 +437,8 @@ function upQuantity(id, qty)
 	var id_address_delivery = 0;
 	var id_kovanie = 0;
 	var id_vzor = 0;
+	var id_dvere = 0;
+	var id_zarubna = 0;
 	var ids = 0;
 	ids = id.split('_');
 	productId = parseInt(ids[0]);
@@ -440,6 +452,10 @@ function upQuantity(id, qty)
 		id_kovanie = parseInt(ids[4]);
 	if (typeof(ids[5]) !== 'undefined')
 		id_vzor = parseInt(ids[5]);
+	if (typeof(ids[6]) !== 'undefined')
+		id_dvere = parseInt(ids[6]);
+	if (typeof(ids[7]) !== 'undefined')
+		id_zarubna = parseInt(ids[7]);
 
 	$.ajax({
 		type: 'POST',
@@ -457,6 +473,8 @@ function upQuantity(id, qty)
 			+'&ipa=' + productAttributeId
 			+'&kovanie_id='+id_kovanie
 			+'&vzor_id='+id_vzor
+			+'&dvere_id='+id_dvere
+			+'&zarubna_id='+id_zarubna
 			+'&id_address_delivery=' + id_address_delivery
 			+ ((customizationId !== 0) ? '&id_customization=' + customizationId : '')
 			+'&qty=' + qty
@@ -514,6 +532,8 @@ function downQuantity(id, qty)
 	var id_address_delivery = 0;
 	var id_kovanie = 0;
 	var id_vzor = 0;
+	var id_dvere = 0;
+	var id_zarubna = 0;
 	var ids = 0;
 	
 	ids = id.split('_');
@@ -528,6 +548,10 @@ function downQuantity(id, qty)
 		id_kovanie = parseInt(ids[4]);
 	if (typeof(ids[5]) !== 'undefined')
 		id_vzor = parseInt(ids[5]);
+	if (typeof(ids[6]) !== 'undefined')
+		id_dvere = parseInt(ids[6]);
+	if (typeof(ids[7]) !== 'undefined')
+		id_zarubna = parseInt(ids[7]);
 
 	if (newVal > 0 || $('#product_'+id+'_gift').length)
 	{
@@ -547,6 +571,8 @@ function downQuantity(id, qty)
 				+'&ipa='+productAttributeId
 				+'&kovanie_id='+id_kovanie
 				+'&vzor_id='+id_vzor
+				+'&dvere_id='+id_dvere
+				+'&zarubna_id='+id_zarubna
 				+'&id_address_delivery='+id_address_delivery
 				+'&op=down'
 				+ ((customizationId !== 0) ? '&id_customization='+customizationId : '')
@@ -639,8 +665,8 @@ function updateCartSummary(json)
 			if (initial_price !== '' && product_list[i].price_without_quantity_discount > product_list[i].price)
 				initial_price_text = '<span style="text-decoration:line-through;">' + initial_price + '</span><br />';
 
-		var key_for_blockcart = product_list[i].id_product + '_' + product_list[i].id_product_attribute + '_' + product_list[i].id_address_delivery + '_' + product_list[i].id_kovanie + '_' + product_list[i].id_vzor;
-		var key_for_blockcart_nocustom = product_list[i].id_product + '_' + product_list[i].id_product_attribute + '_' + ((product_list[i].quantity_without_customization != product_list[i].quantity)? 'nocustom' : '0') + '_' + product_list[i].id_address_delivery + '_' + product_list[i].id_kovanie + '_' + product_list[i].id_vzor;
+		var key_for_blockcart = product_list[i].id_product + '_' + product_list[i].id_product_attribute + '_' + product_list[i].id_address_delivery + '_' + product_list[i].id_kovanie + '_' + product_list[i].id_vzor + '_' + product_list[i].id_dvere + '_' + product_list[i].id_zarubna;
+		var key_for_blockcart_nocustom = product_list[i].id_product + '_' + product_list[i].id_product_attribute + '_' + ((product_list[i].quantity_without_customization != product_list[i].quantity)? 'nocustom' : '0') + '_' + product_list[i].id_address_delivery + '_' + product_list[i].id_kovanie + '_' + product_list[i].id_vzor + '_' + product_list[i].id_dvere + '_' + product_list[i].id_zarubna;
 
 		if (priceDisplayMethod !== 0)
 		{

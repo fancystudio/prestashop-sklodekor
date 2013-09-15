@@ -42,7 +42,7 @@ var ajaxCart = {
 		});
 		//for product page 'add' button...
 		$('#add_to_cart input').unbind('click').click(function(){
-			ajaxCart.add( $('#product_page_product_id').val(), $('#idCombination').val(), true, null, $('#quantity_wanted').val(), null, $('#idKovanie').val(), $('#idVzor').val());
+			ajaxCart.add( $('#product_page_product_id').val(), $('#idCombination').val(), true, null, $('#quantity_wanted').val(), null, $('#idKovanie').val(), $('#idVzor').val(), $('#idDvere').val(), $('#idZarubna').val());
 			return false;
 		});
 
@@ -54,6 +54,8 @@ var ajaxCart = {
 			var productAttributeId = 0;
 			var kovanieId = 0;
 			var vzorId = 0;
+			var dvereId = 0;
+			var zarubnaId = 0;
 			var idAddressDelivery = 0;
 			var customizableProductDiv = $($(this).parent().parent()).find("div[id^=deleteCustomizableProduct_]");
 
@@ -92,11 +94,17 @@ var ajaxCart = {
 				if (typeof(ids[4]) != 'undefined'){
 					vzorId = parseInt(ids[4]);
 				}
+				if (typeof(ids[5]) != 'undefined'){
+					dvereId = parseInt(ids[5]);
+				}
+				if (typeof(ids[6]) != 'undefined'){
+					zarubnaId = parseInt(ids[6]);
+				}
 			}
 			//var idAddressDelivery = $(this).parent().parent().attr('id').match(/.*_\d+_\d+_(\d+)/)[1];
 
 			// Removing product from the cart
-			ajaxCart.remove(productId, productAttributeId, customizationId, idAddressDelivery, kovanieId, vzorId);
+			ajaxCart.remove(productId, productAttributeId, customizationId, idAddressDelivery, kovanieId, vzorId, dvereId, zarubnaId);
 			return false;
 		});
 	},
@@ -187,7 +195,7 @@ var ajaxCart = {
 	},
 
 	// add a product in the cart via ajax
-	add : function(idProduct, idCombination, addedFromProductPage, callerElement, quantity, whishlist, idKovanie, idVzor){
+	add : function(idProduct, idCombination, addedFromProductPage, callerElement, quantity, whishlist, idKovanie, idVzor, idDvere, idZarubna){
 		if (addedFromProductPage && !checkCustomizations())
 		{
 			alert(fieldRequired);
@@ -215,7 +223,9 @@ var ajaxCart = {
 			dataType : "json",
 			data: 'controller=cart&add=1&ajax=true&qty=' + ((quantity && quantity != null) ? quantity : '1') + '&id_product=' + idProduct + '&token=' + static_token + ( (parseInt(idCombination) && idCombination != null) ? '&ipa=' + parseInt(idCombination): '')
 											+ ( (parseInt(idKovanie) && idKovanie != null) ? '&kovanie_id=' + parseInt(idKovanie): '')
-											+ ( (parseInt(idVzor) && idVzor != null) ? '&vzor_id=' + parseInt(idVzor): ''),
+											+ ( (parseInt(idVzor) && idVzor != null) ? '&vzor_id=' + parseInt(idVzor): '')
+											+ ( (parseInt(idDvere) && idDvere != null) ? '&dvere_id=' + parseInt(idDvere): '')
+											+ ( (parseInt(idZarubna) && idZarubna != null) ? '&zarubna_id=' + parseInt(idZarubna): ''),
 			success: function(jsonData,textStatus,jqXHR)
 			{
 				// add appliance to whishlist module
@@ -264,7 +274,7 @@ var ajaxCart = {
 	},
 
 	//remove a product from the cart via ajax
-	remove : function(idProduct, idCombination, customizationId, idAddressDelivery, idKovanie, idVzor){
+	remove : function(idProduct, idCombination, customizationId, idAddressDelivery, idKovanie, idVzor, idDvere, idZarubna){
 		//send the ajax request to the server
 		$.ajax({
 			type: 'POST',
@@ -273,11 +283,11 @@ var ajaxCart = {
 			async: true,
 			cache: false,
 			dataType : "json",
-			data: 'controller=cart&delete=1&id_product=' + idProduct + '&ipa=' + ((idCombination != null && parseInt(idCombination)) ? idCombination : '') + ((customizationId && customizationId != null) ? '&id_customization=' + customizationId : '') + '&id_address_delivery=' + idAddressDelivery + '&token=' + static_token + '&ajax=true' + ((idKovanie != null && parseInt(idKovanie)) ? '&kovanie_id=' + idKovanie : '') + ((idVzor != null && parseInt(idVzor)) ? '&vzor_id=' + idVzor : ''),
+			data: 'controller=cart&delete=1&id_product=' + idProduct + '&ipa=' + ((idCombination != null && parseInt(idCombination)) ? idCombination : '') + ((customizationId && customizationId != null) ? '&id_customization=' + customizationId : '') + '&id_address_delivery=' + idAddressDelivery + '&token=' + static_token + '&ajax=true' + ((idKovanie != null && parseInt(idKovanie)) ? '&kovanie_id=' + idKovanie : '') + ((idVzor != null && parseInt(idVzor)) ? '&vzor_id=' + idVzor : '') + ((idDvere != null && parseInt(idDvere)) ? '&dvere_id=' + idDvere : '') + ((idZarubna != null && parseInt(idZarubna)) ? '&zarubna_id=' + idZarubna : ''),
 			success: function(jsonData)	{
 				ajaxCart.updateCart(jsonData);
 				if ($('body').attr('id') == 'order' || $('body').attr('id') == 'order-opc'){
-					deleteProductFromSummary(idProduct+'_'+idCombination+'_'+customizationId+'_'+idAddressDelivery+'_'+idKovanie+'_'+idVzor);
+					deleteProductFromSummary(idProduct+'_'+idCombination+'_'+customizationId+'_'+idAddressDelivery+'_'+idKovanie+'_'+idVzor+'_'+idDvere+'_'+idZarubna);
 				}
 			},
 			error: function() {alert('ERROR: unable to delete the product');}
@@ -304,7 +314,7 @@ var ajaxCart = {
 				{
 					//we've called the variable aProduct because IE6 bug if this variable is called product
 					//if product has attributes
-					if (jsonData.products[aProduct]['id'] == ids[0] && (!ids[1] || jsonData.products[aProduct]['idCombination'] == ids[1]) && (!ids[3] || jsonData.products[aProduct]['idKovanie'] == ids[3])&& (!ids[4] || jsonData.products[aProduct]['idVzor'] == ids[4]))
+					if (jsonData.products[aProduct]['id'] == ids[0] && (!ids[1] || jsonData.products[aProduct]['idCombination'] == ids[1]) && (!ids[3] || jsonData.products[aProduct]['idKovanie'] == ids[3]) && (!ids[4] || jsonData.products[aProduct]['idVzor'] == ids[4]) && (!ids[5] || jsonData.products[aProduct]['idDvere'] == ids[5]) && (!ids[6] || jsonData.products[aProduct]['idZarubna'] == ids[6]))
 					{
 						stayInTheCart = true;
 						// update the product customization display (when the product is still in the cart)
@@ -363,7 +373,7 @@ var ajaxCart = {
 		}
 		var removeLinks = $('#cart_block_product_' + domIdProduct).find('a.ajax_cart_block_remove_link');
 		if (!product.hasCustomizedDatas && !removeLinks.length){		
-			$('#' + domIdProduct + ' span.remove_link').html('<a class="ajax_cart_block_remove_link" rel="nofollow" href="' + baseUri + '?controller=cart&amp;delete=1&amp;id_product=' + product['id'] + '&amp;ipa=' + product['idCombination'] + '&amp;token=' + static_token + (product['idKovanie'] ? '&amp;id_kovanie=' + product['idKovanie'] : '') + (product['idVzor'] ? '&amp;id_vzor=' + product['idVzor'] : '') + '"> </a>');					
+			$('#' + domIdProduct + ' span.remove_link').html('<a class="ajax_cart_block_remove_link" rel="nofollow" href="' + baseUri + '?controller=cart&amp;delete=1&amp;id_product=' + product['id'] + '&amp;ipa=' + product['idCombination'] + '&amp;token=' + static_token + (product['idKovanie'] ? '&amp;id_kovanie=' + product['idKovanie'] : '') + (product['idVzor'] ? '&amp;id_vzor=' + product['idVzor'] : '') +  (product['idDvere'] ? '&amp;id_dvere=' + product['idDvere'] : '') +  (product['idZarubna'] ? '&amp;id_zarubna=' + product['idZarubna'] : '') + '"> </a>');					
 		}
 		if (product.is_gift)
 			$('#' + domIdProduct + ' span.remove_link').html('');
@@ -417,7 +427,7 @@ var ajaxCart = {
 
 	// Update product quantity
 	updateProductQuantity : function (product, quantity) {
-		$('#cart_block_product_' + product.id + '_' + (product.idCombination ? product.idCombination : '0')+ '_' + (product.idAddressDelivery ? product.idAddressDelivery : '0') + '_' + (product.idKovanie ? product.idKovanie : '0') + '_' + (product.idVzor ? product.idVzor : '0') +' .quantity').fadeTo('fast', 0, function() {
+		$('#cart_block_product_' + product.id + '_' + (product.idCombination ? product.idCombination : '0')+ '_' + (product.idAddressDelivery ? product.idAddressDelivery : '0') + '_' + (product.idKovanie ? product.idKovanie : '0') + '_' + (product.idVzor ? product.idVzor : '0') + '_' + (product.idDvere ? product.idDvere : '0') + '_' + (product.idZarubna ? product.idZarubna : '0') +' .quantity').fadeTo('fast', 0, function() {
 			$(this).text(quantity);
 			$(this).fadeTo('fast', 1, function(){
 				$(this).fadeTo('fast', 0, function(){
@@ -447,7 +457,7 @@ var ajaxCart = {
 					$('#cart_block_no_products').hide();
 				}
 				//if product is not in the displayed cart, add a new product's line
-				var domIdProduct = this.id + '_' + (this.idCombination ? this.idCombination : '0') + '_' + (this.idAddressDelivery ? this.idAddressDelivery : '0') + '_' + (this.idKovanie ? this.idKovanie : '0') + '_' + (this.idVzor ? this.idVzor : '0');
+				var domIdProduct = this.id + '_' + (this.idCombination ? this.idCombination : '0') + '_' + (this.idAddressDelivery ? this.idAddressDelivery : '0') + '_' + (this.idKovanie ? this.idKovanie : '0') + '_' + (this.idVzor ? this.idVzor : '0') + '_' + (this.idDvere ? this.idDvere : '0') + '_' + (this.idZarubna ? this.idZarubna : '0');
 				var domIdProductAttribute = this.id + '_' + (this.idCombination ? this.idCombination : '0');
 				if ($('#cart_block_product_'+ domIdProduct).length == 0)
 				{
@@ -459,7 +469,7 @@ var ajaxCart = {
 					content += '<a href="' + this.link + '" title="' + this.name + '">' + name + '</a>';
 					
 					if (parseFloat(this.price_float) > 0)
-						content += '<span class="remove_link"><a rel="nofollow" class="ajax_cart_block_remove_link" href="' + baseUri + '?controller=cart&amp;delete=1&amp;id_product=' + productId + '&amp;token=' + static_token + (this.hasAttributes ? '&amp;ipa=' + parseInt(this.idCombination) : '') + (this.idKovanie ? '&amp;id_kovanie=' + parseInt(this.idKovanie) : '') + (this.idVzor ? '&amp;id_vzor=' + parseInt(this.idVzor) : '') + '"> </a></span>';
+						content += '<span class="remove_link"><a rel="nofollow" class="ajax_cart_block_remove_link" href="' + baseUri + '?controller=cart&amp;delete=1&amp;id_product=' + productId + '&amp;token=' + static_token + (this.hasAttributes ? '&amp;ipa=' + parseInt(this.idCombination) : '') + (this.idKovanie ? '&amp;id_kovanie=' + parseInt(this.idKovanie) : '') + (this.idVzor ? '&amp;id_vzor=' + parseInt(this.idVzor) : '') +  (this.idDvere ? '&amp;id_dvere=' + parseInt(this.idDvere) : '') +  (this.idZarubna ? '&amp;id_zarubna=' + parseInt(this.idZarubna) : '') + '"> </a></span>';
 					else
 						content += '<span class="remove_link"></span>';
 					if (typeof(freeProductTranslation) != 'undefined')
@@ -523,6 +533,8 @@ var ajaxCart = {
 		var productAttributeId = typeof(product.idCombination) == 'undefined' ? 0 : parseInt(product.idCombination);
 		var kovanieId = typeof(product.idKovanie) == 'undefined' ? 0 : parseInt(product.idKovanie);
 		var vzorId = typeof(product.idVzor) == 'undefined' ? 0 : parseInt(product.idVzor);
+		var dvereId = typeof(product.idDvere) == 'undefined' ? 0 : parseInt(product.idDvere);
+		var zarubnaId = typeof(product.idZarubna) == 'undefined' ? 0 : parseInt(product.idZarubna);
 		var hasAlreadyCustomizations = $('#customization_' + productId + '_' + productAttributeId).length;
 
 		if (!hasAlreadyCustomizations)
@@ -538,7 +550,7 @@ var ajaxCart = {
 			var done = 0;
 			customizationId = parseInt(this.customizationId);
 			productAttributeId = typeof(product.idCombination) == 'undefined' ? 0 : parseInt(product.idCombination);
-			content += '<li name="customization"><div class="deleteCustomizableProduct" id="deleteCustomizableProduct_' + customizationId + '_' + productId + '_' + (productAttributeId ?  productAttributeId : '0') + '_' + (kovanieId ?  kovanieId : '0') + '_' + (vzorId ?  vzorId : '0') + '"><a rel="nofollow" class="ajax_cart_block_remove_link" href="' + baseUri + '?controller=cart&amp;delete=1&amp;id_product=' + productId + '&amp;ipa=' + productAttributeId + '&amp;id_customization=' + customizationId + '&amp;token=' + static_token + '&amp;kovanie_id=' + kovanieId + '&amp;vzor_id=' + vzorId + '"></a></div><span class="quantity-formated"><span class="quantity">' + parseInt(this.quantity) + '</span>x</span>';
+			content += '<li name="customization"><div class="deleteCustomizableProduct" id="deleteCustomizableProduct_' + customizationId + '_' + productId + '_' + (productAttributeId ?  productAttributeId : '0') + '_' + (kovanieId ?  kovanieId : '0') + '_' + (vzorId ?  vzorId : '0') +  '_' + (dvereId ?  dvereId : '0') +  '_' + (zarubnaId ?  zarubnaId : '0') + '"><a rel="nofollow" class="ajax_cart_block_remove_link" href="' + baseUri + '?controller=cart&amp;delete=1&amp;id_product=' + productId + '&amp;ipa=' + productAttributeId + '&amp;id_customization=' + customizationId + '&amp;token=' + static_token + '&amp;kovanie_id=' + kovanieId + '&amp;vzor_id=' + vzorId +  '&amp;dvere_id=' + dvereId +  '&amp;zarubna_id=' + zarubnaId + '"></a></div><span class="quantity-formated"><span class="quantity">' + parseInt(this.quantity) + '</span>x</span>';
 			// Give to the customized product the first textfield value as name
 			$(this.datas).each(function(){
 				if (this['type'] == CUSTOMIZE_TEXTFIELD)

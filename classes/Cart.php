@@ -422,7 +422,7 @@ class CartCore extends ObjectModel
 		$sql = new DbQuery();
 
 		// Build SELECT
-		$sql->select('cp.`id_product_attribute`, cp.`id_product`, cp.`quantity` AS cart_quantity, cp.`id_kovanie`, cp.`id_vzor`, cp.id_shop, pl.`name`, p.`is_virtual`,
+		$sql->select('cp.`id_product_attribute`, cp.`id_product`, cp.`quantity` AS cart_quantity, cp.`id_kovanie`, cp.`id_vzor`, cp.`id_dvere`, cp.`id_zarubna`, cp.id_shop, pl.`name`, p.`is_virtual`,
 						pl.`description_short`, pl.`available_now`, pl.`available_later`, p.`id_product`, product_shop.`id_category_default`, p.`id_supplier`,
 						p.`id_manufacturer`, product_shop.`on_sale`, product_shop.`ecotax`, product_shop.`additional_shipping_cost`, product_shop.`available_for_order`, product_shop.`price`, p.`weight`,
 						stock.`quantity` quantity_available, p.`width`, p.`height`, p.`depth`, stock.`out_of_stock`, product_shop.`active`, p.`date_add`,
@@ -557,7 +557,9 @@ class CartCore extends ObjectModel
 					$cart_shop_context,
 					true,
 					(int)$row['id_kovanie'],
-					(int)$row['id_vzor']
+					(int)$row['id_vzor'],
+					(int)$row['id_dvere'],
+					(int)$row['id_zarubna']
 				); // Here taxes are computed only once the quantity has been applied to the product price
 
 				$row['price_wt'] = Product::getPriceStatic(
@@ -579,7 +581,9 @@ class CartCore extends ObjectModel
 					$cart_shop_context,
 					true,
 					(int)$row['id_kovanie'],
-					(int)$row['id_vzor']
+					(int)$row['id_vzor'],
+					(int)$row['id_dvere'],
+					(int)$row['id_zarubna']
 				);
 
 				$tax_rate = Tax::getProductTaxRate((int)$row['id_product'], (int)$address_id);
@@ -608,7 +612,9 @@ class CartCore extends ObjectModel
 					$cart_shop_context,
 					true,
 					(int)$row['id_kovanie'],
-					(int)$row['id_vzor']
+					(int)$row['id_vzor'],
+					(int)$row['id_dvere'],
+					(int)$row['id_zarubna']
 				);
 
 				$row['price_wt'] = Product::getPriceStatic(
@@ -630,7 +636,9 @@ class CartCore extends ObjectModel
 					$cart_shop_context,
 					true,
 					(int)$row['id_kovanie'],
-					(int)$row['id_vzor']
+					(int)$row['id_vzor'],
+					(int)$row['id_dvere'],
+					(int)$row['id_zarubna']
 				);
 				
 				// In case when you use QuantityDiscount, getPriceStatic() can be return more of 2 decimals
@@ -667,6 +675,8 @@ class CartCore extends ObjectModel
 			$row['features'] = Product::getFeaturesStatic((int)$row['id_product']);
 			$row['kovanie_popis'] = Product::getKovanieOrOtherAttribute((int)$row['id_kovanie'], $this->id_lang);
 			$row['vzor_popis'] = Product::getKovanieOrOtherAttribute((int)$row['id_vzor'], $this->id_lang);
+			$row['dvere_popis'] = Product::getKovanieOrOtherAttribute((int)$row['id_dvere'], $this->id_lang);
+			$row['zarubna_popis'] = Product::getKovanieOrOtherAttribute((int)$row['id_zarubna'], $this->id_lang);
 			
 			if (array_key_exists($row['id_product_attribute'].'-'.$this->id_lang, self::$_attributesLists))
 				$row = array_merge($row, self::$_attributesLists[$row['id_product_attribute'].'-'.$this->id_lang]);
@@ -796,7 +806,7 @@ class CartCore extends ObjectModel
 		return true;
 	}
 
-	public function containsProduct($id_product, $id_product_attribute = 0, $id_customization = false, $id_address_delivery = 0, $kovanie_id = null, $vzor_id = null)
+	public function containsProduct($id_product, $id_product_attribute = 0, $id_customization = false, $id_address_delivery = 0, $kovanie_id = null, $vzor_id = null, $dvere_id = null, $zarubna_id = null)
 	{
 		$sql = 'SELECT cp.`quantity` FROM `'._DB_PREFIX_.'cart_product` cp';
 
@@ -812,6 +822,8 @@ class CartCore extends ObjectModel
 			AND cp.`id_product_attribute` = '.(int)$id_product_attribute.'
 			AND cp.`id_kovanie` = '.(int)$kovanie_id.'
 			AND cp.`id_vzor` = '.(int)$vzor_id.'
+			AND cp.`id_dvere` = '.(int)$dvere_id.'
+			AND cp.`id_zarubna` = '.(int)$zarubna_id.'
 			AND cp.`id_cart` = '.(int)$this->id;
 		if (Configuration::get('PS_ALLOW_MULTISHIPPING') && $this->isMultiAddressDelivery())
 			$sql .= ' AND cp.`id_address_delivery` = '.(int)$id_address_delivery;
@@ -831,7 +843,7 @@ class CartCore extends ObjectModel
 	 * @param string $operator Indicate if quantity must be increased or decreased
 	 */
 	public function updateQty($quantity, $id_product, $id_product_attribute = null, $id_customization = false,
-		$operator = 'up', $id_address_delivery = 0, Shop $shop = null, $auto_add_cart_rule = true, $kovanie_id = null, $vzor_id = null)
+		$operator = 'up', $id_address_delivery = 0, Shop $shop = null, $auto_add_cart_rule = true, $kovanie_id = null, $vzor_id = null, $dvere_id = null, $zarubna_id = null)
 	{
 		if (!$shop)
 			$shop = Context::getContext()->shop;
@@ -880,7 +892,7 @@ class CartCore extends ObjectModel
 		else
 		{
 			/* Check if the product is already in the cart */
-			$result = $this->containsProduct($id_product, $id_product_attribute, (int)$id_customization, (int)$id_address_delivery, (int)$kovanie_id, (int)$vzor_id);
+			$result = $this->containsProduct($id_product, $id_product_attribute, (int)$id_customization, (int)$id_address_delivery, (int)$kovanie_id, (int)$vzor_id, (int)$dvere_id, (int)$zarubna_id);
 
 			/* Update quantity if product already exist */
 			if ($result)
@@ -922,11 +934,13 @@ class CartCore extends ObjectModel
 				else
 					Db::getInstance()->execute('
 						UPDATE `'._DB_PREFIX_.'cart_product`
-						SET `quantity` = `quantity` '.$qty.', `date_add` = NOW(), `id_kovanie` = '.$kovanie_id.', `id_vzor` = '.$vzor_id.'
+						SET `quantity` = `quantity` '.$qty.', `date_add` = NOW(), `id_kovanie` = '.$kovanie_id.', `id_vzor` = '.$vzor_id.', `id_dvere` = '.$dvere_id.', `id_zarubna` = '.$zarubna_id.'
 						WHERE `id_product` = '.(int)$id_product.
 						(!empty($id_product_attribute) ? ' AND `id_product_attribute` = '.(int)$id_product_attribute : '').
 						(!empty($kovanie_id) ? ' AND `id_kovanie` = '.(int)$kovanie_id : '').
-						(!empty($vzor_id) ? ' AND `id_vzor` = '.(int)$vzor_id : '').'
+						(!empty($vzor_id) ? ' AND `id_vzor` = '.(int)$vzor_id : '').
+						(!empty($dvere_id) ? ' AND `id_dvere` = '.(int)$dvere_id : '').
+						(!empty($zarubna_id) ? ' AND `id_zarubna` = '.(int)$zarubna_id : '').'
 						AND `id_cart` = '.(int)$this->id.(Configuration::get('PS_ALLOW_MULTISHIPPING') && $this->isMultiAddressDelivery() ? ' AND `id_address_delivery` = '.(int)$id_address_delivery : '').'
 						LIMIT 1'
 					);
@@ -961,7 +975,9 @@ class CartCore extends ObjectModel
 					'quantity' => 				(int)$quantity,
 					'date_add' => 				date('Y-m-d H:i:s'),
 					'id_kovanie' =>				$kovanie_id,
-					'id_vzor' =>				$vzor_id
+					'id_vzor' =>				$vzor_id,
+					'id_dvere' =>				$dvere_id,
+					'id_zarubna' =>				$zarubna_id
 				));
 
 				if (!$result_add)
@@ -1148,7 +1164,7 @@ class CartCore extends ObjectModel
 	 * @param integer $id_customization Customization id
 	 * @return boolean result
 	 */
-	public function deleteProduct($id_product, $id_product_attribute = null, $id_customization = null, $id_address_delivery = 0, $id_kovanie = null, $id_vzor = null)
+	public function deleteProduct($id_product, $id_product_attribute = null, $id_customization = null, $id_address_delivery = 0, $id_kovanie = null, $id_vzor = null, $id_dvere = null, $id_zarubna = null)
 	{
 		if (isset(self::$_nbProducts[$this->id]))
 			unset(self::$_nbProducts[$this->id]);
@@ -1200,7 +1216,8 @@ class CartCore extends ObjectModel
 				WHERE `id_cart` = '.(int)$this->id.'
 				AND `id_product` = '.(int)$id_product.'
 				AND `id_kovanie` = '.(int)$id_kovanie.'
-				AND `id_vzor` = '.(int)$id_vzor.
+				AND `id_dvere` = '.(int)$id_dvere.'
+				AND `id_zarubna` = '.(int)$id_zarubna.
 				($id_product_attribute != null ? ' AND `id_product_attribute` = '.(int)$id_product_attribute : '')
 			);
 		
@@ -1210,7 +1227,9 @@ class CartCore extends ObjectModel
 		WHERE `id_product` = '.(int)$id_product.'
 		'.(!is_null($id_product_attribute) ? ' AND `id_product_attribute` = '.(int)$id_product_attribute : '').
 		(!is_null($id_kovanie) ? ' AND `id_kovanie` = '.(int)$id_kovanie : '').
-		(!is_null($id_vzor) ? ' AND `id_vzor` = '.(int)$id_vzor : '').'
+		(!is_null($id_vzor) ? ' AND `id_vzor` = '.(int)$id_vzor : '').
+		(!is_null($id_dvere) ? ' AND `id_dvere` = '.(int)$id_dvere : '').
+		(!is_null($id_zarubna) ? ' AND `id_zarubna` = '.(int)$id_zarubna : '').'
 		AND `id_cart` = '.(int)$this->id.'
 		'.((int)$id_address_delivery ? 'AND `id_address_delivery` = '.(int)$id_address_delivery : ''));
 		
@@ -1420,7 +1439,9 @@ class CartCore extends ObjectModel
 					$virtual_context,
 					true,
 					$product['id_kovanie'],
-					$product['id_vzor']
+					$product['id_vzor'],
+					$product['id_dvere'],
+					$product['id_zarubna']
 				);
 
 				$total_ecotax = $product['ecotax'] * (int)$product['cart_quantity'];
@@ -1458,7 +1479,9 @@ class CartCore extends ObjectModel
 						$virtual_context,
 						true,
 						$product['id_kovanie'],
-						$product['id_vzor']
+						$product['id_vzor'],
+						$product['id_dvere'],
+						$product['id_zarubna']
 					);
 				else
 					$price = Product::getPriceStatic(
@@ -1480,7 +1503,9 @@ class CartCore extends ObjectModel
 						$virtual_context,
 						true,
 						$product['id_kovanie'],
-						$product['id_vzor']
+						$product['id_vzor'],
+						$product['id_dvere'],
+						$product['id_zarubna']
 					);
 
 				$total_price = Tools::ps_round($price * (int)$product['cart_quantity'], 2);

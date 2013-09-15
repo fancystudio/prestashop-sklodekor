@@ -104,6 +104,22 @@ function findCombination(firstTime)
 							}
 							$("#idVzor").attr("value",combinations[combination]['idCombination']);
 						}
+						if(attributesCombinations[attributesCombination]["group"] == "otvaraniedveri"){
+							if(combinations[combination]['specific_price']['price'] != 0){
+								typDvereActual = ps_round(((combinations[combination]['specific_price']['price']*taxRate)/100) + combinations[combination]['specific_price']['price']);
+							}else{
+								typDvereActual = ps_round(((combinations[combination]['price']*taxRate)/100) + combinations[combination]['price']);
+							}
+							$("#idDvere").attr("value",combinations[combination]['idCombination']);
+						}
+						if(attributesCombinations[attributesCombination]["group"] == "oblozkovazarubna"){
+							if(combinations[combination]['specific_price']['price'] != 0){
+								typZarubnaActual = ps_round(((combinations[combination]['specific_price']['price']*taxRate)/100) + combinations[combination]['specific_price']['price']);
+							}else{
+								typZarubnaActual = ps_round(((combinations[combination]['price']*taxRate)/100) + combinations[combination]['price']);
+							}
+							$("#idZarubna").attr("value",combinations[combination]['idCombination']);
+						}
 					}
 				}
 			}
@@ -409,12 +425,12 @@ function updateDisplay()
 
 		var our_price = '';
 		if (productPriceDisplay > 0) {
-			our_price = formatCurrency(productPriceDisplay + typKovaniaActual + typVzoruActual, currencyFormat, currencySign, currencyBlank);
+			our_price = formatCurrency(productPriceDisplay + typKovaniaActual + typVzoruActual + typDvereActual + typZarubnaActual, currencyFormat, currencySign, currencyBlank);
 		} else {
 			our_price = formatCurrency(0, currencyFormat, currencySign, currencyBlank);
 		}
 		$('#our_price_display').text(our_price);
-		$('#old_price_display').text(formatCurrency(productPriceWithoutReductionDisplay + typKovaniaActual + typVzoruActual, currencyFormat, currencySign, currencyBlank));
+		$('#old_price_display').text(formatCurrency(productPriceWithoutReductionDisplay + typKovaniaActual + typVzoruActual + typDvereActual + typZarubnaActual, currencyFormat, currencySign, currencyBlank));
 		if (productPriceWithoutReductionDisplay > productPriceDisplay)
 			$('#old_price,#old_price_display,#old_price_display_taxes').show();
 		else
@@ -551,21 +567,6 @@ $(document).ready(function()
 		function(){displayImage($(this));},
 		function(){}
 	);
-
-//	kovanieIsSelected = false; // tadeto cesta nevedie
-//	$(".kovanieClass ul li").each(function( index ) {
-//		if($(this).hasClass("selected")){
-//			kovanieIsSelected = true;
-//		}
-//		//console.log( index + ": " + $(this).text() );
-//	});
-//	if(!kovanieIsSelected){
-//		$('.kovanieClass ul li,.kovanieClass ul li a').eq(0).addClass("selected");
-//		idKovanie = $('.kovanieClass ul li a').eq(0).attr('id').replace('color_', '');
-//		$(".kovanieHidden").val(idKovanie);
-//		$("#idKovanie").val(92);//doplnit
-//		typKovaniaActual = 10;
-//	}
 	
 	//set jqZoom parameters if needed
 	if (typeof(jqZoomEnabled) != 'undefined' && jqZoomEnabled)

@@ -2453,7 +2453,7 @@ class ProductCore extends ObjectModel
 	public static function getPriceStatic($id_product, $usetax = true, $id_product_attribute = null, $decimals = 6, $divisor = null,
 		$only_reduc = false, $usereduc = true, $quantity = 1, $force_associated_tax = false, $id_customer = null, $id_cart = null,
 		$id_address = null, &$specific_price_output = null, $with_ecotax = true, $use_group_reduction = true, Context $context = null,
-		$use_customer_price = true, $id_kovanie = null, $id_vzor = null)
+		$use_customer_price = true, $id_kovanie = null, $id_vzor = null, $id_dvere = null, $id_zarubna = null)
 	{
 		if (!$context)
 			$context = Context::getContext();
@@ -2560,7 +2560,9 @@ class ProductCore extends ObjectModel
 			$id_cart, 
 			$quantity,
 			$id_kovanie, 
-			$id_vzor
+			$id_vzor,
+			$id_dvere,
+			$id_zarubna
 		);
 	}
 
@@ -2586,7 +2588,7 @@ class ProductCore extends ObjectModel
 	**/
 	public static function priceCalculation($id_shop, $id_product, $id_product_attribute, $id_country, $id_state, $zipcode, $id_currency,
 		$id_group, $quantity, $use_tax, $decimals, $only_reduc, $use_reduc, $with_ecotax, &$specific_price, $use_group_reduction,
-		$id_customer = 0, $use_customer_price = true, $id_cart = 0, $real_quantity = 0, $id_kovanie = null, $id_vzor = null)
+		$id_customer = 0, $use_customer_price = true, $id_cart = 0, $real_quantity = 0, $id_kovanie = null, $id_vzor = null, $id_dvere = null, $id_zarubna = null)
 	{
 		static $address = null;
 		static $context = null;
@@ -2607,7 +2609,7 @@ class ProductCore extends ObjectModel
 			$id_product_attribute = Product::getDefaultAttribute($id_product);
 	
 		$cache_id = $id_product.'-'.$id_shop.'-'.$id_currency.'-'.$id_country.'-'.$id_state.'-'.$zipcode.'-'.$id_group.
-			'-'.$quantity.'-'.$id_product_attribute.'-'.$id_kovanie.'-'.$id_vzor.'-'.($use_tax?'1':'0').'-'.$decimals.'-'.($only_reduc?'1':'0').
+			'-'.$quantity.'-'.$id_product_attribute.'-'.$id_kovanie.'-'.$id_vzor.'-'.$id_dvere.'-'.$id_zarubna.'-'.($use_tax?'1':'0').'-'.$decimals.'-'.($only_reduc?'1':'0').
 			'-'.($use_reduc?'1':'0').'-'.$with_ecotax.'-'.$id_customer.'-'.(int)$use_group_reduction.'-'.(int)$id_cart.'-'.(int)$real_quantity;
 
 		// reference parameter is filled before any returns
@@ -2646,7 +2648,22 @@ class ProductCore extends ObjectModel
 			$sql->where('pa.`id_product_attribute` = '.(int)$id_vzor);
 			$vzorPriceArray = Db::getInstance()->getRow($sql);	
 		}
-		
+		if($id_dvere != null || (int)$id_dvere != 0){
+			$sql = new DbQuery();
+			$sql->select('pa.`price`,pa.`ecotax`,sp.`price` AS `specific_price`');
+			$sql->from('product_attribute', 'pa');
+			$sql->leftJoin('specific_price', 'sp', 'pa.`id_product_attribute` = sp.`id_product_attribute`');
+			$sql->where('pa.`id_product_attribute` = '.(int)$id_dvere);
+			$dverePriceArray = Db::getInstance()->getRow($sql);	
+		}
+		if($id_zarubna != null || (int)$id_zarubna != 0){
+			$sql = new DbQuery();
+			$sql->select('pa.`price`,pa.`ecotax`,sp.`price` AS `specific_price`');
+			$sql->from('product_attribute', 'pa');
+			$sql->leftJoin('specific_price', 'sp', 'pa.`id_product_attribute` = sp.`id_product_attribute`');
+			$sql->where('pa.`id_product_attribute` = '.(int)$id_zarubna);
+			$zarubnaPriceArray = Db::getInstance()->getRow($sql);	
+		}
 		if (!isset(self::$_pricesLevel2[$cache_id_2]))
 		{
 			$sql = new DbQuery();
@@ -2707,6 +2724,14 @@ class ProductCore extends ObjectModel
 		if ($vzorPriceArray){
 			$vzorPrice = Tools::convertPrice(($vzorPriceArray['specific_price']) ? $vzorPriceArray['specific_price'] : $vzorPriceArray['price'], $id_currency);
 			$price += $vzorPrice;
+		}
+		if ($dverePriceArray){
+			$dverePrice = Tools::convertPrice(($dverePriceArray['specific_price']) ? $dverePriceArray['specific_price'] : $dverePriceArray['price'], $id_currency);
+			$price += $dverePrice;
+		}
+		if ($zarubnaPriceArray){
+			$zarubnaPrice = Tools::convertPrice(($zarubnaPriceArray['specific_price']) ? $zarubnaPriceArray['specific_price'] : $zarubnaPriceArray['price'], $id_currency);
+			$price += $zarubnaPrice;
 		}
 		// Tax
 		$address->id_country = $id_country;

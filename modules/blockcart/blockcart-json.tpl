@@ -40,10 +40,12 @@
 		"idAddressDelivery": {if isset($product.id_address_delivery)}{$product.id_address_delivery}{else}0{/if},
 		"idKovanie": {if isset($product.id_kovanie)}{$product.id_kovanie}{else}0{/if},
 		"idVzor": {if isset($product.id_vzor)}{$product.id_vzor}{else}0{/if},
+		"idDvere": {if isset($product.id_dvere)}{$product.id_dvere}{else}0{/if},
+		"idZarubna": {if isset($product.id_zarubna)}{$product.id_zarubna}{else}0{/if},
 		"is_gift" : {if isset($product.is_gift) && $product.is_gift}1{else}0{/if},
 {if isset($product.attributes_small)}
 		"hasAttributes": true,
-		"attributes":    "{$product.attributes_small|addslashes|replace:'\\\'':'\''}{if $product.kovanie_popis}, {$product.kovanie_popis}{/if}{if $product.vzor_popis}, {$product.vzor_popis}{/if}",
+		"attributes":    "{$product.attributes_small|addslashes|replace:'\\\'':'\''}{if $product.kovanie_popis}, {$product.kovanie_popis}{/if}{if $product.vzor_popis}, {$product.vzor_popis}{/if}{if $product.dvere_popis}, {$product.dvere_popis}{/if}{if $product.zarubna_popis}, {$product.zarubna_popis}{/if}",
 {else}
 		"hasAttributes": false,
 {/if}

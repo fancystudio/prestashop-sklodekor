@@ -55,6 +55,8 @@ var taxRate = {$tax_rate|floatval};
 var jqZoomEnabled = {if $jqZoomEnabled}true{else}false{/if};
 var typKovaniaActual = 0;
 var typVzoruActual = 0;
+var typDvereActual = 0;
+var typZarubnaActual = 0;
 //JS Hook
 var oosHookJsCodeFunctions = new Array();
 
@@ -471,6 +473,8 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 				<input type="hidden" name="id_product_attribute" id="idCombination" value="" />
 				<input type="hidden" name="id_kovanie" id="idKovanie" value="" />
 				<input type="hidden" name="id_vzor" id="idVzor" value="" />
+				<input type="hidden" name="id_dvere" id="idDvere" value="" />
+				<input type="hidden" name="id_zarubna" id="idZarubna" value="" />
 			</p>
 
 			<div class="product_attributes">
@@ -482,7 +486,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 				{foreach from=$groups key=id_attribute_group item=group}
 					{if $group.attributes|@count}
 						{if $group.name != "výška"}
-						<fieldset class="attribute_fieldset group_{$id_attribute_group|intval} {if $group.name == 'Vzor'}vzoryClass{/if}{if $group.name == 'Otváranie dverí'}dvereClass{/if}{if $group.name == 'Typ skla'}typSklaClass{/if}{if $group.name == 'Kovanie'}kovanieClass{/if}{if $group.name == 'Rozmer'}rozmerClass{/if}">
+						<fieldset class="attribute_fieldset group_{$id_attribute_group|intval} {if $group.name == 'Vzor'}vzoryClass{/if}{if $group.name == 'Otváranie dverí'}dvereClass{/if}{if $group.name == 'Typ skla'}typSklaClass{/if}{if $group.name == 'Kovanie'}kovanieClass{/if}{if $group.name == 'Rozmer'}rozmerClass{/if}{if $group.name == 'Oblôžková zárubňa'}zarubnaClass{/if}">
 						{/if}
 							{if $group.name != 'výška'}
 								<span>{$index}.</span>
@@ -559,7 +563,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 											.parent().addClass("selected");
 									</script>
 									{/if}									
-								<input type="hidden" class="color_pick_hidden kovanieHidden" name="{$groupName}" value="{if !empty($default_colorpicker)}{$default_colorpicker}{else}{$first_colorpicker}{/if}" />
+								<input type="hidden" class="color_pick_hidden" name="{$groupName}" value="{if !empty($default_colorpicker)}{$default_colorpicker}{else}{$first_colorpicker}{/if}" />
 								{/if}
 							{elseif ($group.group_type == 'radio')}
 								<ul>

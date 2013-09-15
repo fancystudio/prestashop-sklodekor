@@ -34,6 +34,8 @@ class CartControllerCore extends FrontController
 	protected $customization_id;
 	protected $kovanie_id;
 	protected $vzor_id;
+	protected $dvere_id;
+	protected $zarubna_id;
 	protected $qty;
 
 	protected $ajax_refresh = false;
@@ -60,6 +62,8 @@ class CartControllerCore extends FrontController
 		$this->qty = abs(Tools::getValue('qty', 1));
 		$this->kovanie_id = (int)Tools::getValue('kovanie_id');
 		$this->vzor_id = (int)Tools::getValue('vzor_id');
+		$this->dvere_id = (int)Tools::getValue('dvere_id');
+		$this->zarubna_id = (int)Tools::getValue('zarubna_id');
 		$this->id_address_delivery = (int)Tools::getValue('id_address_delivery');
 	}
 
@@ -106,7 +110,7 @@ class CartControllerCore extends FrontController
 	 */
 	protected function processDeleteProductInCart()
 	{
-		if ($this->context->cart->deleteProduct($this->id_product, $this->id_product_attribute, $this->customization_id, $this->id_address_delivery, $this->kovanie_id, $this->vzor_id))
+		if ($this->context->cart->deleteProduct($this->id_product, $this->id_product_attribute, $this->customization_id, $this->id_address_delivery, $this->kovanie_id, $this->vzor_id, $this->dvere_id, $this->zarubna_id))
 		{
 			if (!Cart::getNbProducts((int)($this->context->cart->id)))
 			{
@@ -234,7 +238,7 @@ class CartControllerCore extends FrontController
 			if (!$this->errors)
 			{
 				$cart_rules = $this->context->cart->getCartRules();
-				$update_quantity = $this->context->cart->updateQty($this->qty, $this->id_product, $this->id_product_attribute, $this->customization_id, Tools::getValue('op', 'up'), $this->id_address_delivery, null, true, $this->kovanie_id, $this->vzor_id);
+				$update_quantity = $this->context->cart->updateQty($this->qty, $this->id_product, $this->id_product_attribute, $this->customization_id, Tools::getValue('op', 'up'), $this->id_address_delivery, null, true, $this->kovanie_id, $this->vzor_id, $this->dvere_id, $this->zarubna_id);
 				if ($update_quantity < 0)
 				{
 					// If product has attribute, minimal quantity is set with minimal quantity of attribute

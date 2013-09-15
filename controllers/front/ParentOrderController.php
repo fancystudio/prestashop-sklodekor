@@ -328,7 +328,9 @@ class ParentOrderControllerCore extends FrontController
 				$cart_product_context,
 				true,
 				$product['id_kovanie'],
-				$product['id_vzor']);
+				$product['id_vzor'],
+				$product['id_dvere'],
+				$product['id_zarubna']);
 
 			if (Product::getTaxCalculationMethod()){
 				$product['is_discounted'] = $product['price_without_specific_price'] != $product['price'];

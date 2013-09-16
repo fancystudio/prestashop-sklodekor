@@ -489,9 +489,10 @@ var ajaxCart = {
 					var jsonProduct = this;
 					if($.trim($('#cart_block_product_' + domIdProduct + ' .quantity').html()) != jsonProduct.quantity || $.trim($('#cart_block_product_' + domIdProduct + ' .price').html()) != jsonProduct.priceByLine)
 					{
+						console.log("jsonProduct.priceByLine: " + jsonProduct.priceByLine);
 						// Usual product
 						if (!this.is_gift)
-							$('#cart_block_product_' + domIdProduct + ' .price').text(jsonProduct.priceByLine);
+							$('#cart_block_product_' + domIdProduct + ' .price').text(((jsonProduct.priceByLine == "0,00 €") ? "zadarmo" : jsonProduct.priceByLine));
 						else
 							$('#cart_block_product_' + domIdProduct + ' .price').html(freeProductTranslation);
 						ajaxCart.updateProductQuantity(jsonProduct, jsonProduct.quantity);

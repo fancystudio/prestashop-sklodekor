@@ -115,8 +115,10 @@ function findCombination(firstTime)
 						if(attributesCombinations[attributesCombination]["group"] == "oblozkovazarubna"){
 							if(combinations[combination]['specific_price']['price'] != 0){
 								typZarubnaActual = ps_round(((combinations[combination]['specific_price']['price']*taxRate)/100) + combinations[combination]['specific_price']['price']);
+								console.log("typZarubnaActual: " + typZarubnaActual);
 							}else{
 								typZarubnaActual = ps_round(((combinations[combination]['price']*taxRate)/100) + combinations[combination]['price']);
+								console.log("typZarubnaActual: " + typZarubnaActual);
 							}
 							$("#idZarubna").attr("value",combinations[combination]['idCombination']);
 						}
@@ -424,12 +426,14 @@ function updateDisplay()
 		productPriceWithoutReductionDisplay += ecotaxAmount;
 
 		var our_price = '';
+		console.log("productPriceDisplay: " + productPriceDisplay);
 		if (productPriceDisplay > 0) {
 			our_price = formatCurrency(productPriceDisplay + typKovaniaActual + typVzoruActual + typDvereActual + typZarubnaActual, currencyFormat, currencySign, currencyBlank);
 		} else {
-			our_price = formatCurrency(0, currencyFormat, currencySign, currencyBlank);
+			//our_price = formatCurrency(0, currencyFormat, currencySign, currencyBlank);
+			our_price = "<span class='telKontakt'>Po zadani dopytu vas budeme telefonicky kontaktovat</span>";
 		}
-		$('#our_price_display').text(our_price);
+		$('#our_price_display').html(our_price);
 		$('#old_price_display').text(formatCurrency(productPriceWithoutReductionDisplay + typKovaniaActual + typVzoruActual + typDvereActual + typZarubnaActual, currencyFormat, currencySign, currencyBlank));
 		if (productPriceWithoutReductionDisplay > productPriceDisplay)
 			$('#old_price,#old_price_display,#old_price_display_taxes').show();
@@ -625,6 +629,7 @@ $(document).ready(function()
 		selectClickedOptionVzory(this);
 	});
 	
+	lockRozmer();
 	configureProductInfoListener();
 });
 
@@ -846,5 +851,17 @@ function configureProductInfoListener(){
 		.html(
 			$(this).attr("alt")
 		);
+	});
+}
+function lockRozmer(){
+	$('.rozmerClass select').change(function() {
+		if($(this).attr("title") == "atypický rozmer"){
+			if($(this).parent().hasClass("vyska")){
+				$('.rozmerClass select')
+			}
+			if($(this).parent().hasClass("sirka")){
+				
+			}
+		}
 	});
 }

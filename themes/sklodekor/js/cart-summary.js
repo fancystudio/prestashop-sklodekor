@@ -670,23 +670,25 @@ function updateCartSummary(json)
 
 		if (priceDisplayMethod !== 0)
 		{
-			$('#product_price_' + key_for_blockcart).html(initial_price_text + current_price);
+			console.log("current_price1: " + current_price);
+			$('#product_price_' + key_for_blockcart).html(initial_price_text +  ((current_price == "0,00 €") ? "zadarmo" : current_price));
 			if (typeof(product_list[i].customizationQuantityTotal) !== 'undefined' && product_list[i].customizationQuantityTotal > 0)			
-				$('#total_product_price_' + key_for_blockcart).html(formatCurrency(product_list[i].total_customization, currencyFormat, currencySign, currencyBlank));
+				$('#total_product_price_' + key_for_blockcart).html(((product_list[i].total_customization == 0) ? "zadarmo" : formatCurrency(product_list[i].total_customization, currencyFormat, currencySign, currencyBlank)));
 			else
-				$('#total_product_price_' + key_for_blockcart).html(formatCurrency(product_list[i].total, currencyFormat, currencySign, currencyBlank));
+				$('#total_product_price_' + key_for_blockcart).html(((product_list[i].total == 0) ? "zadarmno" : formatCurrency(product_list[i].total, currencyFormat, currencySign, currencyBlank)));
 			if (product_list[i].quantity_without_customization != product_list[i].quantity)
-				$('#total_product_price_' + key_for_blockcart_nocustom).html(formatCurrency(product_list[i].total, currencyFormat, currencySign, currencyBlank));				
+				$('#total_product_price_' + key_for_blockcart_nocustom).html(((product_list[i].total == 0) ? "zadarmo" : formatCurrency(product_list[i].total, currencyFormat, currencySign, currencyBlank)));				
 		}
 		else
 		{	
-			$('#product_price_' + key_for_blockcart).html(initial_price_text + current_price);
+			console.log("current_price2: " + current_price);
+			$('#product_price_' + key_for_blockcart).html(initial_price_text + ((current_price == "0,00 €") ? "zadarmo" : current_price));
 			if (typeof(product_list[i].customizationQuantityTotal) !== 'undefined' && product_list[i].customizationQuantityTotal > 0)
-				$('#total_product_price_' + key_for_blockcart).html(formatCurrency(product_list[i].total_customization_wt, currencyFormat, currencySign, currencyBlank));
+				$('#total_product_price_' + key_for_blockcart).html(((product_list[i].total_customization_wt == 0) ? "zadarmo" : formatCurrency(product_list[i].total_customization_wt, currencyFormat, currencySign, currencyBlank)));
 			else
-				$('#total_product_price_' + key_for_blockcart).html(formatCurrency(product_list[i].total_wt, currencyFormat, currencySign, currencyBlank));
+				$('#total_product_price_' + key_for_blockcart).html(((product_list[i].total_wt == 0) ? "zadarmo" : formatCurrency(product_list[i].total_wt, currencyFormat, currencySign, currencyBlank)));
 			if (product_list[i].quantity_without_customization != product_list[i].quantity)
-				$('#total_product_price_' + key_for_blockcart_nocustom).html(formatCurrency(product_list[i].total_wt, currencyFormat, currencySign, currencyBlank));									
+				$('#total_product_price_' + key_for_blockcart_nocustom).html(((product_list[i].total_wt == 0) ? "zadarmo" : formatCurrency(product_list[i].total_wt, currencyFormat, currencySign, currencyBlank)));									
 		}
 		$('input[name=quantity_' + key_for_blockcart_nocustom + ']').val(product_list[i].quantity_without_customization);
 		$('input[name=quantity_' + key_for_blockcart_nocustom + '_hidden]').val(product_list[i].quantity_without_customization);

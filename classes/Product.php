@@ -2716,22 +2716,23 @@ class ProductCore extends ObjectModel
 			if ($id_product_attribute !== false)
 				$price += $attribute_price;
 		}
-		if ($kovaniePriceArray){
-			
-			$kovaniePrice = Tools::convertPrice(($kovaniePriceArray['specific_price']) ? $kovaniePriceArray['specific_price'] : $kovaniePriceArray['price'], $id_currency);
-			$price += $kovaniePrice;
-		}
-		if ($vzorPriceArray){
-			$vzorPrice = Tools::convertPrice(($vzorPriceArray['specific_price']) ? $vzorPriceArray['specific_price'] : $vzorPriceArray['price'], $id_currency);
-			$price += $vzorPrice;
-		}
-		if ($dverePriceArray){
-			$dverePrice = Tools::convertPrice(($dverePriceArray['specific_price']) ? $dverePriceArray['specific_price'] : $dverePriceArray['price'], $id_currency);
-			$price += $dverePrice;
-		}
-		if ($zarubnaPriceArray){
-			$zarubnaPrice = Tools::convertPrice(($zarubnaPriceArray['specific_price']) ? $zarubnaPriceArray['specific_price'] : $zarubnaPriceArray['price'], $id_currency);
-			$price += $zarubnaPrice;
+		if($price > 0){
+			if ($kovaniePriceArray){
+				$kovaniePrice = Tools::convertPrice(($kovaniePriceArray['specific_price']) ? $kovaniePriceArray['specific_price'] : $kovaniePriceArray['price'], $id_currency);
+				$price += $kovaniePrice;
+			}
+			if ($vzorPriceArray){
+				$vzorPrice = Tools::convertPrice(($vzorPriceArray['specific_price']) ? $vzorPriceArray['specific_price'] : $vzorPriceArray['price'], $id_currency);
+				$price += $vzorPrice;
+			}
+			if ($dverePriceArray){
+				$dverePrice = Tools::convertPrice(($dverePriceArray['specific_price']) ? $dverePriceArray['specific_price'] : $dverePriceArray['price'], $id_currency);
+				$price += $dverePrice;
+			}
+			if ($zarubnaPriceArray){
+				$zarubnaPrice = Tools::convertPrice(($zarubnaPriceArray['specific_price']) ? $zarubnaPriceArray['specific_price'] : $zarubnaPriceArray['price'], $id_currency);
+				$price += $zarubnaPrice;
+			}
 		}
 		// Tax
 		$address->id_country = $id_country;

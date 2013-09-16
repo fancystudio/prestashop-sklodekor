@@ -41,9 +41,17 @@
 					<span style="text-decoration:line-through;">{convertPrice price=$product.price_without_specific_price}</span><br />
 				{/if}
 				{if !$priceDisplay}
-					{convertPrice price=$product.price_wt}
+					{if $product.price_wt == 0}
+						<span class="telKontakt">zadarmo</span>
+					{else}
+						{convertPrice price=$product.price_wt}
+					{/if}
 				{else}
-					{convertPrice price=$product.price}
+					{if $product.price == 0}
+						<span class="telKontakt">zadarmo</span>
+					{else}
+						{convertPrice price=$product.price}
+					{/if}
 				{/if}
 			{/if}
 		</span>
@@ -85,9 +93,33 @@
 				<span class="gift-icon">{l s='Gift!'}</span>
 			{else}
 				{if $quantityDisplayed == 0 AND isset($customizedDatas.$productId.$productAttributeId)}
-					{if !$priceDisplay}{displayPrice price=$product.total_customization_wt}{else}{displayPrice price=$product.total_customization}{/if}
+					{if !$priceDisplay}
+						{if $product.total_customization_wt == 0}
+							<span class="telKontakt">zadarmo</span>
+						{else}
+							{displayPrice price=$product.total_customization_wt}
+						{/if}
+					{else}
+						{if $product.total_customization == 0}
+							<span class="telKontakt">zadarmo</span>
+						{else}
+							{displayPrice price=$product.total_customization}
+						{/if}
+					{/if}
 				{else}
-					{if !$priceDisplay}{displayPrice price=$product.total_wt}{else}{displayPrice price=$product.total}{/if}
+					{if !$priceDisplay}
+						{if $product.total_wt == 0}
+							<span class="telKontakt">zadarmo</span>
+						{else}
+							{displayPrice price=$product.total_wt}
+						{/if}
+					{else}
+						{if $product.total == 0}
+							<span class="telKontakt">zadarmo</span>
+						{else}
+							{displayPrice price=$product.total}
+						{/if}
+					{/if}
 				{/if}
 			{/if}
 		</span>

@@ -316,10 +316,19 @@ h3 .inner-text {
 	
 }
 
-#login_form h3, .carrier_title, .condition_title, #opc_delivery_methods h3{
+#login_form h3, .carrier_title, .condition_title, #opc_delivery_methods h3, #create-account_form h3 {
 	background: none !important
 	}
 	
+#login_form h3, #create-account_form h3 {
+	padding-left: 10px !important
+	}
+	
+	
+.form_content .text{
+	padding-bottom: 0px
+	}
+		
 .opc-main-block h4 {
 	margin: 60px 0 20px 0;
 	}
@@ -454,3 +463,6 @@ top: 59px;
 left: 9px;
 padding: 0;
 }
+#opc_account_form p{
+	padding-bottom: 5px
+	}

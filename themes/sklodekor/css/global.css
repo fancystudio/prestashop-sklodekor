@@ -941,7 +941,7 @@ table#cart_summary .gift-icon {
 }
 #create-account_form .title_block  {
 	padding-bottom:22px;
-	font-size:11px;
+	font-size:14px;
 	color:#333
 }
 
@@ -978,7 +978,8 @@ table#cart_summary .gift-icon {
 
 .lost_password {
 	float:left;
-	width:200px
+	width:200px;
+	margin-bottom: 0px !important
 }
 .lost_password a {color:#666}
 

@@ -22,7 +22,8 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
-
+<div class="sub-page-wrapper">
+<div class="container">
 {capture name=path}{l s='Login'}{/capture}
 {include file="$tpl_dir./breadcrumb.tpl"}
 
@@ -69,7 +70,8 @@ $(document).ready(function() {
 {/literal}
 </script>
 
-<h1>{if !isset($email_create)}{l s='Log in'}{else}{l s='Create an account'}{/if}</h1>
+<h2>{if !isset($email_create)}{l s='Log in'}{else}{l s='Create an account'}{/if}</h2>
+</div><!--container--></div><div class="container" style="margin-bottom: 86px; margin-top: 80px">
 {if !isset($back) || $back != 'my-account'}{assign var='current_step' value='login'}{include file="$tpl_dir./order-steps.tpl"}{/if} 
 {include file="$tpl_dir./errors.tpl"}
 {assign var='stateExist' value=false}
@@ -579,3 +581,5 @@ $(document).ready(function() {
 	</p>
 </form>
 {/if}
+<div style="clear:both"></div>
+</div><!-- container -->

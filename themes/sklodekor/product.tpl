@@ -361,8 +361,14 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
             <p><span class="widthConfigure">800</span>x<span class="heightConfigure">2000</span>mm</p>
             <p><span>Povrchová úprava:</span></p>
             <p class="typSklaConfigure">grafická potlač</p>
-            <p><span>kovanie:</span></p>
-            <p>studio rondo</p>
+            <p class="kovanieConfigureTitle"><span>kovanie:</span></p>
+            <p class="kovanieConfigure"></p> 
+            <p class="vzorConfigureTitle"><span>vzor:</span></p>
+            <p class="vzorConfigure"></p> 
+            <p class="dvereConfigureTitle"><span>otvárani dverí:</span></p>
+            <p class="dvereConfigure"></p>
+            <p class="zarubnaConfigureTitle"><span>oblôžková zárubňa:</span></p>
+            <p class="zarubnaConfigure"></p> 
             </div><!-- configure-product-attr-bo-->
             </div>
 			
@@ -497,10 +503,9 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 							{if $group.name == "výška" || $group.name == "Rozmer"}
 							<span class="dropDownName">{if $group.name == "výška"}{$group.name}: {/if}{if $group.name == "Rozmer"}šírka: {/if}</span>
 							{/if}
-							<div class="attribute_list">
+							<div class="attribute_list {if $group.name == "výška"}vyska{/if}{if $group.name == "Rozmer"}sirka{/if}">
 							{if ($group.group_type == 'select')}
-							
-								<select name="{$groupName}" id="group_{$id_attribute_group|intval}" class="attribute_select {if $group.name == "výška"}vyska{/if}{if $group.name == "Rozmer"}sirka{/if}" onchange="findCombination();getProductAttribute();">
+								<select name="{$groupName}" id="group_{$id_attribute_group|intval}" class="attribute_select" onchange="findCombination();getProductAttribute();">
 									{foreach from=$group.attributes key=id_attribute item=group_attribute}
 										<option value="{$id_attribute|intval}"{if (isset($smarty.get.$groupName) && $smarty.get.$groupName|intval == $id_attribute) || $group.default == $id_attribute} selected="selected"{/if} title="{$group_attribute|escape:'htmlall':'UTF-8'}">{$group_attribute|escape:'htmlall':'UTF-8'}</option>
 									{/foreach}

@@ -702,6 +702,8 @@ function colorPickerClick(elt)
 			$("#idVzor").val("");
 			typVzoruActual = 0;
 			$(".vzoryClass").fadeOut(300);
+			$(".vzorConfigure").fadeOut(300);
+			$(".vzorConfigureTitle").fadeOut(300);
 		}else{
 			$(".vzoryClass").fadeIn(300);
 		}
@@ -829,6 +831,7 @@ function configureProductInfoListener(){
 		.html(
 			$(".rozmerClass .attribute_list:eq(1) select option[selected='selected']").html()
 		);
+	
 	$(".typSklaConfigure")
 		.html(
 			$(".typSklaClass li[class='selected'] img").attr("alt")
@@ -852,15 +855,90 @@ function configureProductInfoListener(){
 			$(this).attr("alt")
 		);
 	});
+	
+	if($(".attribute_fieldset").hasClass("dvereClass")){
+		$(".dvereConfigure")
+		.html(
+			$(".dvereClass li[class='selected'] img").attr("alt")
+		);
+		$(".dvereClass a img").click(function(){
+			$(".dvereConfigure")
+			.html(
+				$(this).attr("alt")
+			);
+		});
+	}else{
+		$(".dvereConfigure").hide();
+		$(".dvereConfigureTitle").hide();
+	}
+	if($(".attribute_fieldset").hasClass("zarubnaClass")){
+		$(".zarubnaConfigure")
+		.html(
+			$(".zarubnaClass li[class='selected'] img").attr("alt")
+		);
+		$(".zarubnaClass a img").click(function(){
+			$(".zarubnaConfigure")
+			.html(
+				$(this).attr("alt")
+			);
+		});
+	}else{
+		$(".zarubnaConfigure").hide();
+		$(".zarubnaConfigureTitle").hide();
+	}
+	if($(".attribute_fieldset").hasClass("kovanieClass")){
+		$(".kovanieConfigure")
+		.html(
+			$(".kovanieClass li[class='selected'] img").attr("alt")
+		);
+		$(".kovanieClass a img").click(function(){
+			$(".kovanieConfigure")
+			.html(
+				$(this).attr("alt")
+			);
+		});
+	}else{
+		$(".kovanieConfigure").hide();
+		$(".kovanieConfigureTitle").hide();
+	}
+	if($(".vzoryClass .color_pick").hasClass("selected")){
+		$(".vzorConfigure")
+		.html(
+			$(".vzoryClass a[class='selected'] img").attr("alt")
+		);
+		$(".vzoryClass a img").click(function(){
+			$(".vzorConfigure").fadeIn(300);
+			$(".vzorConfigureTitle").fadeIn(300);
+			$(".vzorConfigure")
+			.html(
+				$(this).attr("alt")
+			);
+		});
+	}else{
+		$(".vzorConfigure").hide();
+		$(".vzorConfigureTitle").hide();
+	}
+	
 }
 function lockRozmer(){
 	$('.rozmerClass select').change(function() {
-		if($(this).attr("title") == "atypický rozmer"){
-			if($(this).parent().hasClass("vyska")){
-				$('.rozmerClass select')
+		if($(this).find('option:selected').attr('title') == "atypický rozmer"){
+			if($(this).parents(".attribute_list").hasClass("vyska")){
+				$(this).parents(".rozmerClass").find(".dropDownName:eq(0)").hide(300);
+				$(this).parents(".rozmerClass").find(".attribute_list:eq(0)").hide(300);
 			}
-			if($(this).parent().hasClass("sirka")){
-				
+			if($(this).parents(".attribute_list").hasClass("sirka")){
+				$(this).parents(".rozmerClass").find(".dropDownName:eq(1)").hide(300);
+				$(this).parents(".rozmerClass").find(".attribute_list:eq(1)").hide(300);
+			}
+		}else{
+			if($(this).parents(".attribute_list").hasClass("vyska")){
+				$(this).parents(".rozmerClass").find(".dropDownName:eq(0)").show(300);
+				$(this).parents(".rozmerClass").find(".attribute_list:eq(0)").show(300);
+			}
+			if($(this).parents(".attribute_list").hasClass("sirka")){
+				$(this).parents(".rozmerClass").find(".dropDownName:eq(1)").show(300);
+				$(this).parents(".rozmerClass").find(".attribute_list:eq(1)").show(300);
 			}
 		}
 	});

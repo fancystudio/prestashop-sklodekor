@@ -901,24 +901,30 @@ function configureProductInfoListener(){
 		$(".kovanieConfigure").hide();
 		$(".kovanieConfigureTitle").hide();
 	}
-	if($(".vzoryClass .color_pick").hasClass("selected")){
-		$(".vzorConfigure")
-		.html(
-			$(".vzoryClass a[class='selected'] img").attr("alt")
-		);
-		$(".vzoryClass a img").click(function(){
-			$(".vzorConfigure").fadeIn(300);
-			$(".vzorConfigureTitle").fadeIn(300);
+	
+	isSelected = false;
+	$(".vzoryClass .color_pick").each(function(index){
+		if($(this).hasClass("selected")){
 			$(".vzorConfigure")
 			.html(
-				$(this).attr("alt")
+				$(".vzoryClass a[class*='selected'] img").attr("alt")
 			);
-		});
-	}else{
+			isSelected = true;
+		}
+	});
+	if(!isSelected){
 		$(".vzorConfigure").hide();
 		$(".vzorConfigureTitle").hide();
 	}
-	
+	$(".vzoryClass a img").click(function(){
+		console.log("$(this).attr(alt): " + $(this).attr("alt"));
+		$(".vzorConfigure").fadeIn(300);
+		$(".vzorConfigureTitle").fadeIn(300);
+		$(".vzorConfigure")
+		.html(
+			$(this).attr("alt")
+		);
+	});
 }
 function lockRozmer(){
 	$('.rozmerClass select').change(function() {

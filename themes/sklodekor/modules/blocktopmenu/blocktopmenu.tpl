@@ -1,7 +1,13 @@
 {if $MENU != ''}
 	
 	<!-- Menu -->
-		<ul class="nav nav-pills">
+    <div class="navbar">
+    <a data-toggle="collapse" data-target=".nav-collapse" class="btn btn-navbar">
+<i class="icon-bar"></i>
+</a>
+
+<div class="nav-collapse"> 
+		<ul class="nav nav-pills pull-right">
 			{$MENU}
 			{if $MENU_SEARCH}
 				<li class="sf-search noBack" style="float:right">
@@ -16,5 +22,6 @@
 				</li>
 			{/if}
 		</ul>
+        </div></div>
 	<!--/ Menu -->
 {/if}

@@ -73,6 +73,7 @@ function addCombination(idCombination, arrayOfIdAttributes, quantity, price, eco
 // search the combinations' case of attributes and update displaying of availability, prices, ecotax, and image
 function findCombination(firstTime)
 {
+	vzorCombinationImage = -1;
 	$('#minimal_quantity_wanted_p').fadeOut();
 	$('#quantity_wanted').val(1);
 	//create a temporary 'choice' array containing the choices of the customer
@@ -103,6 +104,8 @@ function findCombination(firstTime)
 								typVzoruActual = ps_round(((combinations[combination]['price']*taxRate)/100) + combinations[combination]['price']);
 							}
 							$("#idVzor").attr("value",combinations[combination]['idCombination']);
+							vzorCombinationImage = combinations[combination]['image'];
+							console.log("combinations[combination]['image']: " + combinations[combination]['image']);
 						}
 						if(attributesCombinations[attributesCombination]["group"] == "otvaraniedveri"){
 							if(combinations[combination]['specific_price']['price'] != 0){
@@ -164,13 +167,21 @@ function findCombination(firstTime)
 				selectedCombination['ecotax'] = default_eco_tax;
 
 			//show the large image in relation to the selected combination
-			if (combinations[combination]['image'] && combinations[combination]['image'] != -1)
+			
+			console.log("combinations[combination]['image']: " + combinations[combination]['image']);
+			
+			if (combinations[combination]['image'] && combinations[combination]['image'] != -1){
 				displayImage($('#thumb_' + combinations[combination]['image']).parent());
+				
+			}
 
 			//show discounts values according to the selected combination
 			if (combinations[combination]['idCombination'] && combinations[combination]['idCombination'] > 0)
 				displayDiscounts(combinations[combination]['idCombination']);
 
+			if(vzorCombinationImage != -1){
+				displayImage($('#thumb_' + vzorCombinationImage).parent());
+			}
 			//get available_date for combination product
 			selectedCombination['available_date'] = combinations[combination]['available_date'];
 			
@@ -468,12 +479,14 @@ function displayImage(domAAroundImgThumb, no_animation)
 	if (domAAroundImgThumb.attr('href'))
 	{
 		var newSrc = domAAroundImgThumb.attr('href').replace('thickbox', 'large');
+		console.log("newSrc: " + newSrc);
 		if ($('#bigpic').attr('src') != newSrc)
 		{
 			$('#bigpic').attr('src', newSrc);
 			if (typeof(jqZoomEnabled) != 'undefined' && jqZoomEnabled)
 				$('#bigpic').attr('rel', domAAroundImgThumb.attr('href'));
 		}
+		console.log("domAAroundImgThumb: " + domAAroundImgThumb.attr('href'));
 		$('#views_block li a').removeClass('shown');
 		$(domAAroundImgThumb).addClass('shown');
 	}
@@ -707,9 +720,6 @@ function colorPickerClick(elt)
 		}else{
 			$(".vzoryClass").fadeIn(300);
 		}
-	}
-	if($(elt).parents("fieldset").hasClass("vzoryClass")){
-		$("#bigpic").attr("src",$(elt).children("img").attr("src"));
 	}
 	console.log("voslo: " + id_attribute);
 	$(elt).parent().parent().parent().children('.color_pick_hidden,#color_pick_hidden').val(id_attribute);

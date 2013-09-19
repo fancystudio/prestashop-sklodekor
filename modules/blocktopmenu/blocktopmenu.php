@@ -590,7 +590,7 @@ class Blocktopmenu extends Module
 							$default_language = Configuration::get('PS_LANG_DEFAULT');
 							$link = MenuTopLinks::get($link[0]['id_linksmenutop'], $default_language, (int)Shop::getContextShopID());
 						}
-						$this->_menu .= '<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="'.$link[0]['link'].'"'.(($link[0]['new_window']) ? ' target="_blank"': '').'>'.$link[0]['label'].'</a></li>'.PHP_EOL;
+						$this->_menu .= '<li><a class="dropdown-toggle" data-toggle="dropdown" href="'.$link[0]['link'].'"'.(($link[0]['new_window']) ? ' target="_blank"': '').'>'.$link[0]['label'].'</a></li>'.PHP_EOL;
 					}
 					break;
 			}
@@ -635,13 +635,13 @@ class Blocktopmenu extends Module
 			return;
 
 		$children = Category::getChildren((int)$id_category, (int)$id_lang, true, (int)$id_shop);
-		$selected = ($this->page_name == 'category' && ((int)Tools::getValue('id_category') == $id_category)) ? ' class="sfHoverForce"' : '';
+		$selected = ($this->page_name == 'category' && ((int)Tools::getValue('id_category') == $id_category)) ? ' class=""' : '';
 
 		$is_intersected = array_intersect($category->getGroups(), $this->user_groups);
 		// filter the categories that the user is allowed to see and browse
 		if (!empty($is_intersected))
 		{
-			$this->_menu .= '<li '.$selected.' class="dropdown">';
+			$this->_menu .= '<li class="dropdown">';
 			$this->_menu .= '<a href="'.$category_link.'" class="dropdown-toggle" data-toggle="dropdown">'.$category->name.'</a>';
 
 			if (count($children))
@@ -685,7 +685,7 @@ class Blocktopmenu extends Module
 				$links = $cms->getLinks((int)$id_lang, array((int)$cms->id));
 
 				$selected = ($this->page_name == 'cms' && ((int)Tools::getValue('id_cms') == $page['id_cms'])) ? ' class="sfHoverForce"' : '';
-				$this->_menu .= '<li '.$selected.'>';
+				$this->_menu .= '<li>';
 				$this->_menu .= '<a href="'.$links[0]['link'].'">'.$cms->meta_title.'</a>';
 				$this->_menu .= '</li>';
 			}

@@ -170,6 +170,14 @@ h3 {
 	background-color: #232222;
 }
 
+.sub-page-wrapper-line{
+	border-top: solid 1px #2d2c2b;
+}
+
+.sub-page-wrapper-line .breadcrumb a{
+	color: #2d2c2b !important;
+}
+
 h2{
 	/*font-family: chaletmedium !important;*/
 	color: #e5373e;
@@ -460,7 +468,7 @@ border-color: none;
 		}
 	
 .dropdown-menu {
-top: 59px;
+top: 62px;
 left: 9px;
 padding: 0;
 }

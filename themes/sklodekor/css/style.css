@@ -230,7 +230,8 @@ h2{
 	
 .info-box .configure-product-box{
 	line-height: 16px;
-	color: #2d2c2b;
+	color: #727174;
+	margin-top: 3%
 	}
 
 .info-box .configure-product-box .conf-whell{	
@@ -252,14 +253,14 @@ h2{
 	font-size:12px;
 	text-align: center;
 	padding-bottom: 4px !important;
-	color: #2d2c2b;
+	color: #6c6c6c;
 	padding-left: 0 !important;
 	margin: 0 !important;
 	}
 
 .info-box .configure-product-attr-box p span{
 	padding-top: 2px;
-	color: #2d2c2b;
+	color: #727174;
 	}
 	
 .our_price_display {

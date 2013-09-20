@@ -1359,7 +1359,8 @@ a.iframe {font-weight:bold}
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
-	background: #eee
+	background: #eee;
+	padding-top: 50px;
 }
 #form_forgotpassword  p.text label {
 	display: inline-block;
@@ -1371,7 +1372,7 @@ a.iframe {font-weight:bold}
 }
 #form_forgotpassword  p.text input {
 	padding: 0 5px;
-	height: 20px;
+	height: 28px;
 	width: 288px;
 	border: 1px solid #ccc;
 	background: url(../img/bg_input.png) repeat-x 0 0 #fff
@@ -1384,7 +1385,7 @@ a.iframe {font-weight:bold}
 
 #password .icon {
 	position:relative;
-	top:6px;
+	top:-2px;
 }
 
 

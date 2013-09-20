@@ -476,8 +476,13 @@ padding: 0;
 #opc_account_form p{
 	padding-bottom: 5px
 	}
-	
-.std h3{
-	padding: 0 0 10px 0;
-	background: none;
+
+#form_forgotpassword .text{
+	float: left;
 }
+
+#form_forgotpassword .button{
+	float: left;
+	margin-left: 30px
+}
+

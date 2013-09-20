@@ -1,16 +1,16 @@
 
 	#contact  fieldset {
-		padding:0 0 15px 0;
+		padding:0 0 25px 0;
 		border:1px solid #ccc;
 		background:#f8f8f8
 	}
 		#contact  h3 {
-			margin:0 0 15px 0;
+			margin:15px 15px 30px 30px !important;
 			padding:8px;
 			font-size:14px;
 			color:#fff;
 			text-transform:uppercase;
-			background:url(../img/bg_form_h3.png) repeat-x 0 0 #989898
+			background: none !important;
 		}
 		#contact #center_column p {margin:0; padding:0 0 10px 0;}
 		#contact #center_column p.desc_contact { text-align: center; padding-left: 10px; padding-right: 10px; }
@@ -22,7 +22,7 @@
 			display:inline-block;
 			padding:6px 15px;
 			width:150px;/* 180 */
-			font-size:12px;
+			font-size:1em;
 			text-align:right
 		}
 		#contact p.textarea label {vertical-align:top}
@@ -43,9 +43,23 @@
 		}
 		#contact p.textarea textarea {
 			height:80px;
-			width:270px;
+			width:260px;
 			border:1px solid #ccc;
 			font-size: 12px;
 			color:#666
 		}
-		#contact p.submit input {margin-left:185px;}
+		#contact p.submit input {
+			margin-left:185px;
+		}
+		
+		#fileUpload {
+			line-height: normal;
+			padding: 8px 0px 5px 10px !important;
+		}
+		
+	.std p{
+		padding-bottom:0px
+	}
+	.std{
+		margin-bottom: 60px;
+	}

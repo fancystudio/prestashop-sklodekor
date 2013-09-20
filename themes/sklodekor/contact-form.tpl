@@ -24,10 +24,11 @@
 *}
 
 {capture name=path}{l s='Contact'}{/capture}
+<div class="sub-page-wrapper-line">
+<div class="container">
 {include file="$tpl_dir./breadcrumb.tpl"}
 
 <h1>{l s='Customer service'} - {if isset($customerThread) && $customerThread}{l s='Your reply'}{else}{l s='Contact us'}{/if}</h1>
-
 {if isset($confirmation)}
 	<p>{l s='Your message has been successfully sent to our team.'}</p>
 	<ul class="footer_links">
@@ -128,5 +129,5 @@
 			<input type="submit" name="submitMessage" id="submitMessage" value="{l s='Send'}" class="button_large" onclick="$(this).hide();" />
 		</p>
 	</fieldset>
-</form>
+</form></div>
 {/if}

@@ -32,7 +32,7 @@ a {cursor:pointer}
 		struture
 ************************************************************************************************ */
 #page {}
-	#header {z-index:10}
+	#header {z-index:101; background-color: white}
 	#columns {z-index:1}
 		#left_column {}
 		#center_column {}

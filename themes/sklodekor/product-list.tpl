@@ -25,9 +25,10 @@
 
 {if isset($products)}
 	<!-- Products list -->
-	<ul id="product_list" class="span12 row-fluid">
+	<div class="row">
+	<ul id="product_list" class="span12"><div class="row">
 	{foreach from=$products item=product name=products}
-		<li class="span3 pull-left {if $smarty.foreach.products.first}first_item{elseif $smarty.foreach.products.last}last_item{/if} {if $smarty.foreach.products.index % 2}alternate_item{else}item{/if} ">
+		<li class="span3 pull-left {if $smarty.foreach.products.first}first_item{elseif $smarty.foreach.products.last}last_item{/if} {if $smarty.foreach.products.index % 2}alternate_item{else}item{/if}">
 			
 				{if isset($comparator_max_item) && $comparator_max_item}
 					<p class="compare">
@@ -69,6 +70,8 @@
 			</div>
 		</li>
 	{/foreach}
-	</ul>
-	<!-- /Products list -->
+	</div></ul></div>
+	<!-- /Products 
+	
+	st -->
 {/if}

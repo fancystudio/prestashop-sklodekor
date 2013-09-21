@@ -590,7 +590,7 @@ class Blocktopmenu extends Module
 							$default_language = Configuration::get('PS_LANG_DEFAULT');
 							$link = MenuTopLinks::get($link[0]['id_linksmenutop'], $default_language, (int)Shop::getContextShopID());
 						}
-						$this->_menu .= '<li><a class="dropdown-toggle" data-toggle="dropdown" href="'.$link[0]['link'].'"'.(($link[0]['new_window']) ? ' target="_blank"': '').'>'.$link[0]['label'].'</a></li>'.PHP_EOL;
+						$this->_menu .= '<li><a class="dropdown-toggle"  href="'.$link[0]['link'].'"'.(($link[0]['new_window']) ? ' target="_blank"': '').'>'.$link[0]['label'].'</a></li>'.PHP_EOL;
 					}
 					break;
 			}
@@ -642,12 +642,16 @@ class Blocktopmenu extends Module
 		if (!empty($is_intersected))
 		{
 			$this->_menu .= '<li class="dropdown">';
-			$this->_menu .= '<a href="'.$category_link.'" class="dropdown-toggle" data-toggle="dropdown">'.$category->name.'</a>';
+			if($category->name != "PRODUKTY"){
+				$this->_menu .= '<a href="'.$category_link.'" class="dropdown-toggle">'.$category->name.'</a>';		
+			}else{
+				$this->_menu .= '<a href="'.$category_link.'" class="dropdown-toggle" data-toggle="dropdown">'.$category->name.'</a>';
+			}
 
 			if (count($children))
 			{
 				$this->_menu .= '<ul class="dropdown-menu">';
-
+				
 				foreach ($children as $child)
 					$this->getCategory((int)$child['id_category'], (int)$id_lang, (int)$child['id_shop']);
 

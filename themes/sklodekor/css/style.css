@@ -430,7 +430,8 @@ h3 .inner-text {
 .vzoryMenu {
 	float: left;
 	border-right: solid 1px #d5d2d1;
-	display: block;
+	/* display: block; */
+	display: none;
 	padding: 35px 0;
 	width: 175px;
 	}

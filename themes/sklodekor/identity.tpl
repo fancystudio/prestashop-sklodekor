@@ -22,7 +22,7 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
-
+<div class="sub-page-wrapper-line margin-b"><div class="container">
 {capture name=path}<a href="{$link->getPageLink('my-account', true)}">{l s='My account'}</a><span class="navigation-pipe">{$navigationPipe}</span>{l s='Your personal information'}{/capture}
 {include file="$tpl_dir./breadcrumb.tpl"}
 
@@ -36,17 +36,17 @@
 		{if isset($pwd_changed)}<br />{l s='Your password has been sent to your email:'} {$email}{/if}
 	</p>
 {else}
-	<h3>{l s='Please be sure to update your personal information if it has changed.'}</h3>
+	<h3 style="background:none !important">{l s='Please be sure to update your personal information if it has changed.'}</h3>
 	<p class="required"><sup>*</sup>{l s='Required field'}</p>
-	<form action="{$link->getPageLink('identity', true)}" method="post" class="std">
+	<form action="{$link->getPageLink('identity', true)}" method="post" class="std identity">
 		<fieldset>
-			<p class="radio">
+			<!--<p class="radio">
 				<span>{l s='Title'}</span>
 				{foreach from=$genders key=k item=gender}
 					<input type="radio" name="id_gender" id="id_gender{$gender->id}" value="{$gender->id|intval}" {if isset($smarty.post.id_gender) && $smarty.post.id_gender == $gender->id}checked="checked"{/if} />
 					<label for="id_gender{$gender->id}" class="top">{$gender->name}</label>
 				{/foreach}
-			</p>
+			</p>-->
 			<p class="required text">
 				<label for="firstname">{l s='First name'} <sup>*</sup></label>
 				<input type="text" id="firstname" name="firstname" value="{$smarty.post.firstname}" />
@@ -130,3 +130,4 @@
 	<li><a href="{$link->getPageLink('my-account', true)}"><img src="{$img_dir}icon/my-account.gif" alt="" class="icon" /></a><a href="{$link->getPageLink('my-account', true)}">{l s='Back to your account'}</a></li>
 	<li class="f_right"><a href="{$base_dir}"><img src="{$img_dir}icon/home.gif" alt="" class="icon" /> {l s='Home'}</a></li>
 </ul>
+</div></div>

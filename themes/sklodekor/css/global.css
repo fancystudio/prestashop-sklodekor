@@ -113,7 +113,7 @@ p em {font-style:italic}
 	padding:0;
 	font-size:11px
 }
-.required {color:#990000}
+.required {color:#e5373e}
 
 /* link **************************************************************************************** */
 a, a:active, a:visited {
@@ -321,7 +321,7 @@ ul.footer_links li {float:left}
 ul.footer_links li.f_right {float:right}
 ul.footer_links li .icon {
 	position:relative;
-	top:6px;
+	top:-3px;
 	left:0
 }
 
@@ -1424,7 +1424,7 @@ form#add_address {}
 }
 #center_column #add_address p {margin:0; padding:0 0 10px 0}
 #add_address p.required {color:#222}
-#add_address p.required  sup {color:#990000}
+#add_address p.required  sup {color:#e5373e}
 
 #add_address p.text label,
 #add_address p.password label,

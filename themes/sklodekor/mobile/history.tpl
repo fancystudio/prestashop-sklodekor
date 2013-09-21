@@ -22,7 +22,7 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
-
+<div class="sub-page-wrapper-line margin-b"><div class="container">
 {capture assign='page_title'}{l s='Order history'}{/capture}
 {include file='./page-title.tpl'}
 {include file="$tpl_dir./errors.tpl"}
@@ -60,4 +60,4 @@
 		{/if}
 	</div>
 
-</div><!-- /content -->
+</div><!-- /content --></div></div>

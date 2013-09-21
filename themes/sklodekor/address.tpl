@@ -63,13 +63,13 @@ $(function(){ldelim}
 {/literal}
 //]]>
 </script>
-
+<div class="sub-page-wrapper-line margin-b"><div class="container">
 {capture name=path}{l s='Your addresses'}{/capture}
 {include file="$tpl_dir./breadcrumb.tpl"}
 
 <h1>{l s='Your addresses'}</h1>
 
-<h3>
+<h3 style="background:none !important">
 {if isset($id_address) && (isset($smarty.post.alias) || isset($address->alias))}
 	{l s='Modify address'} 
 	{if isset($smarty.post.alias)}
@@ -231,3 +231,4 @@ $(function(){ldelim}
 		<input type="submit" name="submitAddress" id="submitAddress" value="{l s='Save'}" class="button" />
 	</p>
 </form>
+</div></div>

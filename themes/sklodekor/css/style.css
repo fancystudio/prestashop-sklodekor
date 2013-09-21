@@ -473,7 +473,7 @@ left: 9px;
 padding: 0;
 }
 
-#opc_account_form p{
+#opc_account_form p, #add_address p {
 	padding-bottom: 5px
 	}
 
@@ -490,3 +490,30 @@ padding: 0;
 	margin-bottom: 60px
 }
 
+.margin-b{
+	margin-bottom: 60px
+}
+
+#add_address h3 {
+    background: none repeat scroll 0 0 transparent !important;
+    color: #FFFFFF;
+    font-size: 14px;
+    margin: 0 0 15px;
+    padding: 10px !important;
+    text-transform: uppercase;
+    background: url("../img/bg_form_h3.png") repeat-x scroll 0 0 #989898;
+    border-bottom: 1px solid #CCCCCC;
+    font-weight: bold;
+    padding: 8px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.submit2 {
+float: right;
+margin-top: 20px;
+}
+
+.favoriteproducts{
+	display: none !important
+	}

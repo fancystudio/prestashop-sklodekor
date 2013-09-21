@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>svk_translation</name>
+	<displayName><![CDATA[Slovak DB translation]]></displayName>
+	<version><![CDATA[1.1]]></version>
+	<description><![CDATA[This module translates database items to Slovak language]]></description>
+	<author><![CDATA[Otakar Weis]]></author>
+	<tab><![CDATA[others]]></tab>
+	<is_configurable>0</is_configurable>
+	<need_instance>1</need_instance>
+	<limited_countries></limited_countries>
+</module>

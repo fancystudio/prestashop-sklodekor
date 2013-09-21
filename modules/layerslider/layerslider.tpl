@@ -11,7 +11,7 @@
 		<img class="ls-s5" src="modules/layerslider/img/police.png" alt="sublayer" rel="slidedirection: top; delayin:200" style="z-index:99; left:1250px; top: 120px;">
         <div class="ls-s6 span3" alt="sublayer" rel="slidedirection: bottom; easingin: easeOutExpo; delayin: 1000; durationin: 400" style="left: 400px; top: 250px;" > 
         <h2>Nadpis H2</h2> 
-        <p style="color: white; font-weight:100">
+        <p style="color: white; font-size:1.1em">
         Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum 
         </p>
         </div> 

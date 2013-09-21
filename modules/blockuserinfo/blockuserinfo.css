@@ -69,8 +69,16 @@
 }
 *:first-child+html #header_user_info a {line-height:14px;}
 #header_user_info a.login {
-	padding: 17px 0px 14px 15px;
+	padding: 17px 0px 20px 15px;
 	font-size: 1em;
 	/*background: url('img/icon/login.gif') no-repeat 10px 0*/
 	}
-#header_user_info a.logout {background: url('img/icon/logout.png') no-repeat 10px -1px}
+#header_user_info a.logout {
+	padding: 17px 0px 20px 15px;
+	font-size: 1em;
+}
+
+.account{
+	padding-left: 15px !important;
+	color: #e5373e
+}

@@ -1,0 +1,1 @@
+*ERROR* 	2013/09/21 - 13:58:54: Unknown table 'ps_wishlist'<br /><br /><pre>DROP TABLE ps_wishlist</pre> at line 607 in file classes/db/Db.php

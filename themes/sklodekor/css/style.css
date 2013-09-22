@@ -521,3 +521,7 @@ margin-top: 20px;
 .telKontakt {
 font-size: 15px !important
 }
+
+a.menu:after, .dropdown-toggle:after {
+    content: none;
+}

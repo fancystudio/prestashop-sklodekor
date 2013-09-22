@@ -624,8 +624,9 @@ ul#uploadable_files,ul#text_fields {
 
 
 .vzory .color_pick{
-	width: 111px;
+	width: 70px;
 	height: 197px;
+	padding: 30px 20px 30px 20px;
 	}
 	
 .dvereClass li span{
@@ -636,7 +637,7 @@ ul#uploadable_files,ul#text_fields {
 	margin-top: 55px;
 
 }
-.group_9 img{
+.group_9 img {
 	padding: 30px 20px 30px 20px;
 }
 

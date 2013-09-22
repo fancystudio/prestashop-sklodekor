@@ -3,7 +3,7 @@
 
 <div id="layerslider">
 
-	<div class="ls-layer" rel="slidedelay: 3000" style="overflow:visible; ">
+	<div class="ls-layer" rel="slidedelay: 7000" style="overflow:visible; ">
 		<img class="ls-s0" src="modules/layerslider/img/slider_bg.jpg"alt="layer" style="top:0px; margin-left:0px">
 
 		<img class="ls-s2" src="modules/layerslider/img/dvere.png" alt="sublayer" style="top:127px; left:790px; " rel="durationin: 700; easingin: easeOutExpo; slidedirection: left; delayin: 100">
@@ -19,7 +19,7 @@
         
         
         
-	<div class="ls-layer" rel="slidedelay: 3000" style="overflow:visible; ">
+	<div class="ls-layer" rel="slidedelay: 7000" style="overflow:visible; ">
 		<img class="ls-s0" src="modules/layerslider/img/slider_bg.jpg"alt="layer" style="top:0px; margin-left:0px">
 
 		<img class="ls-s2" src="modules/layerslider/img/dvere1.png" alt="sublayer" style="top:172px; left:300px; " rel="durationin: 600;  slidedirection: right; delayin: 1000">
@@ -38,8 +38,8 @@
 <div class="container main-three-column clearfix">
 <div class="row">
 <div class="span4">
-<h3>dvere</h3>
-<img src="modules/layerslider/img/home-dvere.jpg" alt="" >
+<h3>dvere</h3><a href="index.php?id_category=6&controller=category&id_lang=2">
+<img src="modules/layerslider/img/home-dvere.jpg" alt="" ></a>
 <p>
 euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis 
 </p>
@@ -80,7 +80,7 @@ euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
 					responsive : true,
 					responsiveUnder : 1914,
 					sublayerContainer : 1914,
-					autoStart : false,
+					autoStart : true,
 				});
 			});	
 </script>	

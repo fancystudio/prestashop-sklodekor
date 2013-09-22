@@ -231,8 +231,11 @@ span.view_scroll_spacer {
 	clear:none
 }
 
-#attributes .attribute_list #color_to_pick_list li.selected {
-	border:1px solid #e5373e;
+#attributes .attribute_list #color_to_pick_list li.selected, .vzory .selected {
+	border:1px solid #e5373e !important;
+}
+.selected.isotope-item {
+border: 0px solid !important;
 }
 
 #attributes .attribute_list #color_to_pick_list a.color_pick {
@@ -613,10 +616,14 @@ ul#uploadable_files,ul#text_fields {
 }
 
 
-.vzory img{
-	width: auto;
-	height: auto
+.vzory .color_pick{
+	width: 111px;
+	height: 197px;
 	}
+	
 .dvereClass li span{
 	display:none;
 }
+
+
+

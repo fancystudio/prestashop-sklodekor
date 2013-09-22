@@ -239,7 +239,6 @@ h2{
 .info-box .configure-product-box{
 	line-height: 16px;
 	color: #727174;
-	margin-top: 3%
 	}
 
 .info-box .configure-product-box .conf-whell{	
@@ -518,3 +517,7 @@ margin-top: 20px;
 .favoriteproducts{
 	display: none !important
 	}
+	
+.telKontakt {
+font-size: 15px !important;
+}

@@ -221,18 +221,25 @@ span.view_scroll_spacer {
 	/*width:125px;*/
 	width:auto;
 	margin-left: 0px;
+	
 }
+
 
 #attributes .attribute_list #color_to_pick_list li {
 	float:left;
 	margin:0 8px 8px 0;
 	padding:1px;
 	/*border:1px solid #ccc;*/
-	clear:none
+	clear:none;
+	border: solid 1px white;
 }
-
-#attributes .attribute_list #color_to_pick_list li.selected, .vzory .selected {
+/*
+#attributes .attribute_list #color_to_pick_list li.selected, .vzory li .selected {
 	border:1px solid #e5373e !important;
+}*/
+.color_pick{border: solid 1px white}
+.selected {
+	border:1px solid #e5373e ;
 }
 .selected.isotope-item {
 border: 0px solid !important;
@@ -623,6 +630,14 @@ ul#uploadable_files,ul#text_fields {
 	
 .dvereClass li span{
 	display:none;
+}
+.group_9{
+	clear: left;
+	margin-top: 55px;
+
+}
+.group_9 img{
+	padding: 30px 20px 30px 20px;
 }
 
 

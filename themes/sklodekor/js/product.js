@@ -180,6 +180,7 @@ function findCombination(firstTime)
 				displayDiscounts(combinations[combination]['idCombination']);
 
 			if(vzorCombinationImage != -1){
+				console.log($('#thumb_' + vzorCombinationImage).parent());
 				displayImage($('#thumb_' + vzorCombinationImage).parent());
 			}
 			//get available_date for combination product
@@ -722,15 +723,15 @@ function colorPickerClick(elt)
 			$(".vzorConfigureTitle").fadeOut(300);
 		}else{
 			console.log("id_attribute: " + id_attribute);
+			$(".vzoryClass").show();
 			if(id_attribute == 23){
-				$(".vzoryClass .piesok").fadeOut(300);
-				$(".vzoryClass .grafika").fadeIn(300);
-			}
-			if(id_attribute == 38){
 				$(".vzoryClass .piesok").fadeIn(300);
 				$(".vzoryClass .grafika").fadeOut(300);
 			}
-			$(".vzoryClass").fadeIn(300);
+			if(id_attribute == 38){
+				$(".vzoryClass .piesok").fadeOut(300);
+				$(".vzoryClass .grafika").fadeIn(300);
+			}
 		}
 	}
 	console.log("voslo: " + id_attribute);
@@ -841,13 +842,12 @@ function hideVzor(){
 		$(".vzoryClass").fadeOut(300);		
 	}
 	if(selectedGrafika.indexOf("selected") != -1){
-		$(".vzoryClass .piesok").fadeIn(300);
-		$(".vzoryClass .grafika").fadeOut(300);	
-	}
-	if(selectedPiesok.indexOf("selected") != -1){
 		$(".vzoryClass .piesok").fadeOut(300);
 		$(".vzoryClass .grafika").fadeIn(300);
-		
+	}
+	if(selectedPiesok.indexOf("selected") != -1){
+		$(".vzoryClass .piesok").fadeIn(300);
+		$(".vzoryClass .grafika").fadeOut(300);			
 	}
 }
 function selectClickedOptionVzory(option){

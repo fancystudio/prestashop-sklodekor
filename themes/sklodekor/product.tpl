@@ -246,7 +246,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 		<!-- thumbnails -->
 		<div id="views_block" class="clearfix {if isset($images) && count($images) < 2}hidden{/if}">
 		{if isset($images) && count($images) > 3}<span class="view_scroll_spacer"><a id="view_scroll_left" class="hidden" title="{l s='Other views'}" href="javascript:{ldelim}{rdelim}">{l s='Previous'}</a></span>{/if}
-		<!--zakomentovane nahlady pod obrazkom-<div id="thumbs_list">
+		<div id="thumbs_list">
 			<ul id="thumbs_list_frame">
 				{if isset($images)}
 					{foreach from=$images item=image name=thumbnails}
@@ -259,7 +259,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 					{/foreach}
 				{/if}
 			</ul>
-		</div>-->
+		</div>
 		{if isset($images) && count($images) > 3}<a id="view_scroll_right" title="{l s='Other views'}" href="javascript:{ldelim}{rdelim}">{l s='Next'}</a>{/if}
 		</div>
 		{/if}
@@ -549,7 +549,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 										<li class="clickPiesok" name=".kategoria3">slnko</li>
 										<li class="clickPiesok" name=".kategoria4">abstraktné</li>
 									</ul>
-									<div id="color_to_pick_list" class="pull-left">
+									<div id="color_to_pick_list" class="pull-left span12">
 										<div class="vzory grafika span9 pull-left">
 											{assign var="default_colorpicker" value=""}
 											{foreach from=$group.attributes key=id_attribute item=group_attribute}

@@ -8,8 +8,9 @@
 $(document).ready(function() {
 	$(".attribute_select").select_skin();
 	$('.iosSlider').iosSlider();
-	var $container = $('.vzory');
-	$container.isotope({
+	var $containerGrafika = $('.grafika');
+	var $containerPiesok = $('.piesok');
+	$containerGrafika.isotope({
         filter: '*',
         animationOptions: {
             duration: 750,
@@ -18,8 +19,30 @@ $(document).ready(function() {
         }
     });
 	$('.click').click(function(){
+		console.log("click: " + $(this).attr('name'));
 	    var selector = $(this).attr('name');
-	    $container.isotope({
+	    $containerGrafika.isotope({
+	        filter: selector,
+	        animationOptions: {
+	            duration: 750,
+	            easing: 'linear',
+	            queue: false
+	        }
+	    });
+	  return false;
+	  });
+	$containerPiesok.isotope({
+        filter: '*',
+        animationOptions: {
+            duration: 750,
+            easing: 'linear',
+            queue: false
+        }
+    });
+	$('.clickPiesok').click(function(){
+		console.log("clickPiesok: " + $(this).attr('name'));
+	    var selector = $(this).attr('name');
+	    $containerPiesok.isotope({
 	        filter: selector,
 	        animationOptions: {
 	            duration: 750,
@@ -519,15 +542,26 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 										<li class="click" name=".kategoria3">slnko</li>
 										<li class="click" name=".kategoria4">abstraktné</li>
 									</ul>
+									<ul class="vzoryMenuPiesok">
+										<li class="clickPiesok" name="*">všetko</li>
+										<li class="clickPiesok" name=".kategoria1">les</li>
+										<li class="clickPiesok" name=".kategoria2">more</li>
+										<li class="clickPiesok" name=".kategoria3">slnko</li>
+										<li class="clickPiesok" name=".kategoria4">abstraktné</li>
+									</ul>
 									<div id="color_to_pick_list" class="pull-left">
-										<div class="vzory span9 pull-left">
+										<div class="vzory grafika span9 pull-left">
 											{assign var="default_colorpicker" value=""}
 											{foreach from=$group.attributes key=id_attribute item=group_attribute}
-											<div class="{if $group.default == $id_attribute} selected{/if}{$colors.$id_attribute.value}">
+
+											{assign var="bar_at" value=$colors.$id_attribute.value|strpos:"-"}
+											{if $colors.$id_attribute.value|substr:($bar_at+1) == "grafika"}
+
+											<div class="{if $group.default == $id_attribute} selected{/if}{$colors.$id_attribute.value|substr:0:$bar_at}">
 											<a id="color_{$id_attribute|intval}" 
                                             name="{$group.name}" 
                                             class="color_pick{if ($group.default == $id_attribute)} selected{/if}" 
-                                            style="background: {$colors.$id_attribute.value};" 
+                                            style="background: {$colors.$id_attribute.value|substr:0:$bar_at};" 
                                             title="{$colors.$id_attribute.name}" 
                                             onclick="colorPickerClick(this);getProductAttribute();">
 												{if file_exists($col_img_dir|cat:$id_attribute|cat:'.jpg')}
@@ -540,7 +574,36 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 											{if ($group.default == $id_attribute)}
 												{$default_colorpicker = $id_attribute}
 											{/if}
+											{/if}
 										{/foreach}
+										
+										</div>
+										<div class="vzory piesok span9 pull-left">
+											{assign var="default_colorpicker" value=""}
+											{foreach from=$group.attributes key=id_attribute item=group_attribute}
+											{assign var="bar_at" value=$colors.$id_attribute.value|strpos:"-"}
+											{if $colors.$id_attribute.value|substr:($bar_at+1) == "piesok"}
+			
+											<div class="{if $group.default == $id_attribute} selected{/if}{$colors.$id_attribute.value|substr:0:$bar_at}">
+											<a id="color_{$id_attribute|intval}" 
+                                            name="{$group.name}" 
+                                            class="color_pick{if ($group.default == $id_attribute)} selected{/if}" 
+                                            style="background: {$colors.$id_attribute.value|substr:0:$bar_at};" 
+                                            title="{$colors.$id_attribute.name}" 
+                                            onclick="colorPickerClick(this);getProductAttribute();">
+												{if file_exists($col_img_dir|cat:$id_attribute|cat:'.jpg')}
+												<img src="{$img_col_dir}{$id_attribute}.jpg" 
+                                                alt="{$colors.$id_attribute.name}" 
+                                                width="auto" height="auto" /><br />
+													{/if}
+												</a>
+											</div>
+											{if ($group.default == $id_attribute)}
+												{$default_colorpicker = $id_attribute}
+											{/if}
+											{/if}
+										{/foreach}
+										
 										</div>
 								<input type="hidden" class="color_pick_hidden vzorHidden" name="{$groupName}" value="{$default_colorpicker}" />
 								{else}

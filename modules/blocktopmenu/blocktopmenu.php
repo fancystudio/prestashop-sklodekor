@@ -645,7 +645,7 @@ class Blocktopmenu extends Module
 			if($category->name != "PRODUKTY"){
 				$this->_menu .= '<a href="'.$category_link.'" class="dropdown-toggle">'.$category->name.'</a>';		
 			}else{
-				$this->_menu .= '<a href="'.$category_link.'" class="dropdown-toggle" data-toggle="dropdown">'.$category->name.'</a>';
+				$this->_menu .= '<a href="'.$category_link.'" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">'.$category->name.'</a>';
 			}
 
 			if (count($children))

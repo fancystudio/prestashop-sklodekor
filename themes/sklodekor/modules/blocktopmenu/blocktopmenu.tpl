@@ -1,3 +1,4 @@
+<script src="themes/sklodekor/js/twitter-bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
 {if $MENU != ''}
 	
 	<!-- Menu -->

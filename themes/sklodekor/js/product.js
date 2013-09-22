@@ -440,9 +440,11 @@ function updateDisplay()
 		console.log("productPriceDisplay: " + productPriceDisplay);
 		if (productPriceDisplay > 0) {
 			our_price = formatCurrency(productPriceDisplay + typKovaniaActual + typVzoruActual + typDvereActual + typZarubnaActual, currencyFormat, currencySign, currencyBlank);
+			$(".dph").show();
 		} else {
 			//our_price = formatCurrency(0, currencyFormat, currencySign, currencyBlank);
 			our_price = "<span class='telKontakt'>Po zadani dopytu vas budeme telefonicky kontaktovat</span>";
+			$(".dph").hide();
 		}
 		$('#our_price_display').html(our_price);
 		$('#old_price_display').text(formatCurrency(productPriceWithoutReductionDisplay + typKovaniaActual + typVzoruActual + typDvereActual + typZarubnaActual, currencyFormat, currencySign, currencyBlank));
@@ -638,7 +640,8 @@ $(document).ready(function()
 	hideVzor();
 	
 	$('.vzoryMenu .click').eq(0).addClass("selected");
-	$('.vzoryMenu .click').click(function() {
+	$('.vzoryMenu .clickPiesok').eq(0).addClass("selected");
+	$('.vzoryMenu .click,.vzoryMenu .clickPiesok').click(function() {
 		selectClickedOptionVzory(this);
 	});
 	
@@ -710,7 +713,7 @@ function colorPickerClick(elt)
 	// pri zvoleni typu skla cire alebo cire s pieskovym vzorom odstrani vzory a odrata cenu 
 	// ak bol daky pred tym zvoleny
 	if($(elt).parents("fieldset").hasClass("typSklaClass")){
-		if(id_attribute == 21 || id_attribute == 22){ 
+		if(id_attribute == 21 || id_attribute == 22){
 			$(".vzorHidden").val("");
 			$("#idVzor").val("");
 			typVzoruActual = 0;
@@ -718,6 +721,15 @@ function colorPickerClick(elt)
 			$(".vzorConfigure").fadeOut(300);
 			$(".vzorConfigureTitle").fadeOut(300);
 		}else{
+			console.log("id_attribute: " + id_attribute);
+			if(id_attribute == 23){
+				$(".vzoryClass .piesok").fadeOut(300);
+				$(".vzoryClass .grafika").fadeIn(300);
+			}
+			if(id_attribute == 38){
+				$(".vzoryClass .piesok").fadeIn(300);
+				$(".vzoryClass .grafika").fadeOut(300);
+			}
 			$(".vzoryClass").fadeIn(300);
 		}
 	}
@@ -814,6 +826,8 @@ function checkUrl()
 function hideVzor(){
 	selectedCire = $(".typSklaClass a[title='číre']").attr("class");
 	selectedCeloPiekovane = $(".typSklaClass a[title='celoplošne pieskované']").attr("class");
+	selectedPiesok = $(".typSklaClass a[title='vzorovo pieskované']").attr("class");
+	selectedGrafika = $(".typSklaClass a[title='pieskované s grafickou potlačou']").attr("class");
 	if(selectedCire.indexOf("selected") != -1){
 		$(".vzorHidden").val("");
 		$("#idVzor").val("");
@@ -825,6 +839,15 @@ function hideVzor(){
 		$("#idVzor").val("");
 		typVzoruActual = 0;
 		$(".vzoryClass").fadeOut(300);		
+	}
+	if(selectedGrafika.indexOf("selected") != -1){
+		$(".vzoryClass .piesok").fadeIn(300);
+		$(".vzoryClass .grafika").fadeOut(300);	
+	}
+	if(selectedPiesok.indexOf("selected") != -1){
+		$(".vzoryClass .piesok").fadeOut(300);
+		$(".vzoryClass .grafika").fadeIn(300);
+		
 	}
 }
 function selectClickedOptionVzory(option){

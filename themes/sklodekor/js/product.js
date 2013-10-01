@@ -91,37 +91,45 @@ function findCombination(firstTime)
 					if(attributesCombinations[attributesCombination]["id_attribute"] == combinations[combination]['idsAttributes'][0]){
 						if(attributesCombinations[attributesCombination]["group"] == "typkovania"){
 							if(combinations[combination]['specific_price']['price'] != 0){
-								typKovaniaActual = ps_round(((combinations[combination]['specific_price']['price']*taxRate)/100) + combinations[combination]['specific_price']['price']);
+								//typKovaniaActual = ps_round(((combinations[combination]['specific_price']['price']*taxRate)/100) + combinations[combination]['specific_price']['price']);
+								typKovaniaActual = ((combinations[combination]['price']*taxRate)/100) + combinations[combination]['price'];
+								//reduction = productPriceDisplay * (parseFloat(selectedCombination['specific_price'].reduction_percent) / 100) + reduction_price;
+								console.log("discount: " + parseFloat(combinations[combination]['specific_price'].reduction_percent) / 100);
 							}else{
-								typKovaniaActual = ps_round(((combinations[combination]['price']*taxRate)/100) + combinations[combination]['price']);
+								//typKovaniaActual = ps_round(((combinations[combination]['price']*taxRate)/100) + combinations[combination]['price']);
+								typKovaniaActual = ((combinations[combination]['price']*taxRate)/100) + combinations[combination]['price'];
 							}
 							$("#idKovanie").attr("value",combinations[combination]['idCombination']);
 						}
 						if(attributesCombinations[attributesCombination]["group"] == "vzor"){
 							if(combinations[combination]['specific_price']['price'] != 0){
-								typVzoruActual = ps_round(((combinations[combination]['specific_price']['price']*taxRate)/100) + combinations[combination]['specific_price']['price']);
+								//typVzoruActual = ps_round(((combinations[combination]['specific_price']['price']*taxRate)/100) + combinations[combination]['specific_price']['price']);
+								typVzoruActual = ((combinations[combination]['price']*taxRate)/100) + combinations[combination]['price'];
 							}else{
-								typVzoruActual = ps_round(((combinations[combination]['price']*taxRate)/100) + combinations[combination]['price']);
+								//typVzoruActual = ps_round(((combinations[combination]['price']*taxRate)/100) + combinations[combination]['price']);
+								typVzoruActual = ((combinations[combination]['price']*taxRate)/100) + combinations[combination]['price'];
+								console.log("discount: " + parseFloat(combinations[combination]['specific_price'].reduction_percent) / 100);
 							}
 							$("#idVzor").attr("value",combinations[combination]['idCombination']);
 							vzorCombinationImage = combinations[combination]['image'];
-							console.log("combinations[combination]['image']: " + combinations[combination]['image']);
 						}
 						if(attributesCombinations[attributesCombination]["group"] == "otvaraniedveri"){
 							if(combinations[combination]['specific_price']['price'] != 0){
-								typDvereActual = ps_round(((combinations[combination]['specific_price']['price']*taxRate)/100) + combinations[combination]['specific_price']['price']);
+								//typDvereActual = ps_round(((combinations[combination]['specific_price']['price']*taxRate)/100) + combinations[combination]['specific_price']['price']);
+								typDvereActual = ((combinations[combination]['price']*taxRate)/100) + combinations[combination]['price'];
 							}else{
-								typDvereActual = ps_round(((combinations[combination]['price']*taxRate)/100) + combinations[combination]['price']);
+								//typDvereActual = ps_round(((combinations[combination]['price']*taxRate)/100) + combinations[combination]['price']);
+								typDvereActual = ((combinations[combination]['price']*taxRate)/100) + combinations[combination]['price'];
 							}
 							$("#idDvere").attr("value",combinations[combination]['idCombination']);
 						}
 						if(attributesCombinations[attributesCombination]["group"] == "oblozkovazarubna"){
 							if(combinations[combination]['specific_price']['price'] != 0){
-								typZarubnaActual = ps_round(((combinations[combination]['specific_price']['price']*taxRate)/100) + combinations[combination]['specific_price']['price']);
-								console.log("typZarubnaActual: " + typZarubnaActual);
+								//typZarubnaActual = ps_round(((combinations[combination]['specific_price']['price']*taxRate)/100) + combinations[combination]['specific_price']['price']);
+								typZarubnaActual = ((combinations[combination]['price']*taxRate)/100) + combinations[combination]['price'];
 							}else{
-								typZarubnaActual = ps_round(((combinations[combination]['price']*taxRate)/100) + combinations[combination]['price']);
-								console.log("typZarubnaActual: " + typZarubnaActual);
+								//typZarubnaActual = ps_round(((combinations[combination]['price']*taxRate)/100) + combinations[combination]['price']);
+								typZarubnaActual = ((combinations[combination]['price']*taxRate)/100) + combinations[combination]['price'];
 							}
 							$("#idZarubna").attr("value",combinations[combination]['idCombination']);
 						}
@@ -168,8 +176,6 @@ function findCombination(firstTime)
 
 			//show the large image in relation to the selected combination
 			
-			console.log("combinations[combination]['image']: " + combinations[combination]['image']);
-			
 			if (combinations[combination]['image'] && combinations[combination]['image'] != -1){
 				displayImage($('#thumb_' + combinations[combination]['image']).parent());
 				
@@ -180,7 +186,6 @@ function findCombination(firstTime)
 				displayDiscounts(combinations[combination]['idCombination']);
 
 			if(vzorCombinationImage != -1){
-				console.log($('#thumb_' + vzorCombinationImage).parent());
 				displayImage($('#thumb_' + vzorCombinationImage).parent());
 			}
 			//get available_date for combination product
@@ -355,7 +360,7 @@ function updateDisplay()
 		// retrieve price without group_reduction in order to compute the group reduction after
 		// the specific price discount (done in the JS in order to keep backward compatibility)		
 		priceTaxExclWithoutGroupReduction = ps_round(productPriceTaxExcluded, 6) * (1 / group_reduction);
-
+		
 		var tax = (taxRate / 100) + 1;
 		var taxExclPrice = priceTaxExclWithoutGroupReduction + (selectedCombination['price'] * currencyRate);
 
@@ -376,6 +381,8 @@ function updateDisplay()
 
 		productPriceWithoutReductionDisplay = productPriceDisplay * group_reduction;
 		var reduction = 0;
+
+		productPriceDisplay += typKovaniaActual + typVzoruActual + typDvereActual + typZarubnaActual;
 		if (selectedCombination['specific_price'].reduction_price || selectedCombination['specific_price'].reduction_percent)
 		{
 			reduction_price = (specific_currency ? selectedCombination['specific_price'].reduction_price : selectedCombination['specific_price'].reduction_price * currencyRate);
@@ -430,6 +437,7 @@ function updateDisplay()
 			$('#not_impacted_by_discount').hide();
 
 		productPriceDisplay -= reduction;
+		console.log("reductionreductionreduction: " + reduction);
 		var tmp = productPriceDisplay * group_reduction;
 		productPriceDisplay = ps_round(productPriceDisplay * group_reduction, 2);
 
@@ -438,9 +446,8 @@ function updateDisplay()
 		productPriceWithoutReductionDisplay += ecotaxAmount;
 
 		var our_price = '';
-		console.log("productPriceDisplay: " + productPriceDisplay);
 		if (productPriceDisplay > 0) {
-			our_price = formatCurrency(productPriceDisplay + typKovaniaActual + typVzoruActual + typDvereActual + typZarubnaActual, currencyFormat, currencySign, currencyBlank);
+			our_price = formatCurrency(productPriceDisplay, currencyFormat, currencySign, currencyBlank);
 			$(".dph").show();
 		} else {
 			//our_price = formatCurrency(0, currencyFormat, currencySign, currencyBlank);
@@ -482,14 +489,12 @@ function displayImage(domAAroundImgThumb, no_animation)
 	if (domAAroundImgThumb.attr('href'))
 	{
 		var newSrc = domAAroundImgThumb.attr('href').replace('thickbox', 'large');
-		console.log("newSrc: " + newSrc);
 		if ($('#bigpic').attr('src') != newSrc)
 		{
 			$('#bigpic').attr('src', newSrc);
 			if (typeof(jqZoomEnabled) != 'undefined' && jqZoomEnabled)
 				$('#bigpic').attr('rel', domAAroundImgThumb.attr('href'));
 		}
-		console.log("domAAroundImgThumb: " + domAAroundImgThumb.attr('href'));
 		$('#views_block li a').removeClass('shown');
 		$(domAAroundImgThumb).addClass('shown');
 	}
@@ -722,7 +727,6 @@ function colorPickerClick(elt)
 			$(".vzorConfigure").fadeOut(300);
 			$(".vzorConfigureTitle").fadeOut(300);
 		}else{
-			console.log("id_attribute: " + id_attribute);
 			$(".vzoryClass").show();
 			if(id_attribute == 23){
 				$(".vzoryClass .piesok").fadeIn(300);
@@ -734,7 +738,6 @@ function colorPickerClick(elt)
 			}
 		}
 	}
-	console.log("voslo: " + id_attribute);
 	$(elt).parent().parent().parent().children('.color_pick_hidden,#color_pick_hidden').val(id_attribute);
 	findCombination(false);
 }
@@ -950,7 +953,6 @@ function configureProductInfoListener(){
 		$(".vzorConfigureTitle").hide();
 	}
 	$(".vzoryClass a img").click(function(){
-		console.log("$(this).attr(alt): " + $(this).attr("alt"));
 		$(".vzorConfigure").fadeIn(300);
 		$(".vzorConfigureTitle").fadeIn(300);
 		$(".vzorConfigure")

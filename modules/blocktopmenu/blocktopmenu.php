@@ -574,6 +574,7 @@ class Blocktopmenu extends Module
 
 				case 'SHOP':
 					$selected = ($this->page_name == 'index' && ($this->context->shop->id == $id)) ? ' class="sfHover"' : '';
+					echo $selected;
 					$shop = new Shop((int)$id);
 					if (Validate::isLoadedObject($shop))
 					{
@@ -582,6 +583,8 @@ class Blocktopmenu extends Module
 					}
 					break;
 				case 'LNK':
+					$selected = ($this->page_name == 'index' && ($this->context->shop->id == $id)) ? ' active' : '';
+					echo $selected;
 					$link = MenuTopLinks::get((int)$id, (int)$id_lang, (int)$id_shop);
 					if (count($link))
 					{
@@ -590,7 +593,7 @@ class Blocktopmenu extends Module
 							$default_language = Configuration::get('PS_LANG_DEFAULT');
 							$link = MenuTopLinks::get($link[0]['id_linksmenutop'], $default_language, (int)Shop::getContextShopID());
 						}
-						$this->_menu .= '<li><a class="dropdown-toggle"  href="'.$link[0]['link'].'"'.(($link[0]['new_window']) ? ' target="_blank"': '').'>'.$link[0]['label'].'</a></li>'.PHP_EOL;
+						$this->_menu .= '<li><a class="dropdown-toggle'.$selected.'"  href="'.$link[0]['link'].'"'.(($link[0]['new_window']) ? ' target="_blank"': '').'>'.$link[0]['label'].'</a></li>'.PHP_EOL;
 					}
 					break;
 			}
@@ -635,7 +638,7 @@ class Blocktopmenu extends Module
 			return;
 
 		$children = Category::getChildren((int)$id_category, (int)$id_lang, true, (int)$id_shop);
-		$selected = ($this->page_name == 'category' && ((int)Tools::getValue('id_category') == $id_category)) ? ' class=""' : '';
+		$selected = ($this->page_name == 'category' && ((int)Tools::getValue('id_category') == $id_category)) ? ' active' : '';
 
 		$is_intersected = array_intersect($category->getGroups(), $this->user_groups);
 		// filter the categories that the user is allowed to see and browse
@@ -643,9 +646,9 @@ class Blocktopmenu extends Module
 		{
 			$this->_menu .= '<li class="dropdown">';
 			if($category->name != "PRODUKTY"){
-				$this->_menu .= '<a href="'.$category_link.'" class="dropdown-toggle">'.$category->name.'</a>';		
+				$this->_menu .= '<a href="'.$category_link.'" class="dropdown-toggle'.$selected.'">'.$category->name.'</a>';		
 			}else{
-				$this->_menu .= '<a href="'.$category_link.'" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">'.$category->name.'</a>';
+				$this->_menu .= '<a href="'.$category_link.'" class="dropdown-toggle'.$selected.'" data-hover="dropdown" data-toggle="dropdown">'.$category->name.'</a>';
 			}
 
 			if (count($children))

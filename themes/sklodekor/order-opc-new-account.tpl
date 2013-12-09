@@ -382,6 +382,7 @@
 				{$HOOK_CREATE_ACCOUNT_FORM}
 				<p class="submit">
 					<input type="submit" class="exclusive button" name="submitAccount" id="submitAccount" value="{l s='Save'}" />
+					<a href="javascript:void(0)" class="hideLogin">Skryť</a>
 				</p>
 				<p style="display: none;" id="opc_account_saved">
 					{l s='Account information saved successfully'}

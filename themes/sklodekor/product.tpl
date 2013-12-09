@@ -381,7 +381,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
             
             <div class="configure-product-attr-box">
             <p><span>Rozmer:</span></p>
-            <p><span class="widthConfigure">800</span>x<span class="heightConfigure">2000</span>mm</p>
+            <p><span class="widthConfigure">800</span><span class="confugureSizeX">x</span><span class="heightConfigure">2000</span><span class="confugureSizeMM">mm</span></p>
             <p><span>Povrchová úprava:</span></p>
             <p class="typSklaConfigure">grafická potlač</p>
             <p class="kovanieConfigureTitle"><span>kovanie:</span></p>

@@ -475,6 +475,7 @@ var ajaxCart = {
 					if (typeof(freeProductTranslation) != 'undefined')
 						content += '<span class="price">' + (parseFloat(this.price_float) > 0 ? this.priceByLine : freeProductTranslation) + '</span>';
 					content += '</dt>';
+					console.log(this.attributes);
 					if (this.hasAttributes)
 						  content += '<dd id="cart_block_combination_of_' + domIdProduct + '" class="hidden"><a href="' + this.link + '" title="' + this.name + '">' + this.attributes + '</a>';
 					if (this.hasCustomizedDatas)

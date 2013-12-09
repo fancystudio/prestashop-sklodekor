@@ -723,11 +723,21 @@ class CartCore extends ObjectModel
 			WHERE pac.`id_product_attribute` IN ('.implode($pa_implode, ',').')
 			ORDER BY agl.`public_name` ASC'
 		);
-
+		$sirkaIsAtypic = false;
+		$vyskaIsAtypic = false;
 		foreach ($result as $row)
 		{
-			self::$_attributesLists[$row['id_product_attribute'].'-'.$id_lang]['attributes'] .= $row['public_group_name'].' : '.$row['attribute_name'].', ';
-			self::$_attributesLists[$row['id_product_attribute'].'-'.$id_lang]['attributes_small'] .= $row['attribute_name'].', ';
+			if($row['public_group_name'] == "Rozmer" && $row['attribute_name'] == "atypický rozmer"){
+				$sirkaIsAtypic = true;
+			}
+			if($row['public_group_name'] == "výška" && $row['attribute_name'] == "atypický rozmer"){
+				$vyskaIsAtypic = true;
+			}
+			if(($row['public_group_name'] == "Rozmer" && $vyskaIsAtypic) || ($row['public_group_name'] == "výška" && $sirkaIsAtypic)){
+			}else{
+				self::$_attributesLists[$row['id_product_attribute'].'-'.$id_lang]['attributes'] .= $row['public_group_name'].' : '.$row['attribute_name'].', ';
+				self::$_attributesLists[$row['id_product_attribute'].'-'.$id_lang]['attributes_small'] .= $row['attribute_name'].', ';
+			}
 		}
 
 		foreach ($pa_implode as $id_product_attribute)

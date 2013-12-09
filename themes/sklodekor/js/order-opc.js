@@ -449,6 +449,10 @@ $(function() {
 				updateNeedIDNumber();
 				updateZipCode();
 			});
+			$('.hideLogin').click(function() {
+				$('#opc_account_form').hide(300);
+				$('#opc_account_choice').show(300);
+			});
 		}
 		else if (isGuest)
 		{

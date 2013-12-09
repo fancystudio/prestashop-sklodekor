@@ -94,7 +94,6 @@ function findCombination(firstTime)
 								//typKovaniaActual = ps_round(((combinations[combination]['specific_price']['price']*taxRate)/100) + combinations[combination]['specific_price']['price']);
 								typKovaniaActual = ((combinations[combination]['price']*taxRate)/100) + combinations[combination]['price'];
 								//reduction = productPriceDisplay * (parseFloat(selectedCombination['specific_price'].reduction_percent) / 100) + reduction_price;
-								console.log("discount: " + parseFloat(combinations[combination]['specific_price'].reduction_percent) / 100);
 							}else{
 								//typKovaniaActual = ps_round(((combinations[combination]['price']*taxRate)/100) + combinations[combination]['price']);
 								typKovaniaActual = ((combinations[combination]['price']*taxRate)/100) + combinations[combination]['price'];
@@ -108,7 +107,6 @@ function findCombination(firstTime)
 							}else{
 								//typVzoruActual = ps_round(((combinations[combination]['price']*taxRate)/100) + combinations[combination]['price']);
 								typVzoruActual = ((combinations[combination]['price']*taxRate)/100) + combinations[combination]['price'];
-								console.log("discount: " + parseFloat(combinations[combination]['specific_price'].reduction_percent) / 100);
 							}
 							$("#idVzor").attr("value",combinations[combination]['idCombination']);
 							vzorCombinationImage = combinations[combination]['image'];
@@ -808,6 +806,10 @@ function checkUrl()
 						&& attributesCombinations[a]['attribute'] === tabValues[z][1])
 					{
 						count++;
+						if(attributesCombinations[a]['group'] == "sirka" || attributesCombinations[a]['group'] == "vyska"){
+							$('select[name=group_' + attributesCombinations[a]['id_attribute_group'] + '] option').removeAttr( 'selected');
+							$('select[name=group_' + attributesCombinations[a]['id_attribute_group'] + '] option[value='+ attributesCombinations[a]['id_attribute'] +']').attr('selected','selected');
+						}
 						// add class 'selected' to the selected color
 						$('#color_' + attributesCombinations[a]['id_attribute']).addClass('selected');
 						$('#color_' + attributesCombinations[a]['id_attribute']).parent().addClass('selected');
@@ -859,27 +861,55 @@ function selectClickedOptionVzory(option){
 }
 function configureProductInfoListener(){
 	
-	$(".widthConfigure")
+	if($(".rozmerClass .attribute_list:eq(0) option[selected='selected']").html() == "atypický rozmer"){
+		$(".confugureSizeX, .confugureSizeMM, .heightConfigure, .vyska, .rozmerClass .dropDownName:eq(1)").hide();
+		$(".widthConfigure")
+		.html(
+			"atypický rozmer"
+		);
+	}else{
+		//$(".confugureSizeX, .confugureSizeMM, .heightConfigure, .vyska, .rozmerClass .dropDownName:eq(1)").show();
+		$(".widthConfigure")
 		.html(
 			$(".rozmerClass .attribute_list:eq(0) option[selected='selected']").html()
 		);
-	$(".heightConfigure")
+	}
+	
+	if($(".rozmerClass .attribute_list:eq(1) select option[selected='selected']").html() == "atypický rozmer"){
+		$(".confugureSizeX, .confugureSizeMM, .widthConfigure, .sirka, .rozmerClass .dropDownName:eq(0)").hide();
+		$(".heightConfigure")
+		.html(
+			"atypický rozmer"
+		);
+	}else{
+		//$(".confugureSizeX, .confugureSizeMM, .widthConfigure, .sirka, .rozmerClass .dropDownName:eq(0)").show();
+		$(".heightConfigure")
 		.html(
 			$(".rozmerClass .attribute_list:eq(1) select option[selected='selected']").html()
 		);
-	
+	}
 	$(".typSklaConfigure")
 		.html(
 			$(".typSklaClass li[class='selected'] img").attr("alt")
 		);
 	
 	$(".rozmerClass .attribute_list:eq(0) select").change(function(){
+		if($(".rozmerClass .attribute_list:eq(0) select option[value='" + this.value + "']").html() == "atypický rozmer"){
+			$(".confugureSizeX, .confugureSizeMM, .heightConfigure").hide();
+		}else{
+			$(".confugureSizeX, .confugureSizeMM, .heightConfigure").show();
+		}
 		$(".widthConfigure")
 		.html(
 			$(".rozmerClass .attribute_list:eq(0) select option[value='" + this.value + "']").html()
 		);
 	});
 	$(".rozmerClass .attribute_list:eq(1) select").change(function(){
+		if($(".rozmerClass .attribute_list:eq(1) select option[value='" + this.value + "']").html() == "atypický rozmer"){
+			$(".confugureSizeX, .confugureSizeMM, .widthConfigure").hide();
+		}else{
+			$(".confugureSizeX, .confugureSizeMM, .widthConfigure").show();
+		}
 		$(".heightConfigure")
 		.html(
 			$(".rozmerClass .attribute_list:eq(1) select option[value='" + this.value + "']").html()

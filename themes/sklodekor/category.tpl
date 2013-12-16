@@ -41,7 +41,6 @@
 		<div class="resumecat category-product-count">
 			{include file="$tpl_dir./category-count.tpl"}
 		</div>-->
-		
 		{if $scenes || $category->description || $category->id_image}
 		<div class="content_scene_cat">
 			{if $scenes}

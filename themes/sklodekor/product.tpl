@@ -206,6 +206,11 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 </div>
 
 <div class="container">
+{foreach from=CMS::getCMSPages(1,2,true) item=cmspages}
+		 <li>
+		  <a href="{$link->getCMSLink($cmspages.id_cms, $cmspages.link_rewrite)|escape:'htmlall':'UTF-8'}">{$cmspages.meta_title|escape:'htmlall':'UTF-8'}</a>
+		 </li>
+{/foreach}
 <div class="row">
 
 	{if isset($adminActionDisplay) && $adminActionDisplay}

@@ -584,13 +584,11 @@ $(document).ready(function()
 	});
 	$('#thumbs_list').trigger('goto', 1);// SerialScroll Bug on goto 0 ?
 	$('#thumbs_list').trigger('goto', 0);
-
 	//hover 'other views' images management
 	$('#views_block li a').hover(
 		function(){displayImage($(this));},
 		function(){}
 	);
-	
 	//set jqZoom parameters if needed
 	if (typeof(jqZoomEnabled) != 'undefined' && jqZoomEnabled)
 	{
@@ -606,25 +604,21 @@ $(document).ready(function()
 	$('#view_full_size, #image-block img').click(function(){
 		$('#views_block .shown').click();
 	});
-
 	//catch the click on the "more infos" button at the top of the page
 	$('#short_description_block .button').click(function(){
 		$('#more_info_tab_more_info').click();
 		$.scrollTo( '#more_info_tabs', 1200 );
 	});
-
 	// Hide the customization submit button and display some message
 	$('#customizedDatas input').click(function() {
 		$('#customizedDatas input').hide();
 		$('#ajax-loader').fadeIn();
 		$('#customizedDatas').append(uploading_in_progress);
 	});
-
 	original_url = window.location + '';
 	first_url_check = true;
 	checkUrl();
 	initLocationChange();
-
 	//init the price in relation of the selected attributes
 	if (typeof productHasAttributes != 'undefined' && productHasAttributes)
 		findCombination(true);
@@ -640,15 +634,12 @@ $(document).ready(function()
 		'transitionIn'	: 'elastic',
 		'transitionOut'	: 'elastic'
 	});
-	
 	hideVzor();
-	
 	$('.vzoryMenu .click').eq(0).addClass("selected");
 	$('.vzoryMenu .clickPiesok').eq(0).addClass("selected");
 	$('.vzoryMenu .click,.vzoryMenu .clickPiesok').click(function() {
 		selectClickedOptionVzory(this);
 	});
-	
 	lockRozmer();
 	configureProductInfoListener();
 });
@@ -834,26 +825,31 @@ function hideVzor(){
 	selectedCeloPiekovane = $(".typSklaClass a[title='celoplošne pieskované']").attr("class");
 	selectedPiesok = $(".typSklaClass a[title='vzorovo pieskované']").attr("class");
 	selectedGrafika = $(".typSklaClass a[title='pieskované s grafickou potlačou']").attr("class");
+	
 	if(selectedCire.indexOf("selected") != -1){
 		$(".vzorHidden").val("");
 		$("#idVzor").val("");
 		typVzoruActual = 0;
 		$(".vzoryClass").fadeOut(300);		
 	}
+	
 	if(selectedCeloPiekovane.indexOf("selected") != -1){
 		$(".vzorHidden").val("");
 		$("#idVzor").val("");
 		typVzoruActual = 0;
 		$(".vzoryClass").fadeOut(300);		
 	}
+	
 	if(selectedGrafika.indexOf("selected") != -1){
 		$(".vzoryClass .piesok").fadeOut(300);
 		$(".vzoryClass .grafika").fadeIn(300);
 	}
+	
 	if(selectedPiesok.indexOf("selected") != -1){
 		$(".vzoryClass .piesok").fadeIn(300);
 		$(".vzoryClass .grafika").fadeOut(300);			
 	}
+	
 }
 function selectClickedOptionVzory(option){
 	$('.vzoryMenu .click').removeClass("selected");

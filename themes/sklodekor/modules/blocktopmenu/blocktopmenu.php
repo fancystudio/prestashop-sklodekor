@@ -56,6 +56,7 @@ class Blocktopmenu extends Module
 		$this->author = 'PrestaShop';
 
 		parent::__construct();
+
 		$this->displayName = $this->l('Top horizontal menu');
 		$this->description = $this->l('Add a new horizontal menu to the top of your e-commerce website.');
 	}
@@ -573,6 +574,7 @@ class Blocktopmenu extends Module
 
 				case 'SHOP':
 					$selected = ($this->page_name == 'index' && ($this->context->shop->id == $id)) ? ' class="sfHover"' : '';
+					echo $selected;
 					$shop = new Shop((int)$id);
 					if (Validate::isLoadedObject($shop))
 					{
@@ -581,6 +583,8 @@ class Blocktopmenu extends Module
 					}
 					break;
 				case 'LNK':
+					$selected = ($this->page_name == 'index' && ($this->context->shop->id == $id)) ? ' active' : '';
+					echo $selected;
 					$link = MenuTopLinks::get((int)$id, (int)$id_lang, (int)$id_shop);
 					if (count($link))
 					{
@@ -589,7 +593,7 @@ class Blocktopmenu extends Module
 							$default_language = Configuration::get('PS_LANG_DEFAULT');
 							$link = MenuTopLinks::get($link[0]['id_linksmenutop'], $default_language, (int)Shop::getContextShopID());
 						}
-						$this->_menu .= '<li><a href="'.$link[0]['link'].'"'.(($link[0]['new_window']) ? ' target="_blank"': '').'>'.$link[0]['label'].'</a></li>'.PHP_EOL;
+						$this->_menu .= '<li><a class="dropdown-toggle'.$selected.'"  href="'.$link[0]['link'].'"'.(($link[0]['new_window']) ? ' target="_blank"': '').'>'.$link[0]['label'].'</a></li>'.PHP_EOL;
 					}
 					break;
 			}
@@ -634,19 +638,23 @@ class Blocktopmenu extends Module
 			return;
 
 		$children = Category::getChildren((int)$id_category, (int)$id_lang, true, (int)$id_shop);
-		$selected = ($this->page_name == 'category' && ((int)Tools::getValue('id_category') == $id_category)) ? ' class="sfHoverForce"' : '';
+		$selected = ($this->page_name == 'category' && ((int)Tools::getValue('id_category') == $id_category)) ? ' active' : '';
 
 		$is_intersected = array_intersect($category->getGroups(), $this->user_groups);
 		// filter the categories that the user is allowed to see and browse
 		if (!empty($is_intersected))
 		{
-			$this->_menu .= '<li '.$selected.'>';
-			$this->_menu .= '<a href="'.$category_link.'">'.$category->name.'</a>';
+			$this->_menu .= '<li class="dropdown">';
+			if($category->name != "PRODUKTY"){
+				$this->_menu .= '<a href="'.$category_link.'" class="dropdown-toggle'.$selected.'">'.$category->name.'</a>';		
+			}else{
+				$this->_menu .= '<a href="'.$category_link.'" class="dropdown-toggle'.$selected.'" data-hover="dropdown" data-toggle="dropdown">'.$category->name.'</a>';
+			}
 
 			if (count($children))
 			{
-				$this->_menu .= '<ul>';
-
+				$this->_menu .= '<ul class="dropdown-menu">';
+				
 				foreach ($children as $child)
 					$this->getCategory((int)$child['id_category'], (int)$id_lang, (int)$child['id_shop']);
 
@@ -684,7 +692,7 @@ class Blocktopmenu extends Module
 				$links = $cms->getLinks((int)$id_lang, array((int)$cms->id));
 
 				$selected = ($this->page_name == 'cms' && ((int)Tools::getValue('id_cms') == $page['id_cms'])) ? ' class="sfHoverForce"' : '';
-				$this->_menu .= '<li '.$selected.'>';
+				$this->_menu .= '<li>';
 				$this->_menu .= '<a href="'.$links[0]['link'].'">'.$cms->meta_title.'</a>';
 				$this->_menu .= '</li>';
 			}
@@ -723,13 +731,13 @@ class Blocktopmenu extends Module
 	{
 		$this->user_groups =  ($this->context->customer->isLogged() ? $this->context->customer->getGroups() : array(Configuration::get('PS_UNIDENTIFIED_GROUP')));
 		$this->page_name = Dispatcher::getInstance()->getController();
-		if (!$this->isCached('blocktopmenu.tpl', $this->getCacheId()))
-		{
+		//if (!$this->isCached('blocktopmenu.tpl', $this->getCacheId()))
+		//{
 			$this->makeMenu();
 			$this->smarty->assign('MENU_SEARCH', Configuration::get('MOD_BLOCKTOPMENU_SEARCH'));
 			$this->smarty->assign('MENU', $this->_menu);
 			$this->smarty->assign('this_path', $this->_path);
-		}
+		//}
 
 		$this->context->controller->addJS($this->_path.'js/hoverIntent.js');
 		$this->context->controller->addJS($this->_path.'js/superfish-modified.js');

@@ -78,6 +78,39 @@
   .hidden-tablet {
     display: none !important;
   }
+  
+  /*--------moje--------*/
+.navbar .btn-navbar {
+width: 44px;
+height: 44px;
+padding: 0px;
+background: url(img/spirite.png);
+background-position: 0px -64px;
+border: none;
+position: absolute;
+right: 0;
+margin-top: -2px;
+}
+
+#header > div.navbar > a > i {
+display: none !important;
+}
+
+.navbar{
+	position: relative
+}
+
+#header_user_info {
+margin-right: 85px;
+}
+
+.navbar {
+margin-bottom: 0px
+}
+
+/*--------moje--------*/
+  
+  
 }
 
 @media (max-width: 767px) {
@@ -98,6 +131,55 @@
 .visible-print {
   display: none !important;
 }
+/*-----moje--------
+#header_user #header_nav {
+list-style-type: none;
+float: right;
+margin-top: 63px;
+}
+
+#header_user_info {
+margin-right: 7px;
+margin-top: 63px;
+}
+/*-----moje--------*/
+
+  /*--------moje--------*/
+.navbar .btn-navbar {
+width: 44px;
+height: 44px;
+padding: 0px;
+background: url(img/spirite.png);
+background-position: 0px -64px;
+border: none;
+position: absolute;
+right: 0;
+margin-top: -2px;
+}
+
+#header > div.navbar > a > i {
+display: none !important;
+}
+
+.navbar{
+	position: relative
+}
+
+#header_user_info {
+margin-right: 85px;
+}
+
+.navbar {
+margin-bottom: 0px
+}
+/*--------moje--------*/
+
+}
+
+
+
+
+
 
 @media print {
   .visible-print {
@@ -899,6 +981,27 @@
   .container {padding-left: 20px !important;
   			  padding-right: 20px !important}
 }
+@media (max-width: 520px) {
+	  /*---moje.... horne menu*/
+  #header_user #header_nav {
+list-style-type: none;
+float: right;
+margin-top: 23px;
+clear: left
+}
+
+#header_user_info {
+margin-right: 7px;
+margin-top: 63px;
+}
+
+#languages_block_top {
+margin-top: 20px;
+}
+   /*---moje....*/ 
+}
+
+
 
 @media (max-width: 480px) {
   .nav-collapse {
@@ -950,6 +1053,9 @@
   .carousel-caption {
     position: static;
   }
+  
+
+  
 }
 
 @media (max-width: 979px) {
@@ -1104,36 +1210,7 @@
   }
 }
 
-/*--------moje--------*/
-.navbar .btn-navbar {
-width: 44px;
-height: 44px;
-padding: 0px;
-background: url(img/spirite.png);
-background-position: 0px -64px;
-border: none;
-position: absolute;
-right: 0;
-margin-top: -2px;
-}
 
-#header > div.navbar > a > i {
-display: none !important;
-}
-
-.navbar{
-	position: relative
-}
-
-#header_user_info {
-margin-right: 85px;
-}
-
-.navbar {
-margin-bottom: 0px
-}
-
-/*--------moje--------*/
 
 @media (min-width: 980px) {
   .nav-collapse.collapse {

@@ -1,8 +1,12 @@
 <?php
-define('_DB_SERVER_', 'mysql51.websupport.sk:3309');
-define('_DB_NAME_', 'prestashop_local');
-define('_DB_USER_', 'prestashop_local');
-define('_DB_PASSWD_', 'prestashop_local12*');
+//define('_DB_SERVER_', 'mysql51.websupport.sk:3309');
+//define('_DB_NAME_', 'prestashop_local');
+//define('_DB_USER_', 'prestashop_local');
+//define('_DB_PASSWD_', 'prestashop_local12*');
+define('_DB_SERVER_', 'localhost');
+define('_DB_NAME_', 'prestashop');
+define('_DB_USER_', 'root');
+define('_DB_PASSWD_', '');
 define('_DB_PREFIX_', 'ps_');
 define('_MYSQL_ENGINE_', 'MyISAM');
 define('_PS_CACHING_SYSTEM_', 'CacheApc');

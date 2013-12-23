@@ -71,7 +71,7 @@
 				<label for="confirmation">{l s='Confirmation'}</label>
 				<input type="password" name="confirmation" id="confirmation" />
 			</p>
-			<p class="select">
+			<!-- <p class="select">
 				<label>{l s='Date of Birth'}</label>
 				<select name="days" id="days">
 					<option value="">-</option>
@@ -105,16 +105,16 @@
 						<option value="{$v}" {if ($sl_year == $v)}selected="selected"{/if}>{$v}&nbsp;&nbsp;</option>
 					{/foreach}
 				</select>
-			</p>
+			</p>-->
 			{if $newsletter}
 			<p class="checkbox">
 				<input type="checkbox" id="newsletter" name="newsletter" value="1" {if isset($smarty.post.newsletter) && $smarty.post.newsletter == 1} checked="checked"{/if} />
 				<label for="newsletter">{l s='Sign up for our newsletter!'}</label>
 			</p>
-			<p class="checkbox">
+			<!-- <p class="checkbox">
 				<input type="checkbox" name="optin" id="optin" value="1" {if isset($smarty.post.optin) && $smarty.post.optin == 1} checked="checked"{/if} />
 				<label for="optin">{l s='Receive special offers from our partners!'}</label>
-			</p>
+			</p> -->
 			{/if}
 			<p class="submit">
 				<input type="submit" class="button" name="submitIdentity" value="{l s='Save'}" />

@@ -23,7 +23,7 @@
 *  International Registered Trademark & Property of PrestaShop SA
 *}
 <div class="sub-page-wrapper-line">
-<div class="container">
+<div class="container" id="center_column">
 {capture name=path}{l s='Login'}{/capture}
 {include file="$tpl_dir./breadcrumb.tpl"}
 
@@ -57,14 +57,23 @@ $(function(){ldelim}
 $(document).ready(function() {
 	$('#company').blur(function(){
 		vat_number();
+		dni_number();
 	});
 	vat_number();
+	dni_number();
 	function vat_number()
 	{
 		if ($('#company').val() != '')
 			$('#vat_number').show();
 		else
 			$('#vat_number').hide();
+	}
+	function dni_number()
+	{
+		if ($('#company').val() != '')
+			$('.dniClass').show();
+		else
+			$('.dniClass').hide();
 	}
 });
 {/literal}
@@ -336,14 +345,16 @@ $(document).ready(function() {
 				<!-- END Account -->
 			</div>
 		</fieldset>
-		<fieldset class="account_creation dni">
+		<!-- <fieldset class="account_creation dni">
 			<h3>{l s='Tax identification'}</h3>
-			<p class="required text">
-				<label for="dni">{l s='Identification number'}</label>
-				<input type="text" class="text" name="dni" id="dni" value="{if isset($smarty.post.dni)}{$smarty.post.dni}{/if}" />
-				<span class="form_info">{l s='DNI / NIF / NIE'}</span>
-			</p>
-		</fieldset>
+			<div class="dniClass" style="display:none;"> 
+				<p class="required text">
+					<label for="dni">{l s='Identification number'}</label>
+					<input type="text" class="text" name="dni" id="dni" value="{if isset($smarty.post.dni)}{$smarty.post.dni}{/if}" />
+					<span class="form_info">{l s='DNI / NIF / NIE'}</span>
+				</p>
+			</div>
+		</fieldset> -->
 		{$HOOK_CREATE_ACCOUNT_FORM}
 		<p class="cart_navigation required submit">
 			<span><sup>*</sup>{l s='Required field'}</span>
@@ -371,13 +382,13 @@ $(document).ready(function() {
 	{$HOOK_CREATE_ACCOUNT_TOP}
 	<fieldset class="account_creation">
 		<h3>{l s='Your personal information'}</h3>
-		<p class="radio required">
+		<!-- <p class="radio required">
 			<span>{l s='Title'}</span>
 			{foreach from=$genders key=k item=gender}
 				<input type="radio" name="id_gender" id="id_gender{$gender->id}" value="{$gender->id}" {if isset($smarty.post.id_gender) && $smarty.post.id_gender == $gender->id}checked="checked"{/if} />
 				<label for="id_gender{$gender->id}" class="top">{$gender->name}</label>
 			{/foreach}
-		</p>
+		</p>  -->
 		<p class="required text">
 			<label for="customer_firstname">{l s='First name'} <sup>*</sup></label>
 			<input onkeyup="$('#firstname').val(this.value);" type="text" class="text" id="customer_firstname" name="customer_firstname" value="{if isset($smarty.post.customer_firstname)}{$smarty.post.customer_firstname}{/if}" />
@@ -395,7 +406,7 @@ $(document).ready(function() {
 			<input type="password" class="text" name="passwd" id="passwd" />
 			<span class="form_info">{l s='(Five characters minimum)'}</span>
 		</p>
-		<p class="select">
+		<!-- <p class="select">
 			<span>{l s='Date of Birth'}</span>
 			<select id="days" name="days">
 				<option value="">-</option>
@@ -429,25 +440,25 @@ $(document).ready(function() {
 					<option value="{$year}" {if ($sl_year == $year)} selected="selected"{/if}>{$year}&nbsp;&nbsp;</option>
 				{/foreach}
 			</select>
-		</p>
+		</p> -->
 		{if $newsletter}
 		<p class="checkbox" >
 			<input type="checkbox" name="newsletter" id="newsletter" value="1" {if isset($smarty.post.newsletter) AND $smarty.post.newsletter == 1} checked="checked"{/if} />
 			<label for="newsletter">{l s='Sign up for our newsletter!'}</label>
 		</p>
-		<p class="checkbox" >
+		<!--<p class="checkbox" >
 			<input type="checkbox"name="optin" id="optin" value="1" {if isset($smarty.post.optin) AND $smarty.post.optin == 1} checked="checked"{/if} />
 			<label for="optin">{l s='Receive special offers from our partners!'}</label>
-		</p>
+		</p> -->
 		{/if}
 	</fieldset>
-	{if $b2b_enable}
+	<!-- {if $b2b_enable}
 	<fieldset class="account_creation">
 		<h3>{l s='Your company information'}</h3>
 		<p class="text">
 			<label for="">{l s='Company'}</label>
 			<input type="text" class="text" id="company" name="company" value="{if isset($smarty.post.company)}{$smarty.post.company}{/if}" />
-		</p>
+		</p> 
 		<p class="text">
 			<label for="siret">{l s='SIRET'}</label>
 			<input type="text" class="text" id="siret" name="siret" value="{if isset($smarty.post.siret)}{$smarty.post.siret}{/if}" />
@@ -461,14 +472,14 @@ $(document).ready(function() {
 			<input type="text" class="text" id="website" name="website" value="{if isset($smarty.post.website)}{$smarty.post.website}{/if}" />
 		</p>
 	</fieldset>
-	{/if}
+	{/if} -->
 	{if isset($PS_REGISTRATION_PROCESS_TYPE) && $PS_REGISTRATION_PROCESS_TYPE}
 	<fieldset class="account_creation">
 		<h3>{l s='Your address'}</h3>
 		{foreach from=$dlv_all_fields item=field_name}
 			{if $field_name eq "company"}
 				<p class="text">
-					<label for="company">{l s='Company'}</label>
+					<label for="">{l s='Company'}</label>
 					<input type="text" class="text" id="company" name="company" value="{if isset($smarty.post.company)}{$smarty.post.company}{/if}" />
 				</p>
 			{elseif $field_name eq "vat_number"}
@@ -476,6 +487,12 @@ $(document).ready(function() {
 					<p class="text">
 						<label for="vat_number">{l s='VAT number'}</label>
 						<input type="text" class="text" name="vat_number" value="{if isset($smarty.post.vat_number)}{$smarty.post.vat_number}{/if}" />
+					</p>
+				</div>
+				<div class="dniClass" style="display:none">
+					<p class="text">
+						<label for="dni">{l s='Identification number'}</label>
+						<input type="text" class="text" name="dni" id="dni" value="{if isset($smarty.post.dni)}{$smarty.post.dni}{/if}" />
 					</p>
 				</div>
 			{elseif $field_name eq "firstname"}
@@ -562,14 +579,16 @@ $(document).ready(function() {
 			<input type="text" class="text" name="alias" id="alias" value="{if isset($smarty.post.alias)}{$smarty.post.alias}{else}{l s='My address'}{/if}" />
 		</p>
 	</fieldset>
-	<fieldset class="account_creation dni">
+	<!--  <fieldset class="account_creation dni">
 		<h3>{l s='Tax identification'}</h3>
-		<p class="required text">
-			<label for="dni">{l s='Identification number'} <sup>*</sup></label>
-			<input type="text" class="text" name="dni" id="dni" value="{if isset($smarty.post.dni)}{$smarty.post.dni}{/if}" />
-			<span class="form_info">{l s='DNI / NIF / NIE'}</span>
-		</p>
-	</fieldset>
+		<div class="dniClass" style="display:none">
+			<p class="text">
+				<label for="dni">{l s='Identification number'} <sup>*</sup></label>
+				<input type="text" class="text" name="dni" id="dni" value="{if isset($smarty.post.dni)}{$smarty.post.dni}{/if}" />
+				<span class="form_info">{l s='DNI / NIF / NIE'}</span>
+			</p>
+		</div>
+	</fieldset> -->
 	{/if}
 	{$HOOK_CREATE_ACCOUNT_FORM}
 	<p class="cart_navigation required submit">

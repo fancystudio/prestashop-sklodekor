@@ -50,14 +50,23 @@ $(function(){ldelim}
 	$(document).ready(function() {
 		$('#company').blur(function(){
 			vat_number();
+			dni_number();
 		});
 		vat_number();
+		dni_number();
 		function vat_number()
 		{
 			if ($('#company').val() != '')
 				$('#vat_number').show();
 			else
 				$('#vat_number').hide();
+		}
+		function dni_number()
+		{
+			if ($('#company').val() != '')
+				$('.dniClass').show();
+			else
+				$('.dniClass').hide();
 		}
 	});
 {/literal}
@@ -89,11 +98,6 @@ $(function(){ldelim}
 <form action="{$link->getPageLink('address', true)}" method="post" class="std" id="add_address">
 	<fieldset>
 		<h3>{if isset($id_address)}{l s='Your address'}{else}{l s='New address'}{/if}</h3>
-		<p class="required text dni">
-			<label for="dni">{l s='Identification number'} <sup>*</sup></label>
-			<input type="text" class="text" name="dni" id="dni" value="{if isset($smarty.post.dni)}{$smarty.post.dni}{else}{if isset($address->dni)}{$address->dni}{/if}{/if}" />
-			<span class="form_info">{l s='DNI / NIF / NIE'}</span>
-		</p>
 	{assign var="stateExist" value="false"}
 	{foreach from=$ordered_adr_fields item=field_name}
 		{if $field_name eq 'company'}
@@ -111,6 +115,12 @@ $(function(){ldelim}
 						<input type="text" class="text" name="vat_number" value="{if isset($smarty.post.vat_number)}{$smarty.post.vat_number}{else}{if isset($address->vat_number)}{$address->vat_number}{/if}{/if}" />
 					</p>
 				</div>
+			</div>
+			<div class="dniClass" style="display:none";>
+				<p class="text dni">
+					<label for="dni">{l s='Identification number'}</label>
+					<input type="text" class="text" name="dni" id="dni" value="{if isset($smarty.post.dni)}{$smarty.post.dni}{else}{if isset($address->dni)}{$address->dni}{/if}{/if}" />
+				</p>
 			</div>
 		{/if}
 		{if $field_name eq 'firstname'}

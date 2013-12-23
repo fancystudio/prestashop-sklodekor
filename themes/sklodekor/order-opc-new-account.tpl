@@ -75,11 +75,24 @@
 				function vat_number()
 				{	
 					if ($('#company').val() != ''){
+						console.log("company");
+					}else{
+						console.log("!company");
+					}
+					if ($('#company_invoice').val() != ''){
+						console.log("company_invoice");
+					}else{
+						console.log("!company_invoice");
+					}
+					
+					if ($('#company').val() != ''){
 						$('#vat_number_block').show();
 						$('.dni').show();
+						console.log(".dni show");
 					}else{
 						$('#vat_number_block').hide();
 						$('.dni').hide();
+						console.log("company");
 					}
 				}
 				function vat_number_invoice()
@@ -94,12 +107,14 @@
 				}
 				
 				$(document).ready(function() {
-					
 					$('#company').blur(function(){
+						vat_number_invoice();
 						vat_number();
+						console.log("company");
 					});
 					$('#company_invoice').blur(function(){
-						vat_number_invoice();
+						console.log("company_invoice");
+						//vat_number_invoice();
 					});
 					vat_number();
 					vat_number_invoice();
@@ -138,7 +153,7 @@
 					<label for="lastname">{l s='Last name'} <sup>*</sup></label>
 					<input type="text" class="text" id="customer_lastname" name="customer_lastname" onblur="$('#lastname').val($(this).val());" value="{if isset($guestInformations) && $guestInformations.customer_lastname}{$guestInformations.customer_lastname}{/if}" />
 				</p>
-				<p class="select">
+				<!-- <p class="select">
 					<span>{l s='Date of Birth'}</span>
 					<select id="days" name="days">
 						<option value="">-</option>
@@ -172,16 +187,16 @@
 							<option value="{$year|escape:'htmlall':'UTF-8'}" {if isset($guestInformations) && ($guestInformations.sl_year == $year)} selected="selected"{/if}>{$year|escape:'htmlall':'UTF-8'}&nbsp;&nbsp;</option>
 						{/foreach}
 					</select>
-				</p>
+				</p> -->
 				{if isset($newsletter) && $newsletter}
 				<p class="checkbox">
 					<input type="checkbox" name="newsletter" id="newsletter" value="1" {if isset($guestInformations) && $guestInformations.newsletter}checked="checked"{/if} />
 					<label for="newsletter">{l s='Sign up for our newsletter!'}</label>
 				</p>
-				<p class="checkbox" >
+				<!-- <p class="checkbox" >
 					<input type="checkbox"name="optin" id="optin" value="1" {if isset($guestInformations) && $guestInformations.optin}checked="checked"{/if} />
 					<label for="optin">{l s='Receive special offers from our partners!'}</label>
-				</p>
+				</p> -->
 				{/if}
 				<h3>{l s='Delivery address'}</h3>
 				{$stateExist = false}
@@ -190,10 +205,6 @@
 				<p class="text">
 					<label for="company">{l s='Company'}</label>
 					<input type="text" class="text" id="company" name="company" value="{if isset($guestInformations) && $guestInformations.company}{$guestInformations.company}{/if}" />
-				</p>
-				<p class="required text dni" style="display:none;">
-					<label for="dni">{l s='Identification number'}</label>
-					<input type="text" class="text" name="dni" id="dni" value="{if isset($guestInformations) && $guestInformations.dni}{$guestInformations.dni}{/if}" />
 				</p>
 				{elseif $field_name eq "firstname"}
 				<p class="required text">
@@ -241,6 +252,10 @@
 					<p class="text">
 						<label for="vat_number">{l s='VAT number'}</label>
 						<input type="text" class="text" name="vat_number" id="vat_number" value="{if isset($guestInformations) && $guestInformations.vat_number}{$guestInformations.vat_number}{/if}" />
+					</p>
+					<p class="required text dni">
+						<label for="dni">{l s='Identification number'}</label>
+						<input type="text" class="text" name="dni" id="dni" value="{if isset($guestInformations) && $guestInformations.dni}{$guestInformations.dni}{/if}" />
 					</p>
 				</div>
 				{elseif $field_name eq "state" || $field_name eq 'State:name'}
@@ -299,7 +314,7 @@
 							<input type="text" class="text" id="vat_number_invoice" name="vat_number_invoice" value="" />
 						</p>
 					</div>
-					<p class="required text dni_invoice">
+					<p class="required text dni_invoice"> 
 						<label for="dni">{l s='Identification number'}</label>
 						<input type="text" class="text" name="dni_invoice" id="dni_invoice" value="{if isset($guestInformations) && $guestInformations.dni}{$guestInformations.dni}{/if}" />
 						<span class="form_info">{l s='DNI / NIF / NIE'}</span>

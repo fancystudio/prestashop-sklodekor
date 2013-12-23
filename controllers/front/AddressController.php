@@ -156,9 +156,11 @@ class AddressControllerCore extends FrontController
 				$this->errors[] = Tools::displayError('The Zip / Postal code is invalid.');
 
 			// Check country DNI
-			if ($country->isNeedDni() && (!Tools::getValue('dni') || !Validate::isDniLite(Tools::getValue('dni'))))
-				$this->errors[] = Tools::displayError('The identification number is incorrect or has already been used.');
-			else if (!$country->isNeedDni())
+			//if ($country->isNeedDni() && (!Tools::getValue('dni') || !Validate::isDniLite(Tools::getValue('dni'))))
+			//	$this->errors[] = Tools::displayError('The identification number is incorrect or has already been used.');
+			//else 
+			// ZAKOMENTOVAL SOM JA
+			if (!$country->isNeedDni())
 				$address->dni = null;
 		}
 		// Check if the alias exists

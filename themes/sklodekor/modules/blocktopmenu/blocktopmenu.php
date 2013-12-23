@@ -584,7 +584,6 @@ class Blocktopmenu extends Module
 					break;
 				case 'LNK':
 					$selected = ($this->page_name == 'index' && ($this->context->shop->id == $id)) ? ' active' : '';
-					echo $selected;
 					$link = MenuTopLinks::get((int)$id, (int)$id_lang, (int)$id_shop);
 					if (count($link))
 					{

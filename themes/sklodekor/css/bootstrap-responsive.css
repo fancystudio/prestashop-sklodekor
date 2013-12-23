@@ -1104,6 +1104,37 @@
   }
 }
 
+/*--------moje--------*/
+.navbar .btn-navbar {
+width: 44px;
+height: 44px;
+padding: 0px;
+background: url(img/spirite.png);
+background-position: 0px -64px;
+border: none;
+position: absolute;
+right: 0;
+margin-top: -2px;
+}
+
+#header > div.navbar > a > i {
+display: none !important;
+}
+
+.navbar{
+	position: relative
+}
+
+#header_user_info {
+margin-right: 85px;
+}
+
+.navbar {
+margin-bottom: 0px
+}
+
+/*--------moje--------*/
+
 @media (min-width: 980px) {
   .nav-collapse.collapse {
     height: auto !important;

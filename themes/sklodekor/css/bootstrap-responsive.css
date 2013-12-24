@@ -986,18 +986,35 @@ margin-bottom: 0px
   #header_user #header_nav {
 list-style-type: none;
 float: right;
-margin-top: 23px;
+margin-top: 47px;
 clear: left
 }
 
 #header_user_info {
-margin-right: 7px;
-margin-top: 63px;
+margin-right: 85px;
+margin-top: 54px;
 }
 
 #languages_block_top {
-margin-top: 20px;
+margin-top: 45px;
 }
+
+#header_logo {
+position: absolute;
+margin-left: -74px;
+left: 50%;
+}
+
+.navbar .btn-navbar {
+margin-top: 0px;
+top: 54px;
+}
+
+#header_user_info a {
+line-height: 0px;
+}
+
+
    /*---moje....*/ 
 }
 

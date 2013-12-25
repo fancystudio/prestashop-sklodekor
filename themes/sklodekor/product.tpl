@@ -4,6 +4,7 @@
 <script src="themes/sklodekor/js/isotope-master/jquery.isotope.min.js"></script>
 <script src="themes/sklodekor/js/jquery.scrollTo-1.4.3.1-min.js"></script>
 <script src="themes/sklodekor/js/jquery.select_skin.js"></script>
+<script src="themes/sklodekor/js/jquery.sticky.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 	$(".attribute_select").select_skin();
@@ -54,8 +55,17 @@ $(document).ready(function() {
 	  });
 });
 
-
 </script>
+
+{literal}
+<script>
+  $(document).ready(function(){
+    $("#image-block").sticky({
+    topSpacing:30,
+    });
+  });
+</script>
+{/literal}
 
 {literal}
 <script type="text/javascript">

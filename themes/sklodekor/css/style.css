@@ -31,6 +31,7 @@ html, body {
     height: 100%; !important
 	font-family: proxima_novalight;
 	font-weight: normal;
+	min-width: 368px;
 }
 
 
@@ -157,6 +158,7 @@ h3 {
 	color: #e5373e;
 	margin: 0;
 	padding: 15px 0;
+	text-transform: uppercase
 }
 
 .breadcrumb a{
@@ -183,7 +185,7 @@ h2{
 	color: #e5373e;
 	font-size: 2.5em;
 	padding-top:0px;
-	letter-spacing:1px;
+	letter-spacing:normal;
 	text-transform: uppercase;
 	}
 	
@@ -213,7 +215,7 @@ h2{
 #short_description_content p, .cat_desc p{
 	font-size: 12px;
 	line-height: 15px;
-	letter-spacing: 1px;
+	letter-spacing: normal;
 	color: white;
 	}
 	
@@ -528,5 +530,33 @@ a.menu:after, .dropdown-toggle:after {
 #views_block,.resetimg,.vzoryMenuPiesok{
  display: none;
 }
+/*
+.main-text {
+color: white;
+width: 310px !important;
+font-size: 0.95em !important;
+margin-left: -76px !important;
+font-weight: 200
+}*/
+
+.main-text h2 {
+padding-bottom: 0px;
+}
+
+.image-block-sticky-wrapper{
+	margin-left: 0px;
+	z-index: 999999
+}
+
+
+.sticky-wrapper{
+	padding-right: 10px;
+}
+
+.sticky-wrapper #image-block{
+	width: 360px;
+	z-index: 999
+} 
+
 
 

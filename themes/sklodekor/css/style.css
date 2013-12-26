@@ -550,13 +550,83 @@ padding-bottom: 0px;
 
 
 .sticky-wrapper{
-	padding-right: 10px;
+	padding-right: 0px;
 }
 
 .sticky-wrapper #image-block{
 	width: 360px;
 	z-index: 999
 } 
+
+
+/* ----------------------------- responsible ----------------------------- */
+
+/* Large desktop */
+@media (min-width: 1200px) { ... }
+ 
+
+/* medzi */
+@media (min-width: 980px) and (max-width: 1199px) { 
+.sticky-wrapper #image-block {
+width: 325px;
+z-index: 999;
+}
+ }
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { 
+.sticky-wrapper #image-block {
+width: 255px;
+z-index: 999;
+}
+
+.info-box {
+clear: both;
+margin: -40px 0 20px 0;
+width: 251px;
+padding: 10px 0 10px 0;
+border-top: 1px solid #494747;
+border-bottom: 1px solid #494747;
+position: absolute;
+left: 2px;
+}
+
+.group_4 .attribute_list a.color_pick{
+	width: 85px
+}
+
+.group_4 .color_pick, .vzory .color_pick {
+padding: 10px 10px 10px 10px;
+}
+.group_8 #color_to_pick_list a.color_pick{
+	width: 10px
+}
+
+ }
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+.sticky-wrapper #image-block {
+position: relative !important;
+margin-bottom: 25px
+ }
+ 
+#image-block-sticky-wrapper{
+	height: auto !important;
+}
+
+#image-block #view_full_size .span_link {
+right: 10px;
+width: 145px;
+}
+
+#image-block {
+top:0px !important
+}
+ 
+} 
+/* Landscape phones and down */
+@media (max-width: 480px) { ... }
 
 
 

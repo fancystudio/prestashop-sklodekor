@@ -4,6 +4,7 @@
 <script src="themes/sklodekor/js/isotope-master/jquery.isotope.min.js"></script>
 <script src="themes/sklodekor/js/jquery.scrollTo-1.4.3.1-min.js"></script>
 <script src="themes/sklodekor/js/jquery.select_skin.js"></script>
+<script src="themes/sklodekor/js/jquery.sticky.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 	$(".attribute_select").select_skin();
@@ -54,8 +55,17 @@ $(document).ready(function() {
 	  });
 });
 
-
 </script>
+
+{literal}
+<script>
+  $(document).ready(function(){
+    $("#image-block").sticky({
+    topSpacing:30,
+    });
+  });
+</script>
+{/literal}
 
 {literal}
 <script type="text/javascript">
@@ -207,7 +217,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 {include file="$tpl_dir./breadcrumb.tpl"}
 </div>
 
-<div class="container">
+<div class="container" style="position: relative">
 {foreach from=CMS::getCMSPages(1,2,true) item=cmspages}
 		 <li>
 		  <a href="{$link->getCMSLink($cmspages.id_cms, $cmspages.link_rewrite)|escape:'htmlall':'UTF-8'}">{$cmspages.meta_title|escape:'htmlall':'UTF-8'}</a>
@@ -501,6 +511,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 
 </div>
 <div class="container product-configuration">
+<div class="span8 offset4">
 
 			<h3><span class="inner-text">Konfigurácia produktu</span><span class="line"><span></h3>
 			<!-- hidden datas -->
@@ -558,8 +569,8 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 										<li class="clickPiesok" name=".kategoria3">slnko</li>
 										<li class="clickPiesok" name=".kategoria4">abstraktné</li>
 									</ul>
-									<div id="color_to_pick_list" class="pull-left span12">
-										<div class="vzory grafika span12 pull-left">
+									<div id="color_to_pick_list" class="pull-left span7">
+										<div class="vzory grafika pull-left">
 											{assign var="default_colorpicker" value=""}
 											{foreach from=$group.attributes key=id_attribute item=group_attribute}
 
@@ -706,6 +717,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 			</div>
 
 			<p class="warning_inline" id="last_quantities"{if ($product->quantity > $last_qties OR $product->quantity <= 0) OR $allow_oosp OR !$product->available_for_order OR $PS_CATALOG_MODE} style="display: none"{/if} >{l s='Warning: Last items in stock!'}</p>
+		</div><!--end span a offset-->
 		</div>
 
 		

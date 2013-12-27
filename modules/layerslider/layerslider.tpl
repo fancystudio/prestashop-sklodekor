@@ -9,10 +9,10 @@
 		<img class="ls-s2" src="modules/layerslider/img/dvere.png" alt="sublayer" style="top:127px; left:790px; " rel="durationin: 700; easingin: easeOutExpo; slidedirection: left; delayin: 100">
 		<img class="ls-s3" src="modules/layerslider/img/kreslo.png" alt="sublayer" style="top:371px; left:963px; z-index:100" rel="durationin: 1900; easingin: easeOutElastic; slidedirection: bottom; delayin: 1900">
 		<img class="ls-s5" src="modules/layerslider/img/police.png" alt="sublayer" rel="slidedirection: top; delayin:200" style="z-index:99; left:1250px; top: 120px;">
-        <div class="ls-s6 span3" alt="sublayer" rel="slidedirection: bottom; easingin: easeOutExpo; delayin: 1000; durationin: 400" style="left: 400px; top: 250px;" > 
-        <h2>Nadpis H2</h2> 
+        <div class="ls-s6 span3 main-text" alt="sublayer" rel="slidedirection: bottom; easingin: easeOutExpo; delayin: 1000; durationin: 400" style="left: 400px; top: 250px;" > 
+        <h2>Vitajte!</h2> 
         <p style="color: white; font-size:1.1em">
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum 
+       Nechajte sa inšpirovať unikátnou krásou našich výrobkov. Patríme medzi špičku v oblasti spracovania a obchodu so sklom. Našou filozofiou a prioritou je majstrovské prevedenie každého produktu. Kladieme dôraz nielen na estetiku, ale aj na kvalitu a bezpečnosť. Svojim klientom ponúkame širokú paletu služieb a produktov (vďaka čomu patríme medzi popredných hráčov na trhu so sklom.
         </p>
         </div> 
         </div>
@@ -41,7 +41,7 @@
 <h3>dvere</h3><a href="index.php?id_category=6&controller=category&id_lang=2">
 <img src="modules/layerslider/img/home-dvere.jpg" alt="" ></a>
 <p>
-euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis 
+Dvere boli kedysi len funkčnou zátkou na dom, no časom získali náležitú dôležitosť, ktorá im právom patrí. Dvere sú dnes zásadným prvkom, ktorý dáva Vášmu životnému priestoru charakter a tvar... 
 </p>
 </div>
 
@@ -49,7 +49,7 @@ euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
 <h3>stoly</h3>
 <img src="modules/layerslider/img/home-stoly.jpg" alt="" >
 <p>
-euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis 
+Prečo si nedopriať stôl, ktorý bude krásny? Pre nás je stôl viac ako doštička na nohách. Tento kus nábytku môže byť rovnako tak funkčný ako aj umelecky hodnotný. Povýšili sme stôl na účelný dekoratívny prvok, ktorý pohladí nielen Vaše oko, ale aj dušu...
 </p>
 </div>
 
@@ -57,8 +57,7 @@ euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
 <h3>doplnky</h3>
 <img src="modules/layerslider/img/home-doplnky.jpg" alt="" >
 <p>
-euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis 
-</p>
+Sklo ako materiál je doslova predučený vytvárať elegantné a estetické doplnky. Sklenená hmota je fascinujúca sama o sebe a keď sa pretaví do tvaru s funkciou vzniká skutočne nadčasový doplnok. Polica, dekorácia, držiak alebo box na fľaše... 
 </div>
 
 

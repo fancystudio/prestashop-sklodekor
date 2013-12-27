@@ -31,6 +31,7 @@ html, body {
     height: 100%; !important
 	font-family: proxima_novalight;
 	font-weight: normal;
+	min-width: 368px;
 }
 
 
@@ -157,6 +158,7 @@ h3 {
 	color: #e5373e;
 	margin: 0;
 	padding: 15px 0;
+	text-transform: uppercase
 }
 
 .breadcrumb a{
@@ -183,7 +185,7 @@ h2{
 	color: #e5373e;
 	font-size: 2.5em;
 	padding-top:0px;
-	letter-spacing:1px;
+	letter-spacing:normal;
 	text-transform: uppercase;
 	}
 	
@@ -213,7 +215,7 @@ h2{
 #short_description_content p, .cat_desc p{
 	font-size: 12px;
 	line-height: 15px;
-	letter-spacing: 1px;
+	letter-spacing: normal;
 	color: white;
 	}
 	
@@ -528,5 +530,123 @@ a.menu:after, .dropdown-toggle:after {
 #views_block,.resetimg,.vzoryMenuPiesok{
  display: none;
 }
+/*
+.main-text {
+color: white;
+width: 310px !important;
+font-size: 0.95em !important;
+margin-left: -76px !important;
+font-weight: 200
+}*/
+
+.main-text h2 {
+padding-bottom: 0px;
+line-height: normal;
+}
+
+.image-block-sticky-wrapper{
+	margin-left: 0px;
+	z-index: 999999
+}
+
+
+.sticky-wrapper{
+	padding-right: 0px;
+}
+
+.sticky-wrapper #image-block{
+	width: 360px;
+	z-index: 999
+} 
+
+
+/* ----------------------------- responsible ----------------------------- */
+
+/* Large desktop */
+@media (min-width: 1200px) { ... }
+ 
+
+/* medzi */
+@media (min-width: 980px) and (max-width: 1199px) { 
+.sticky-wrapper #image-block {
+width: 325px;
+z-index: 999;
+}
+ }
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { 
+.sticky-wrapper #image-block {
+width: 255px;
+z-index: 999;
+}
+
+.info-box {
+clear: both;
+margin: -40px 0 20px 0;
+width: 251px;
+padding: 10px 0 10px 0;
+border-top: 1px solid #494747;
+border-bottom: 1px solid #494747;
+position: absolute;
+left: 2px;
+}
+
+.group_4 .attribute_list a.color_pick{
+	width: 85px
+}
+
+.group_4 .color_pick, .vzory .color_pick {
+padding: 10px 10px 10px 10px;
+}
+.group_8 #color_to_pick_list a.color_pick{
+	width: 10px
+}
+
+.main-text{
+/*	width: 145px*/ 
+}
+
+.slider-wrap{
+	height: 480px !important
+}
+
+
+ }
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+.sticky-wrapper #image-block {
+position: relative !important;
+margin-bottom: 25px
+ }
+ 
+#image-block-sticky-wrapper{
+	height: auto !important;
+}
+
+#image-block #view_full_size .span_link {
+right: 10px;
+width: 145px;
+}
+
+#image-block {
+top:0px !important
+}
+
+.slider-wrap{
+	height: 380px !important
+}
+
+ 
+} 
+/* Landscape phones and down */
+@media (max-width: 480px) { 
+.slider-wrap{
+	height: 300px !important
+}
+
+ }
+
 
 

@@ -57,8 +57,8 @@
 
 			{if $category->description}
 				<div class="cat_desc">
-				{if strlen($category->description) > 500}
-					<p id="category_description_short">{$category->description|truncate:500}</p>
+				{if strlen($category->description) > 2000}
+					<p id="category_description_short">{$category->description|truncate:2000}</p>
 					<p id="category_description_full" style="display:none">{$category->description}</p>
 					<a href="#" onclick="$('#category_description_short').hide(); $('#category_description_full').show(); $(this).hide(); return false;" class="lnk_more">{l s='More'}</a>
 				{else}

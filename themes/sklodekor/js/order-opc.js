@@ -39,12 +39,14 @@ function updateCarrierList(json)
 
 function updatePaymentMethods(json)
 {
+	console.log("updatePaymentMethods");
 	$('#HOOK_TOP_PAYMENT').html(json.HOOK_TOP_PAYMENT);
 	$('#opc_payment_methods-content #HOOK_PAYMENT').html(json.HOOK_PAYMENT);
 }
 
 function updatePaymentMethodsDisplay()
 {
+	console.log("updatePaymentMethodsDisplay");
 	var checked = '';
 	if ($('#cgv:checked').length !== 0)
 		checked = 1;
@@ -61,6 +63,7 @@ function updatePaymentMethodsDisplay()
 			data: 'ajax=true&method=updateTOSStatusAndGetPayments&checked=' + checked + '&token=' + static_token,
 			success: function(json)
 			{
+				console.log(json);
 				updatePaymentMethods(json);
 			}
 		});

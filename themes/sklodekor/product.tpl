@@ -169,6 +169,7 @@ var doesntExistNoMoreBut = '{l s='with those attributes but is available with ot
 var uploading_in_progress = '{l s='Uploading in progress, please be patient.' js=1}';
 var fieldRequired = '{l s='Please fill in all the required fields before saving your customization.' js=1}';
 
+
 {if isset($groups)}
 	// Combinations
 	{foreach from=$combinations key=idCombination item=combination}
@@ -179,6 +180,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 		specific_price_combination['price'] = {if $combination.specific_price AND $combination.specific_price.price}{$combination.specific_price.price}{else}0{/if};
 		specific_price_combination['reduction_type'] = '{if $combination.specific_price}{$combination.specific_price.reduction_type}{/if}';
 		specific_price_combination['id_product_attribute'] = {if $combination.specific_price}{$combination.specific_price.id_product_attribute|intval}{else}0{/if};
+		specific_price_combination['upc'] = {$combination.upc};
 		available_date['date'] = '{$combination.available_date}';
 		available_date['date_formatted'] = '{dateFormat date=$combination.available_date full=false}';
 		addCombination({$idCombination|intval}, new Array({$combination.list}), {$combination.quantity}, {$combination.price}, {$combination.ecotax}, {$combination.id_image}, '{$combination.reference|addslashes}', {$combination.unit_impact}, {$combination.minimal_quantity}, available_date, specific_price_combination);
@@ -397,6 +399,8 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
             <p class="dvereConfigure"></p>
             <p class="zarubnaConfigureTitle"><span>oblôžková zárubňa:</span></p>
             <p class="zarubnaConfigure"></p> 
+            <p class="hrubkaSklaConfigureTitle"><span>hrúbka skla:</span></p>
+            <p class="hrubkaSklaConfigure"></p> 
             </div><!-- configure-product-attr-bo-->
             </div>
 			

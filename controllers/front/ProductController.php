@@ -83,7 +83,6 @@ class ProductControllerCore extends FrontController
 
 		if ($id_product = (int)Tools::getValue('id_product'))
 			$this->product = new Product($id_product, true, $this->context->language->id, $this->context->shop->id);
-
 		if (!Validate::isLoadedObject($this->product))
 		{
 			header('HTTP/1.1 404 Not Found');
@@ -435,6 +434,7 @@ class ProductControllerCore extends FrontController
 					$combinations[$row['id_product_attribute']]['specific_price'] = $combination_specific_price;
 				}
 				$combinations[$row['id_product_attribute']]['ecotax'] = (float)$row['ecotax'];
+				$combinations[$row['id_product_attribute']]['upc'] = (float)$row['upc'];
 				$combinations[$row['id_product_attribute']]['weight'] = (float)$row['weight'];
 				$combinations[$row['id_product_attribute']]['quantity'] = (int)$row['quantity'];
 				$combinations[$row['id_product_attribute']]['reference'] = $row['reference'];

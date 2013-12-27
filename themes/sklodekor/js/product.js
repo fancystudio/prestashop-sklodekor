@@ -161,7 +161,7 @@ function findCombination(firstTime)
 			selectedCombination['unavailable'] = false;
 			selectedCombination['reference'] = combinations[combination]['reference'];
 			$('#idCombination').val(combinations[combination]['idCombination']);
-
+			
 			//get the data of product with these attributes
 			quantityAvailable = combinations[combination]['quantity'];
 			selectedCombination['price'] = combinations[combination]['price'];
@@ -349,7 +349,6 @@ function updateDisplay()
 	}
 	else
 		$('#product_reference:visible').hide('slow');
-
 	//update display of the the prices in relation to tax, discount, ecotax, and currency criteria
 	if (!selectedCombination['unavailable'] && productShowPrice == 1)
 	{
@@ -403,9 +402,18 @@ function updateDisplay()
 			if (reduction_price && (displayPrice || noTaxForThisProduct))
 				reduction = ps_round(reduction / tax, 6);
 		}
+		
 
+		$(".hrubkaSklaConfigure").hide();
+		$(".hrubkaSklaConfigureTitle").hide();
 		if (selectedCombination.specific_price)
 		{
+			console.log(selectedCombination['specific_price'].upc);
+			if(selectedCombination['specific_price'].upc && selectedCombination['specific_price'].upc != 0){
+				$(".hrubkaSklaConfigure").html(selectedCombination['specific_price'].upc);
+				$(".hrubkaSklaConfigure").show();
+				$(".hrubkaSklaConfigureTitle").show();
+			}
 			if (selectedCombination['specific_price'] && selectedCombination['specific_price'].reduction_type == 'percentage')
 			{
 				$('#reduction_amount').hide();
@@ -435,7 +443,6 @@ function updateDisplay()
 			$('#not_impacted_by_discount').hide();
 
 		productPriceDisplay -= reduction;
-		console.log("reductionreductionreduction: " + reduction);
 		var tmp = productPriceDisplay * group_reduction;
 		productPriceDisplay = ps_round(productPriceDisplay * group_reduction, 2);
 

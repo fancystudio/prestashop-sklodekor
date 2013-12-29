@@ -570,7 +570,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 										<li class="clickPiesok" name=".kategoria4">abstraktné</li>
 									</ul>
 									<div id="color_to_pick_list" class="pull-left span7">
-										<div class="vzory grafika pull-left">
+										<div class="vzory grafika span8 pull-left">
 											{assign var="default_colorpicker" value=""}
 											{foreach from=$group.attributes key=id_attribute item=group_attribute}
 
@@ -598,7 +598,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 										{/foreach}
 										
 										</div>
-										<div class="vzory piesok span12 pull-left">
+										<div class="vzory piesok span8 pull-left">
 											{assign var="default_colorpicker" value=""}
 											{foreach from=$group.attributes key=id_attribute item=group_attribute}
 											{assign var="bar_at" value=$colors.$id_attribute.value|strpos:"-"}

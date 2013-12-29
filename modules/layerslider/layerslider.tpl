@@ -33,11 +33,11 @@
 	<div class="ls-layer" rel="slidedelay: 7000" style="overflow:visible; ">
 		<img class="ls-s0" src="modules/layerslider/img/scena-3/slider_bg-1.jpg"alt="layer" style="top:0px; margin-left:0px">
 
-		<img class="ls-s2" src="modules/layerslider/img/scena-3/dvere.png" alt="sublayer" style="top:210px; left:1155px; " rel="durationin: 700; easingin: easeOutExpo; slidedirection: left; delayin: 150">
-		<img class="ls-s3" src="modules/layerslider/img/scena-3/pes.png" alt="sublayer" style="top:530px; left:1292px; z-index:100" rel="durationin: 1900; easingin: easeOutElastic; slidedirection: bottom; delayin: 1600">
-		<img class="ls-s5" src="modules/layerslider/img/scena-3/obraz.png" alt="sublayer" rel="slidedirection: top; delayin:600 durationin: 1900;" style="z-index:99; left:830px; top: 223px;">
-		<img class="ls-s5" src="modules/layerslider/img/scena-3/box.png" alt="sublayer" rel="slidedirection: left; delayin:800 durationin: 1900;" style="z-index:99; left:920px; top: 519px;">
-		<img class="ls-s5" src="modules/layerslider/img/scena-3/vesiak.png" alt="sublayer" rel="slidedirection: top; delayin:1000 durationin: 1900;" style="z-index:99; left:510px; top: 277px;">
+		<img class="ls-s2" src="modules/layerslider/img/scena-3/dvere.png" alt="sublayer" style="top:170px; left:1155px; " rel="durationin: 900; easingin: easeOutExpo; slidedirection: right; delayin: 450">
+		<img class="ls-s3" src="modules/layerslider/img/scena-3/pes.png" alt="sublayer" style="top:500px; left:1292px; z-index:100" rel="durationin: 1900; easingin: easeOutElastic; slidedirection: bottom; delayin: 1600">
+		<img class="ls-s5" src="modules/layerslider/img/scena-3/obraz.png" alt="sublayer" rel="slidedirection: top; delayin:600 durationin: 1900;" style="z-index:99; left:810px; top: 175px;">
+		<img class="ls-s5" src="modules/layerslider/img/scena-3/box.png" alt="sublayer" rel="slidedirection: left; delayin:800 durationin: 1900;" style="z-index:99; left:900px; top: 479px;">
+		<img class="ls-s5" src="modules/layerslider/img/scena-3/vesiak.png" alt="sublayer" rel="slidedirection: top; delayin:1000 durationin: 1900;" style="z-index:99; left:480px; top: 237px;">
         
         </div>
         </div>	

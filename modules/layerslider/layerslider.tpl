@@ -1,5 +1,5 @@
 
-<div class="slider-wrap" style="width: 100%;height:100%;  margin: 0px auto; ">
+<div class="slider-wrap" style="width: 100%; height:100%; margin: 0px auto; ">
 
 <div id="layerslider">
 
@@ -18,8 +18,8 @@
         </div>
         
         
-        
-	<div class="ls-layer" rel="slidedelay: 7000" style="overflow:visible; ">
+     
+ <div class="ls-layer" rel="slidedelay: 7000" style="overflow:visible; ">
 		<img class="ls-s0" src="modules/layerslider/img/slider_bg.jpg"alt="layer" style="top:0px; margin-left:0px">
 
 		<img class="ls-s2" src="modules/layerslider/img/dvere1.png" alt="sublayer" style="top:172px; left:300px; " rel="durationin: 600;  slidedirection: right; delayin: 1000">
@@ -27,10 +27,25 @@
 		<img class="ls-s5" src="modules/layerslider/img/dvere3.png" alt="sublayer" rel="slidedirection: right;  delayin: 2000; durationin: 600;" style="z-index:99; left:1040px; top: 172px;">
         <img class="ls-s5" src="modules/layerslider/img/dvere4.png" alt="sublayer" rel="slidedirection: right; delayin: 2500; durationin: 600;" style="z-index:99; left:1410px; top: 172px; ">
         
-        </div>
+        </div>    
+     
         
+	<div class="ls-layer" rel="slidedelay: 7000" style="overflow:visible; ">
+		<img class="ls-s0" src="modules/layerslider/img/scena-3/slider_bg-1.jpg"alt="layer" style="top:0px; margin-left:0px">
 
-</div>	</div>
+		<img class="ls-s2" src="modules/layerslider/img/scena-3/dvere.png" alt="sublayer" style="top:210px; left:1155px; " rel="durationin: 700; easingin: easeOutExpo; slidedirection: left; delayin: 150">
+		<img class="ls-s3" src="modules/layerslider/img/scena-3/pes.png" alt="sublayer" style="top:530px; left:1292px; z-index:100" rel="durationin: 1900; easingin: easeOutElastic; slidedirection: bottom; delayin: 1600">
+		<img class="ls-s5" src="modules/layerslider/img/scena-3/obraz.png" alt="sublayer" rel="slidedirection: top; delayin:600 durationin: 1900;" style="z-index:99; left:830px; top: 223px;">
+		<img class="ls-s5" src="modules/layerslider/img/scena-3/box.png" alt="sublayer" rel="slidedirection: left; delayin:800 durationin: 1900;" style="z-index:99; left:920px; top: 519px;">
+		<img class="ls-s5" src="modules/layerslider/img/scena-3/vesiak.png" alt="sublayer" rel="slidedirection: top; delayin:1000 durationin: 1900;" style="z-index:99; left:510px; top: 277px;">
+        
+        </div>
+        </div>	
+        
+        
+        
+        
+        </div>
 	
 	
 

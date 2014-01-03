@@ -1,18 +1,6 @@
 <?php
 class ParentOrderController extends ParentOrderControllerCore
 {
-
-
-
-
-
-
-
-
-
-
-
-
     private $opc_enabled = false;
 
     public function origInit()

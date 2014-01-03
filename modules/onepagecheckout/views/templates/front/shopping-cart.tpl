@@ -206,8 +206,7 @@
                                 </a>
                             {/if}
                         </div>
-                        <input type="hidden" value="{$customization.quantity}"
-                               name="quantity_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_hidden"/>
+                        <input type="hidden" value="{$customization.quantity}" name="quantity_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}_{$product.id_kovanie|intval}_{$product.id_vzor|intval}_{$product.id_dvere|intval}_{$product.id_zarubna|intval}_hidden"/>
                         <input size="2" type="text" value="{$customization.quantity}" class="cart_quantity_input"
                                name="quantity_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}"/>
                     {/if}
@@ -217,8 +216,8 @@
                         {else}
                         <div>
                             <a rel="nofollow" class="cart_quantity_delete"
-                               id="{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}"
-                               href="{$link->getPageLink('cart', true, NULL, "delete&amp;id_product={$product.id_product|intval}&amp;ipa={$product.id_product_attribute|intval}&amp;id_customization={$id_customization}&amp;id_address_delivery={$product.id_address_delivery}&amp;token={$token_cart}")}">{l s='Delete' mod='onepagecheckout'}</a>
+                               id="{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}_{$product.id_kovanie|intval}_{$product.id_vzor|intval}_{$product.id_dvere|intval}_{$product.id_zarubna|intval}"
+                               href="{$link->getPageLink('cart', true, NULL, "delete&amp;id_product={$product.id_product|intval}&amp;ipa={$product.id_product_attribute|intval}&amp;id_customization={$id_customization}&amp;id_address_delivery={$product.id_address_delivery}&amp;token={$token_cart}&amp;kovanie_id={$product.id_kovanie|intval}&amp;vzor_id={$product.id_vzor|intval}&amp;dvere_id={$product.id_dvere|intval}&amp;zarubna_id={$product.id_zarubna|intval}")}">{l s='Delete' mod='onepagecheckout'}</a>
                         </div>
                     {/if}
                 </td>

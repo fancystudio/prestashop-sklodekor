@@ -1,7 +1,7 @@
 {include file="$tpl_dir./errors.tpl"}
 {if $errors|@count == 0}
 <script src="themes/sklodekor/js/iosslider/_src/jquery.iosslider.js"></script>
-<script src="themes/sklodekor/js/isotope-master/jquery.isotope.min.js"></script>
+<!--<script src="themes/sklodekor/js/isotope-master/jquery.isotope.min.js"></script>-->
 <script src="themes/sklodekor/js/jquery.scrollTo-1.4.3.1-min.js"></script>
 <script src="themes/sklodekor/js/jquery.select_skin.js"></script>
 <script src="themes/sklodekor/js/jquery.sticky.js"></script>
@@ -11,6 +11,7 @@ $(document).ready(function() {
 	$('.iosSlider').iosSlider();
 	var $containerGrafika = $('.grafika');
 	var $containerPiesok = $('.piesok');
+/*
 	$containerGrafika.isotope({
         filter: '*',
         animationOptions: {
@@ -40,6 +41,7 @@ $(document).ready(function() {
             queue: false
         }
     });
+*/
 	$('.clickPiesok').click(function(){
 		console.log("clickPiesok: " + $(this).attr('name'));
 	    var selector = $(this).attr('name');
@@ -570,7 +572,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 										<li class="clickPiesok" name=".kategoria4">abstraktné</li>
 									</ul>
 									<div id="color_to_pick_list" class="pull-left span7">
-										<div class="vzory grafika pull-left">
+										<div class="vzory grafika span8 pull-left">
 											{assign var="default_colorpicker" value=""}
 											{foreach from=$group.attributes key=id_attribute item=group_attribute}
 
@@ -596,9 +598,10 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 											{/if}
 											{/if}
 										{/foreach}
-										
 										</div>
-										<div class="vzory piesok span12 pull-left">
+										
+										
+										<div class="vzory piesok span8 pull-left">
 											{assign var="default_colorpicker" value=""}
 											{foreach from=$group.attributes key=id_attribute item=group_attribute}
 											{assign var="bar_at" value=$colors.$id_attribute.value|strpos:"-"}
@@ -623,8 +626,8 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 											{/if}
 											{/if}
 										{/foreach}
-										
 										</div>
+										
 								<input type="hidden" class="color_pick_hidden vzorHidden" name="{$groupName}" value="{$default_colorpicker}" />
 								{else}
 									<ul id="color_to_pick_list" class="clearfix">

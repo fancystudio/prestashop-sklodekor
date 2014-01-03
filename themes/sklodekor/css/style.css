@@ -441,6 +441,19 @@ h3 .inner-text {
 	line-height: 30px;
 	color: #2d2c2b;
 	}
+	
+.vzory.grafika, .vzory.piesok {
+	margin-left: 0px;
+}
+
+.vzory.grafika div, .vzory.piesok div {
+	float: left 
+}
+
+.vzory.grafika div.selected, .vzory.piesok div.selected{
+	border: none
+}
+
 .opc-kosik-blok{
 	margin-top:60px
 	}
@@ -599,8 +612,12 @@ left: 2px;
 .group_4 .color_pick, .vzory .color_pick {
 padding: 10px 10px 10px 10px;
 }
-.group_8 #color_to_pick_list a.color_pick{
+/*.group_8 #color_to_pick_list a.color_pick{
 	width: 10px
+}*/
+
+.vzory.grafika a{
+margin-right: 10px	
 }
 
 .main-text{

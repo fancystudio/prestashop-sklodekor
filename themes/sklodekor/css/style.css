@@ -572,7 +572,15 @@ line-height: normal;
 	z-index: 999
 } 
 
+#image-block-sticky-wrapper #image-block{
+	padding-bottom: 448px
+}
 
+#view_full_size{
+	display: block;
+	float: left;
+	position: relative;
+}
 /* ----------------------------- responsible ----------------------------- */
 
 /* Large desktop */
@@ -585,6 +593,11 @@ line-height: normal;
 width: 325px;
 z-index: 999;
 }
+
+#image-block-sticky-wrapper #image-block{
+	padding-bottom: 488px
+}
+
  }
 
 /* Portrait tablet to landscape and desktop */
@@ -626,6 +639,11 @@ margin-right: 10px
 
 .slider-wrap{
 	height: 480px !important
+}
+
+
+#image-block-sticky-wrapper #image-block{
+	padding-bottom: 725px
 }
 
 

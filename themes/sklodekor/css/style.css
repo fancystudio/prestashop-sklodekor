@@ -32,6 +32,7 @@ html, body {
 	font-family: proxima_novalight;
 	font-weight: normal;
 	min-width: 368px;
+	line-height: normal;
 }
 
 
@@ -489,7 +490,7 @@ padding: 0;
 }
 
 #opc_account_form p, #add_address p {
-	padding-bottom: 5px
+	padding-bottom: 0px
 	}
 
 #form_forgotpassword .text{
@@ -581,6 +582,13 @@ line-height: normal;
 	float: left;
 	position: relative;
 }
+
+/* ------------kosik -------------*/
+#new_account_form p.checkbox input {
+margin-left: 210px;
+margin-right: 10px
+}
+
 /* ----------------------------- responsible ----------------------------- */
 
 /* Large desktop */

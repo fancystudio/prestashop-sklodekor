@@ -373,11 +373,12 @@ p.cart_navigation_extra, p.cart_navigation {
 }
 
 #new_account_form p.select span {
-    height: 21px;
-    margin: 0;
-    padding-bottom: 0;
-    vertical-align: bottom;
-    width: 18px;
+height: 20px;
+margin: 0;
+padding-bottom: 0;
+vertical-align: middle;
+width: 18px;
+margin-top: -7px;
 }
 
 #center_column #new_account_form p {

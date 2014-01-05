@@ -90,7 +90,6 @@
         {assign var="colspan" value="4"}
 		{assign var="colspan2" value="2"}
     {/if}
-
 <p style="display:none" id="emptyCartWarning"
    class="warning">{l s='Your shopping cart is empty.' mod='onepagecheckout'}</p>
     {if isset($lastProductAdded) AND $lastProductAdded}
@@ -122,7 +121,7 @@
             id="summary_products_quantity">{$productNumber} {if $productNumber == 1}{l s='product' mod='onepagecheckout'}{else}{l s='products' mod='onepagecheckout'}{/if}</span>
     </p>
     {/if}
-<div id="order-detail-content" class="table_block{if isset($addClass)}{$addClass}{/if}">
+<div id="order-detail-content" class="container table_block{if isset($addClass)}{$addClass}{/if}">
 <table id="cart_summary" class="std">
 <thead>
 <tr>
@@ -414,7 +413,7 @@
 <div id="HOOK_SHOPPING_CART">{$HOOK_SHOPPING_CART}</div>
 
     {if !$opc_config.cart_summary_bottom || ($order_process_type==0 && (!$smarty.get.step || $smarty.get.step != '1'))}
-    <p class="cart_navigation">
+    <p class="cart_navigation container">
         <b>
             {if isset($onlyCartSummary)}<a
                     href="{$link->getPageLink('order.php', true)}?step=1{if $back}&amp;back={$back}{/if}"
@@ -430,7 +429,6 @@
     <p class="cart_navigation_extra">
         <span id="HOOK_SHOPPING_CART_EXTRA">{$HOOK_SHOPPING_CART_EXTRA}</span>
     </p>
-
 
     {if isset($onlyCartSummary)}
     <script type="text/javascript">

@@ -469,16 +469,7 @@ array("en" => "Åland Islands", "sk" => "Ålandy")
 preklad($id_eng, $id_svk, $current_table, $phrase_keys_col, $transcol, $prekladove_pary);
 
 
-//tabulka discount_type_lang
-$current_table = "discount_type_lang";
-$phrase_keys_col = "id_discount_type";
-$transcol = "name"; 
-$prekladove_pary = array 
-(
-array("en" => "Discount on order \(%\)", "sk" => "Zľava na objednávku \(%\)"),
-array("en" => "Discount on order \(amount\)", "sk" => "Zľava na objednávku \(suma\)"),
-array("en" => "Free shipping", "sk" => "Poštovné zdarma")
-);
+
 //zavola funckiu a zbehne preklad tabulky
 preklad($id_eng, $id_svk, $current_table, $phrase_keys_col, $transcol, $prekladove_pary);
 
@@ -848,18 +839,7 @@ array("en" => "Configuration", "sk" => "Nastavenia")
 //zavola funckiu a zbehne preklad tabulky
 preklad($id_eng, $id_svk, $current_table, $phrase_keys_col, $transcol, $prekladove_pary);
 
-//tabulka reinsurance_lang
-$current_table = "reinsurance_lang";
-$phrase_keys_col = "id_reinsurance";
-$transcol = "text"; 
-$prekladove_pary = array 	
-(
-array("en" => "Money back", "sk" => "Záruka vrátenia peňazí"),
-array("en" => "Exchange in-store", "sk" => "Spokojnosť alebo vrátenie tovaru"),
-array("en" => "Payment upon shipment", "sk" => "Platba pri dodaní"),
-array("en" => "Free Shipping", "sk" => "Doprava zadarmo"),
-array("en" => "100% secured payment", "sk" => "Bezpečná platba")
-);
+
 //zavola funckiu a zbehne preklad tabulky
 preklad($id_eng, $id_cs, $current_table, $phrase_keys_col, $transcol, $prekladove_pary);
 

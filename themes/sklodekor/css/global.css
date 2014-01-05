@@ -618,12 +618,14 @@ ul.idTabs li {
 	padding:10px 10px 7px 10px;
 	font-weight:bold;
 	text-decoration:none;
-	color:#fff;
-	background:#000
+	color:white;
+	background:#7c7c7c
 }
 .idTabs .selected {
-	color:#000;
-	background: url(../img/bg_li_idTabs.png) repeat-x 0 0
+	color:white;
+	/*background: url(../img/bg_li_idTabs.png) repeat-x 0 0*/
+	background-color: #e5373e;
+	text-decoration: none
 }
 
 #more_info_sheets {padding-top:10px}

@@ -596,6 +596,31 @@ line-height: normal;
 }
 
 
+#add_to_cart > input{
+padding: 15px 20px 15px 20px !important;
+font-size: 16px;
+}
+
+.idTabs {
+list-style-type: none;
+margin-top: 0px;
+border-bottom: 2px solid #e5373e;
+margin: 0px;
+} 
+
+#idTab9 li{
+list-style: none;
+padding: 15px 0;	
+}
+
+.pdf-icon {
+display: block;
+float: left;
+margin-right: 10px;
+margin-top: -3px;
+}
+
+
 /* ----------------------------- responsible ----------------------------- */
 
 /* Large desktop */
@@ -661,8 +686,10 @@ margin-right: 10px
 	padding-bottom: 725px
 }
 
-
  }
+ 
+
+
  
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) { 

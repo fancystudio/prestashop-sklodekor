@@ -412,7 +412,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
             <p class="zarubnaConfigureTitle"><span>oblôžková zárubňa:</span></p>
             <p class="zarubnaConfigure"></p> 
             <p class="hrubkaSklaConfigureTitle"><span>hrúbka skla:</span></p>
-            <p class="hrubkaSklaConfigure"></p> 
+            <p class="hrubkaSklaConfigure"></p>
             </div><!-- configure-product-attr-bo-->
             </div>
 			

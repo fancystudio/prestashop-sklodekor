@@ -410,7 +410,7 @@ function updateDisplay()
 		{
 			console.log(selectedCombination['specific_price'].upc);
 			if(selectedCombination['specific_price'].upc && selectedCombination['specific_price'].upc != 0){
-				$(".hrubkaSklaConfigure").html(selectedCombination['specific_price'].upc);
+				$(".hrubkaSklaConfigure").html(selectedCombination['specific_price'].upc + "mm");
 				$(".hrubkaSklaConfigure").show();
 				$(".hrubkaSklaConfigureTitle").show();
 			}

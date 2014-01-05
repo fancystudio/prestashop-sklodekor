@@ -506,10 +506,10 @@ class AuthControllerCore extends FrontController
 			elseif ($postcode && !Validate::isPostCode($postcode))
 				$this->errors[] = Tools::displayError('The Zip / Postal code is invalid.');
 
-			if (Tools::getValue('company') && $country->need_identification_number && (!Tools::getValue('dni') || !Validate::isDniLite(Tools::getValue('dni'))))
-				$this->errors[] = Tools::displayError('The identification number is incorrect or has already been used.');
-			elseif (!$country->need_identification_number)
-				$address->dni = null;
+			//if (Tools::getValue('company') && $country->need_identification_number && (!Tools::getValue('dni') || !Validate::isDniLite(Tools::getValue('dni'))))
+			//	$this->errors[] = Tools::displayError('The identification number is incorrect or has already been used.');
+			//elseif (!$country->need_identification_number)
+			//	$address->dni = null;
 		}
 
 		if (!@checkdate(Tools::getValue('months'), Tools::getValue('days'), Tools::getValue('years')) && !(Tools::getValue('months') == '' && Tools::getValue('days') == '' && Tools::getValue('years') == ''))

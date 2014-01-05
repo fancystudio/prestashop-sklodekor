@@ -77,7 +77,7 @@ $_MODULE['<{onepagecheckout}prestashop>order-opc-new-account_6f6162d3a052bb330e9
 $_MODULE['<{onepagecheckout}prestashop>order-opc-new-account_ac135c86084a47630c9eadb4edd5ef75'] = 'Prihlásiť sa k odberu špeciálnych ponúk';
 $_MODULE['<{onepagecheckout}prestashop>order-opc-new-account_1c76cbfe21c6f44c1d1e59d54f3e4420'] = 'Firma';
 $_MODULE['<{onepagecheckout}prestashop>order-opc-new-account_938611c2a38e95145b8ba37840a41967'] = 'Firma, s.r.o.';
-$_MODULE['<{onepagecheckout}prestashop>order-opc-new-account_7cb32e708d6b961d476baced73d362bb'] = 'IČ DPH';
+$_MODULE['<{onepagecheckout}prestashop>order-opc-new-account_7cb32e708d6b961d476baced73d362bb'] = 'DIČ';
 $_MODULE['<{onepagecheckout}prestashop>order-opc-new-account_f3d9911d2281a9557df778da3d23dc5a'] = 'SK123456789';
 $_MODULE['<{onepagecheckout}prestashop>order-opc-new-account_b60bb13a87fe3ae5463aeb0980a5a8a1'] = 'IČO';
 $_MODULE['<{onepagecheckout}prestashop>order-opc-new-account_ea318a4ad37f0c2d2c368e6c958ed551'] = 'Identifikačné číslo osoby';

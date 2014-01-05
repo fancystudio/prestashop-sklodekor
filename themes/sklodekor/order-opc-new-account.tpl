@@ -110,7 +110,6 @@
 					$('#company').blur(function(){
 						vat_number_invoice();
 						vat_number();
-						console.log("company");
 					});
 					$('#company_invoice').blur(function(){
 						console.log("company_invoice");

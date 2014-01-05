@@ -308,10 +308,10 @@ class AddressController extends AddressControllerCore
             }
 
             // Check country DNI
-            if ($country->isNeedDni() && (!Tools::getValue('dni') || !Validate::isDniLite(Tools::getValue('dni'))))
-                $this->errors[] = Tools::displayError('Identification number is incorrect or has already been used.');
-            else if (!$country->isNeedDni())
-                $address->dni = null;
+            //if ($country->isNeedDni() && (!Tools::getValue('dni') || !Validate::isDniLite(Tools::getValue('dni'))))
+            //    $this->errors[] = Tools::displayError('Identification number is incorrect or has already been used.');
+            //else if (!$country->isNeedDni())
+            //    $address->dni = null;
         }
         if (isset($id_address) && $id_address > 0)
             $alias_id_address = $id_address;

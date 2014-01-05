@@ -126,7 +126,7 @@ class AddressController extends AddressControllerCore
 
                     if ((!Tools::getValue('phone') AND !Tools::getValue('phone_mobile')) ||
                         (!$country = new Country((int)$address_1->id_country) OR !Validate::isLoadedObject($country)) ||
-                        ($country->isNeedDni() AND (!Tools::getValue('dni') OR !Validate::isDniLite(Tools::getValue('dni')))) ||
+                        //($country->isNeedDni() AND (!Tools::getValue('dni') OR !Validate::isDniLite(Tools::getValue('dni')))) ||
                         ((int)($country->contains_states) AND !(int)($address_1->id_state))
                     ) { /* empty */
                     } elseif ($result = $address_1->save()) {
@@ -294,10 +294,10 @@ class AddressController extends AddressControllerCore
             }
 
             // Check country DNI
-            if ($country->isNeedDni() && (!Tools::getValue('dni') || !Validate::isDniLite(Tools::getValue('dni'))))
-                $this->errors[] = Tools::displayError('Identification number is incorrect or has already been used.');
-            else if (!$country->isNeedDni())
-                $address->dni = null;
+            //if ($country->isNeedDni() && (!Tools::getValue('dni') || !Validate::isDniLite(Tools::getValue('dni'))))
+            //    $this->errors[] = Tools::displayError('Identification number is incorrect or has already been used.');
+            //else if (!$country->isNeedDni())
+            //    $address->dni = null;
         }
         if (isset($id_address) && $id_address > 0)
             $alias_id_address = $id_address;

@@ -296,6 +296,7 @@ var ajaxCart = {
 
 	//hide the products displayed in the page but no more in the json data
 	hideOldProducts : function(jsonData) {
+		console.log(jsonData);
 		//delete an eventually removed product of the displayed cart (only if cart is not empty!)
 		if ($('#cart_block_list dl.products').length > 0)
 		{
@@ -342,7 +343,7 @@ var ajaxCart = {
 								}
 							});
 						});
-						$('#cart_block_combination_of_' + ids[0] + (ids[1] ? '_'+ids[1] : '') + (ids[2] ? '_'+ids[2] : '') + (ids[3] ? '_'+ids[3] : '') + (ids[4] ? '_'+ids[4] : '')).fadeTo('fast', 0, function(){
+						$('#cart_block_combination_of_' + ids[0] + (ids[1] ? '_'+ids[1] : '') + (ids[2] ? '_'+ids[2] : '') + (ids[3] ? '_'+ids[3] : '') + (ids[4] ? '_'+ids[4] : '') + (ids[5] ? '_'+ids[5] : '') + (ids[6] ? '_'+ids[6] : '')).fadeTo('fast', 0, function(){
 							$(this).slideUp('fast', function(){
 								$(this).remove();
 							});

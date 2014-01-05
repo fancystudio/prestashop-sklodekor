@@ -102,35 +102,20 @@
         {/foreach}
     {/if}
     //]]>
-    {*if $vat_management}
     {literal}
-    function vat_number()
-    {
-    if ($('#company').val() != '')
-    $('#vat_number_block').show();
-    else
-    $('#vat_number_block').hide();
-    }
-    function vat_number_invoice()
-    {
-    if ($('#company_invoice').val() != '')
-    $('#vat_number_block_invoice').show();
-    else
-    $('#vat_number_block_invoice').hide();
+    function number_invoice(){
+	    if ($('#company_invoice').val() != '')
+	    	$('#vat_number_block_invoice,#dni_number_block_invoice').show();
+	    else
+	    	$('#vat_number_block_invoice,#dni_number_block_invoice').hide();
     }
 
     $(document).ready(function() {
-    $('#company').blur(function(){
-    vat_number();
-    });
-    $('#company_invoice').blur(function(){
-    vat_number_invoice();
-    });
-    vat_number();
-    vat_number_invoice();
+	    $('#company_invoice').blur(function(){
+	    	number_invoice();
+	    });
     });
     {/literal}
-    {/if*}
     {literal}
     function toggle_password_box() {
         if ($('#is_new_customer').val() == 0) {
@@ -294,13 +279,13 @@
             )</span>{/if}
     </p>
 </div>
-<p class="required text dni" {if $isVirtualCart && $opc_config.virtual_no_delivery}style="display: none;"{/if}>
+<!--<p class="required text dni" {if $isVirtualCart && $opc_config.virtual_no_delivery}style="display: none;"{/if}>
     <label for="dni">{l s='Identification number' mod='onepagecheckout'}<sup>*</sup></label>
     <input type="text" class="text" name="dni" id="dni"
            value="{if isset($guestInformations) && $guestInformations.dni}{$guestInformations.dni}{/if}"/>{if isset($opc_config.validation_checkboxes) && $opc_config.validation_checkboxes}
     <span class="validity valid_blank"></span>{/if}{if isset($opc_config.sample_values) && $opc_config.sample_values}
     <span class="sample_text ex_blur">&nbsp;&nbsp;{l s='DNI / NIF / NIE' mod='onepagecheckout'}</span>{/if}
-</p>
+</p>-->
 
 <p class="required text" {if $isVirtualCart && $opc_config.virtual_no_delivery}style="display: none;"{/if}>
     <label for="firstname">{l s='First name' mod='onepagecheckout'}<sup>*</sup></label>
@@ -463,7 +448,7 @@
         </p>
 
         <div id="vat_number_block_invoice" class="is_customer_param"
-             style="display:{if isset($guestInformations) && isset($guestInformations.allow_eu_vat_invoice) && $guestInformations.allow_eu_vat_invoice == 1}block{else}none{/if};">
+             style="display:none">
             <p class="text">
                 <label for="vat_number_invoice">{l s='VAT number' mod='onepagecheckout'}</label>
                 <input type="text" class="text" id="vat_number_invoice" name="vat_number_invoice"
@@ -472,15 +457,14 @@
                 <span class="sample_text ex_blur">&nbsp;&nbsp;({l s='e.g.' mod='onepagecheckout'} {l s='FR101202303' mod='onepagecheckout'}
                     )</span>{/if}
             </p>
+            <p class="required text dni_invoice">
+	            <label for="dni">{l s='Identification number' mod='onepagecheckout'}<sup>*</sup></label>
+	            <input type="text" class="text" name="dni_invoice" id="dni_invoice"
+	                   value="{if isset($guestInformations) && isset($guestInformations.dni_invoice)}{$guestInformations.dni_invoice}{/if}"/>{if isset($opc_config.validation_checkboxes) && $opc_config.validation_checkboxes}
+	            <span class="validity valid_blank"></span>{/if}{if isset($opc_config.sample_values) && $opc_config.sample_values}
+	            <span class="sample_text ex_blur">&nbsp;&nbsp;{l s='DNI / NIF / NIE' mod='onepagecheckout'}</span>{/if}
+	        </p>
         </div>
-        <p class="required text dni_invoice">
-            <label for="dni">{l s='Identification number' mod='onepagecheckout'}<sup>*</sup></label>
-            <input type="text" class="text" name="dni_invoice" id="dni_invoice"
-                   value="{if isset($guestInformations) && isset($guestInformations.dni_invoice)}{$guestInformations.dni_invoice}{/if}"/>{if isset($opc_config.validation_checkboxes) && $opc_config.validation_checkboxes}
-            <span class="validity valid_blank"></span>{/if}{if isset($opc_config.sample_values) && $opc_config.sample_values}
-            <span class="sample_text ex_blur">&nbsp;&nbsp;{l s='DNI / NIF / NIE' mod='onepagecheckout'}</span>{/if}
-        </p>
-
         <p class="required text">
             <label for="firstname_invoice">{l s='First name' mod='onepagecheckout'}<sup>*</sup></label>
             <input type="text" class="text" id="firstname_invoice" name="firstname_invoice"

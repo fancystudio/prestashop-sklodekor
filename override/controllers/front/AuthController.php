@@ -183,10 +183,10 @@ class AuthController extends AuthControllerCore
                     $this->errors[] = Tools::displayError('Zip/Postal code is invalid.');
             }
 
-            if ($country->need_identification_number && (!Tools::getValue('dni') || !Validate::isDniLite(Tools::getValue('dni'))))
-                $this->errors[] = Tools::displayError('Identification number is incorrect or has already been used.');
-            elseif (!$country->need_identification_number)
-                $address->dni = null;
+            //if ($country->need_identification_number && (!Tools::getValue('dni') || !Validate::isDniLite(Tools::getValue('dni'))))
+            //    $this->errors[] = Tools::displayError('Identification number is incorrect or has already been used.');
+            //elseif (!$country->need_identification_number)
+            //    $address->dni = null;
         }
 
         if (!@checkdate(Tools::getValue('months'), Tools::getValue('days'), Tools::getValue('years')) && !(Tools::getValue('months') == '' && Tools::getValue('days') == '' && Tools::getValue('years') == ''))

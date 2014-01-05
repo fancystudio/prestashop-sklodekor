@@ -47,7 +47,7 @@ class svk_translation extends Module
 					if (!empty($phrase_keys_array)) // test ci je dana fraza medzi en frazami prekladanej tabulky a stlpca
 					{	foreach ($phrase_keys_array as $phrase_key) // z pola referencnych klucov postupne nacita kazdy kluc, ktory je rovnaky pre vsetky jazyky
 						{
-						Db::getInstance()->Execute("UPDATE "._DB_PREFIX_.$current_table." SET ".$transcol." = '".$prekladovy_par['sk']."' WHERE id_lang = ".$id_svk." AND ".$phrase_keys_col." = ".$phrase_key[$phrase_keys_col]."; ");	// zapise do aktualne prekladaneho stlpca tabulky slovensku cast prekladoveho paru pre aktualny prekladovy kluc, to sa postupne vykona pre vsetky prekladove kluce obsahujuce anglicku cast prekladoveho paru 
+						Db::getInstance()->Execute("UPDATE "._DB_PREFIX_.$current_table." SET ".$transcol." = '".$prekladovy_par['sk']."' WHERE id_lang = 2 AND ".$phrase_keys_col." = ".$phrase_key[$phrase_keys_col]."; ");	// zapise do aktualne prekladaneho stlpca tabulky slovensku cast prekladoveho paru pre aktualny prekladovy kluc, to sa postupne vykona pre vsetky prekladove kluce obsahujuce anglicku cast prekladoveho paru 
 						} //koniec cyklu pre zapis do databazy pre kazdy prekladovy kluc
 					} // koniec bloku, ktory je vykonany, ak sa fraza nachadza medzi en frazami prekladaneho stlpca a tabulky
 				unset($phrase_keys_array); // pre istotu vycisti premennu na konci iteracie cyklu pre aktualny prekladovy par

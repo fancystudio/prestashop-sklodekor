@@ -589,6 +589,13 @@ margin-left: 210px;
 margin-right: 10px
 }
 
+#login_form h3 {
+margin: 0px;
+padding: 15px 0px 15px 0px !important;
+line-height: normal;
+}
+
+
 /* ----------------------------- responsible ----------------------------- */
 
 /* Large desktop */

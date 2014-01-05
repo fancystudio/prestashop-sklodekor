@@ -35,7 +35,7 @@
 {/if*}
 
 {if isset($opc_config.payment_radio_buttons) && $opc_config.payment_radio_buttons}
-<form class="std" action="#" id="payments_section">
+<form class="std container" action="#" id="payments_section">
 <fieldset>
     <h3>{l s='Choose your payment method' mod='onepagecheckout'}</h3>
 
@@ -62,7 +62,7 @@
 
 
     {if (trim($smarty.capture.password_checkbox) != '') && ((!isset($opc_config.offer_password_top) || !$opc_config.offer_password_top))}
-    <form class="std{if isset($opc_config.hide_password_box) && $opc_config.hide_password_box} no_show{/if}" action="javascript:return false;" id="offer_password">
+    <form class="container std{if isset($opc_config.hide_password_box) && $opc_config.hide_password_box} no_show{/if}" action="javascript:return false;" id="offer_password">
         <fieldset>
             {if !isset($opc_config.offer_password_top) || !$opc_config.offer_password_top}{$smarty.capture.password_checkbox}{/if}
     {if !isset($opc_config.offer_password_top) || !$opc_config.offer_password_top}{$smarty.capture.password_field}{/if}
@@ -196,7 +196,7 @@
 
 {if isset($opc_config.payment_radio_buttons) && $opc_config.payment_radio_buttons}
 
-<div class="confirm_button_div">
+<div class="confirm_button_div container">
     <input type="button" class="confirm_button" title="{l s='I confirm my order' mod='onepagecheckout'}"
            value="&raquo;  {l s='I confirm my order' mod='onepagecheckout'}  &laquo;"
            onclick="paymentModuleConfirm();"/>

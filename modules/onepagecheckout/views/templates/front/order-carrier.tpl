@@ -33,7 +33,7 @@
 {assign var=displayForm value=(!$singleCarrier && (!isset($isVirtualCart) || !$isVirtualCart)) || (isset($opc_config.order_msg) && $opc_config.order_msg) || ($conditions AND $cms_id) || isset($onlyCartSummary)}
 
 
-<form id="carriers_section" class="std{if isset($isVirtualCart) && $isVirtualCart} no_carriers{/if}" action="#"
+<form id="carriers_section" class="container std{if isset($isVirtualCart) && $isVirtualCart} no_carriers{/if}" action="#"
       {if !$displayForm}style="display:none"{/if}>
     <fieldset>
 

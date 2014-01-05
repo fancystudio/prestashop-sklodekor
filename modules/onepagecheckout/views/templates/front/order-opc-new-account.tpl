@@ -1,4 +1,4 @@
-<div id="opc_new_account" class="opc-main-block">
+<div id="opc_new_account" class="opc-main-block container">
 <div id="opc_new_account-overlay" class="opc-overlay" style="display: none;"></div>
 <form action="{$link->getPageLink('authentication.php', true)}?back=order-opc.php" method="post" id="login_form"
       class="std" {if ($isLogged && !$isGuest)}style="display:none;"{/if}>

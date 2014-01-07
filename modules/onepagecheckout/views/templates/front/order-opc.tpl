@@ -148,7 +148,14 @@
     {include file="$opc_templates_path/order-payment.tpl"}
     <!-- END Payment -->
         {else}
-    <h2>{l s='Your shopping cart' mod='onepagecheckout'}</h2>
-    <p class="warning">{l s='Your shopping cart is empty.' mod='onepagecheckout'}</p>
+    <div class="sub-page-wrapper-line">    
+    <div class="container empy-cart">
+    <!--<h1>{l s='Your shopping cart' mod='onepagecheckout'}</h1>-->
+    <p class="empy-cart-warning">{l s='Your shopping cart is empty.' mod='onepagecheckout'}
+    <div class="empy-cart-img">
+    <img src="themes/sklodekor/img/empty-cart.png" width="410" height="332"></img>
+    </div></p>
+    </div>
+    </div>
     {/if}
 {/if}

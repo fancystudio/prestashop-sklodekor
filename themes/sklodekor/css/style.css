@@ -327,6 +327,28 @@ h3 .inner-text {
 	
 }
 
+#customizationForm > p.infoCustomizable{
+	margin-top: 40px
+}
+
+.customizationUploadLine textarea {
+height: 50px;
+width: 98%;
+border: 1px solid #ccc;
+padding: 1%;
+}
+
+.customizableProductsFile, .customizableProductsText {
+margin-bottom: 0px; 
+padding-bottom: 0px; 
+border-bottom: none; 
+}
+
+#text_fields{
+	margin-left: 0px
+}
+
+
 #login_form h3, .carrier_title, .condition_title, #opc_delivery_methods h3, #create-account_form h3 {
 	background: none !important
 	}
@@ -634,6 +656,9 @@ float: left;
 margin-top: 10%;
 }
 
+
+
+
 /* ----------------------------- responsible ----------------------------- */
 
 /* Large desktop */
@@ -681,6 +706,9 @@ padding: 10px 10px 10px 10px;
 /*.group_8 #color_to_pick_list a.color_pick{
 	width: 10px
 }*/
+
+
+
 
 .vzory.grafika a{
 margin-right: 10px	

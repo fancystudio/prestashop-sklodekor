@@ -6,7 +6,7 @@
 	<div class="ls-layer" rel="slidedelay: 7000" style="overflow:visible; ">
 		<img class="ls-s0" src="modules/layerslider/img/slider_bg.jpg"alt="layer" style="top:0px; margin-left:0px">
 
-		<img class="ls-s2" src="modules/layerslider/img/dvere.png" alt="sublayer" style="top:127px; left:790px; " rel="durationin: 700; easingin: easeOutExpo; slidedirection: left; delayin: 100">
+		<img class="ls-s2" src="modules/layerslider/img/dvere.png" alt="sublayer" style="top:76px; left:720px; " rel="durationin: 700; easingin: easeOutExpo; slidedirection: left; delayin: 100">
 		<img class="ls-s3" src="modules/layerslider/img/kreslo.png" alt="sublayer" style="top:371px; left:963px; z-index:100" rel="durationin: 1900; easingin: easeOutElastic; slidedirection: bottom; delayin: 1900">
 		<img class="ls-s5" src="modules/layerslider/img/police.png" alt="sublayer" rel="slidedirection: top; delayin:200" style="z-index:99; left:1250px; top: 120px;">
         <div class="ls-s6 span3 main-text" alt="sublayer" rel="slidedirection: bottom; easingin: easeOutExpo; delayin: 1000; durationin: 400" style="left: 400px; top: 250px;" > 

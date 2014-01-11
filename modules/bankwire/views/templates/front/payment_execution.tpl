@@ -22,7 +22,9 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
-
+</div>
+<div class="sub-page-wrapper-line">
+<div class="container">
 {capture name=path}{l s='Bank-wire payment.' mod='bankwire'}{/capture}
 {include file="$tpl_dir./breadcrumb.tpl"}
 
@@ -34,14 +36,16 @@
 {if $nbProducts <= 0}
 	<p class="warning">{l s='Your shopping cart is empty.' mod='bankwire'}</p>
 {else}
+<div id="new_account_form sumar-objednavky" class="std sumar-objednavky">
 
-<h3>{l s='Bank-wire payment.' mod='bankwire'}</h3>
+<h3>{l s='You have chosen to pay by bank wire.' mod='bankwire'}</h3>
 <form action="{$link->getModuleLink('bankwire', 'validation', [], true)}" method="post">
+<p></p><p></p>
 <p>
-	<img src="{$this_path}bankwire.jpg" alt="{l s='Bank wire' mod='bankwire'}" width="86" height="49" style="float:left; margin: 0px 10px 5px 0px;" />
-	{l s='You have chosen to pay by bank wire.' mod='bankwire'}
-	<br/><br />
-	{l s='Here is a short summary of your order:' mod='bankwire'}
+	<!--<img src="{$this_path}bankwire.jpg" alt="{l s='Bank wire' mod='bankwire'}" width="86" height="49" style="float:left; margin: 0px 10px 5px 0px;" />-->
+	{*{l s='You have chosen to pay by bank wire.' mod='bankwire'}*}
+	
+	<strong>{l s='Here is a short summary of your order:' mod='bankwire'}</strong>
 </p>
 <p style="margin-top:20px;">
 	- {l s='The total amount of your order is' mod='bankwire'}
@@ -63,8 +67,12 @@
 		</select>
 	{else}
 		{l s='We allow the following currency to be sent via bank wire:' mod='bankwire'}&nbsp;<b>{$currencies.0.name}</b>
+<p></p><p></p>
+</div><!-- form fieldset-->
+
 		<input type="hidden" name="currency_payement" value="{$currencies.0.id_currency}" />
 	{/if}
+
 </p>
 <p>
 	{l s='Bank wire account information will be displayed on the next page.' mod='bankwire'}
@@ -73,7 +81,12 @@
 </p>
 <p class="cart_navigation">
 	<input type="submit" name="submit" value="{l s='Place my order' mod='bankwire'}" class="exclusive_large" />
+
+	
 	<a href="{$link->getPageLink('order', true, NULL, "step=3")}" class="button_large">{l s='Other payment methods' mod='bankwire'}</a>
 </p>
 </form>
+
+</div> <!-- container -->
+</div> <!--end sub-page-wrapper-line-->
 {/if}

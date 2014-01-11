@@ -23,16 +23,18 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
-
+<div class="sub-page-wrapper-line">
+<div class="container">
 {capture name=path}{l s='Your shopping cart' mod='onepagecheckout'}{/capture}
 
 
-{if !isset($opc_config.compact_form) || !$opc_config.compact_form}
+{*{if !isset($opc_config.compact_form) || !$opc_config.compact_form}
 {include file="$tpl_dir./breadcrumb.tpl"}
 <h1 id="cart_title">{l s='Shopping cart summary' mod='onepagecheckout'}</h1>
-{/if}
+{/if}*}
 
-
+{include file="$tpl_dir./breadcrumb.tpl"}
+<h1 id="cart_title">{l s='Shopping cart summary' mod='onepagecheckout'}</h1>
 {assign var='current_step' value='summary'}
 {*include file="$tpl_dir./order-steps.tpl"*}
 {include file="$tpl_dir./errors.tpl"}
@@ -121,7 +123,7 @@
             id="summary_products_quantity">{$productNumber} {if $productNumber == 1}{l s='product' mod='onepagecheckout'}{else}{l s='products' mod='onepagecheckout'}{/if}</span>
     </p>
     {/if}
-<div id="order-detail-content" class="container table_block{if isset($addClass)}{$addClass}{/if}">
+<div id="order-detail-content" class="table_block{if isset($addClass)}{$addClass}{/if}">
 <table id="cart_summary" class="std">
 <thead>
 <tr>
@@ -476,9 +478,10 @@
 
 
     {include file="$opc_templates_path/order-carrier.tpl"} {*TODO: check this!*}
+    </div>
     {/if}
 
 
 
 {/if}
-
+</div>

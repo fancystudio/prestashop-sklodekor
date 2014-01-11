@@ -23,7 +23,7 @@
 *  International Registered Trademark & Property of PrestaShop SA
 *}
 <div class="sub-page-wrapper-line">
-<div class="container" id="center_column">
+<div class="container" id="registracia">
 {capture name=path}{l s='Login'}{/capture}
 {include file="$tpl_dir./breadcrumb.tpl"}
 
@@ -80,7 +80,7 @@ $(document).ready(function() {
 </script>
 
 <h2>{if !isset($email_create)}{l s='Log in'}{else}{l s='Create an account'}{/if}</h2>
-</div><!--container--></div><div class="container" style="margin-bottom: 86px; margin-top: 80px">
+<!--</div>--><!--container--></div><div class="container" style="margin-bottom: 86px; margin-top: 80px">
 {if !isset($back) || $back != 'my-account'}{assign var='current_step' value='login'}{include file="$tpl_dir./order-steps.tpl"}{/if} 
 {include file="$tpl_dir./errors.tpl"}
 {assign var='stateExist' value=false}
@@ -128,7 +128,7 @@ $(document).ready(function() {
 				else
 				{
 					// adding a div to display a transition
-					$('#center_column').html('<div id="noSlide">'+$('#center_column').html()+'</div>');
+					$('#registracia').html('<div id="noSlide">'+$('#registracia').html()+'</div>');
 					$('#noSlide').fadeOut('slow', function(){
 						$('#noSlide').html(jsonData.page);
 						// update the state (when this file is called from AJAX you still need to update the state)									

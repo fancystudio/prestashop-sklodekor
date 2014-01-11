@@ -37,9 +37,12 @@
 	bottom: -3px;
 }
 #account-creation_form p.checkbox label {
-	float:none;
-	width:auto;
-	font-size:12px;
+float: left;
+width: auto;
+font-size: 12px;
+display: block;
+margin: 0px 0px 0px 0px;
+padding: 0px 0px 0px 10px;
 }
 #account-creation_form p.text input,
 #account-creation_form p.password input,
@@ -53,7 +56,7 @@
 }
 #account-creation_form span.inline-infos{display:inline-block;}
 #account-creation_form p.checkbox input {
-	margin-left:260px;
+	margin-left:240px;
 }
 #account-creation_form p.select select {
 	margin-right:10px;
@@ -70,7 +73,6 @@
 }
 #account-creation_form span.form_info, #account-creation_form p.inline-infos {
 	display:block;
-	margin:5px 0 0 265px!important;
 	color:#666;
 }
 #account-creation_form .id_state, #account-creation_form .dni, #account-creation_form .postcode {

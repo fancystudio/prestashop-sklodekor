@@ -640,7 +640,7 @@ padding: 10px 10px 10px 30px !important;
 	margin-left: 0px !important
 }
 
-#order-opc > p.cart_navigation.container > b > a {
+#order-opc > div.sub-page-wrapper-line > div:nth-child(1) > p.cart_navigation.container > b > a {
 display: block;
 float: left;
 color: white;

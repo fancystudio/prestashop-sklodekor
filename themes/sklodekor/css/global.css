@@ -682,7 +682,9 @@ ul.idTabs li {
 .cart_navigation {margin:20px 0}
 .cart_navigation .exclusive,
 .cart_navigation .exclusive_large {
-	float:right
+	float:right;
+	padding: 10px 10px 10px 10px !important;
+	line-height: normal !important
 }
 .cart_navigation .button,
 .cart_navigation .button_large {
@@ -919,7 +921,7 @@ table#cart_summary .gift-icon {
 	height: 20em;
 	width: 49%;
 }
-#create-account_form {margin-right: 11px;}
+#create-account_form {margin-right: 2%;}
 
 #authentication #create-account_form fieldset,
 #authentication #login_form fieldset {
@@ -928,7 +930,7 @@ table#cart_summary .gift-icon {
 
 #authentication #create-account_form .form_content,
 #authentication #login_form .form_content {
-	padding:15px 10px
+	padding:15px 30px
 }
 
 #create-account_form h3,

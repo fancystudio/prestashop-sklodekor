@@ -22,7 +22,8 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
-
+<div class="sub-page-wrapper-line">
+<div class="container">
 {capture name=path}{l s='New products'}{/capture}
 {include file="$tpl_dir./breadcrumb.tpl"}
 
@@ -50,4 +51,5 @@
 	</div>
 	{else}
 	<p class="warning">{l s='No new products.'}</p>
+	<div></div>
 {/if}

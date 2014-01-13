@@ -61,14 +61,14 @@
 
 
 
-    {if (trim($smarty.capture.password_checkbox) != '') && ((!isset($opc_config.offer_password_top) || !$opc_config.offer_password_top))}
+    <!--{if (trim($smarty.capture.password_checkbox) != '') && ((!isset($opc_config.offer_password_top) || !$opc_config.offer_password_top))}
     <form class="container std{if isset($opc_config.hide_password_box) && $opc_config.hide_password_box} no_show{/if}" action="javascript:return false;" id="offer_password">
         <fieldset>
             {if !isset($opc_config.offer_password_top) || !$opc_config.offer_password_top}{$smarty.capture.password_checkbox}{/if}
     {if !isset($opc_config.offer_password_top) || !$opc_config.offer_password_top}{$smarty.capture.password_field}{/if}
         </fieldset>
     </form>
-    {/if}
+    {/if}-->
 
 
     {if $opc_config.order_detail_review}

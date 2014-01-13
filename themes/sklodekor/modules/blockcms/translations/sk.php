@@ -15,6 +15,7 @@ $_MODULE['<{blockcms}sklodekor>blockcms_89887a6d62110cbd72c15218a2d0fda9'] = 'Zo
 $_MODULE['<{blockcms}sklodekor>blockcms_48566f492af8fd2346b20dbd32168476'] = 'Odkazy v päte:';
 $_MODULE['<{blockcms}sklodekor>blockcms_e363df19c685465bca24d0c06d9394c7'] = 'Označte všetky stránky, ktoré chcete zobraziť v bloku CMS v päte stránky';
 $_MODULE['<{blockcms}sklodekor>blockcms_6c5f7d2f911e91ebd0c077fe770e739e'] = 'Informácie v päte:';
+$_MODULE['<{blockcms}sklodekor>blockcms_fc3faf66c0ea5f710cc58d24fbe4a5b6'] = ' ';
 $_MODULE['<{blockcms}sklodekor>blockcms_9aa03a5dca2e060a4ecbff0dd8616692'] = 'Uložiť';
 $_MODULE['<{blockcms}sklodekor>blockcms_be58fccb15fb119b8c3d485e3a8561c4'] = 'Nastavenie CMS Bloku';
 $_MODULE['<{blockcms}sklodekor>blockcms_0eb46571f3ff926d8b2408cafcfc17e3'] = 'Editovať CMS blok';

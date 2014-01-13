@@ -59,7 +59,7 @@ $('document').ready(function(){
 {/literal}
 </script>
 <li class="sendtofriend">
-	<a id="send_friend_button" href="#send_friend_form">{l s='Send to a friend' mod='sendtoafriend'}</a>
+	<a id="send_friend_button" href="#send_friend_form" title="{l s='Send to a friend' mod='sendtoafriend'}"><!--{l s='Send to a friend' mod='sendtoafriend'}-->  </a>
 </li>
 
 <div style="display: none;">

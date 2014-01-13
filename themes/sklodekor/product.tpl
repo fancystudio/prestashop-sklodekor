@@ -283,13 +283,7 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 		</div>
 		{/if}
 		{if isset($images) && count($images) > 1}<p class="resetimg clear"><span id="wrapResetImages" style="display: none;"><img src="{$img_dir}icon/cancel_11x13.gif" alt="{l s='Cancel'}" width="11" height="13"/> <a id="resetImages" href="{$link->getProductLink($product)}" onclick="$('span#wrapResetImages').hide('slow');return (false);">{l s='Display all pictures'}</a></span></p>{/if}
-		<!-- usefull links-->
-		<!--<ul id="usefull_link_block">
-			{if $HOOK_EXTRA_LEFT}{$HOOK_EXTRA_LEFT}{/if}
-			<li class="print"><a href="javascript:print();">{l s='Print'}</a></li>
-			{if $have_image && !$jqZoomEnabled}
-			{/if}
-		</ul>-->
+		
 	</div>
     
 
@@ -372,11 +366,11 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
         <!-- AddThis Button BEGIN -->
         <div class="addthis_toolbox addthis_default_style ">
             <a class="addthis_button_preferred_1"></a>
-            <a class="addthis_button_preferred_2"></a>
-            <a class="addthis_button_preferred_3"></a>
-            <a class="addthis_button_preferred_4"></a>
-            <a class="addthis_button_compact"></a>
-            <a class="addthis_counter addthis_bubble_style"></a>
+            <!--<a class="addthis_button_preferred_2"></a>-->
+            <!--<a class="addthis_button_preferred_3"></a>-->
+            <!--<a class="addthis_button_preferred_4"></a>-->
+            <!--<a class="addthis_button_compact"></a>
+            <a class="addthis_counter addthis_bubble_style"></a>-->
         </div>
         <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=xa-50a7c0cd7f40895e"></script>
         <!-- AddThis Button END -->
@@ -459,6 +453,14 @@ var fieldRequired = '{l s='Please fill in all the required fields before saving 
 				</p>
 			{/if}
 			{if isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS}{$HOOK_PRODUCT_ACTIONS}{/if}
+
+<!-- usefull links pouzite len preposlat znamemu-->
+		<ul id="usefull_link_block">
+			{if $HOOK_EXTRA_LEFT}{$HOOK_EXTRA_LEFT}{/if}
+			<!--<li class="print"><a href="javascript:print();">{l s='Print'}</a></li>-->
+			{if $have_image && !$jqZoomEnabled}
+			{/if}
+		</ul>
 
 			<div class="clear"></div>
 		</div>

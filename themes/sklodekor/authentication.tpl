@@ -80,7 +80,7 @@ $(document).ready(function() {
 </script>
 
 <h2>{if !isset($email_create)}{l s='Log in'}{else}{l s='Create an account'}{/if}</h2>
-<!--</div>--><!--container--></div><div class="container" style="margin-bottom: 86px; margin-top: 80px">
+<!--</div>--><!--container--></div><div class="container firstStep" style="margin-bottom: 86px; margin-top: 80px">
 {if !isset($back) || $back != 'my-account'}{assign var='current_step' value='login'}{include file="$tpl_dir./order-steps.tpl"}{/if} 
 {include file="$tpl_dir./errors.tpl"}
 {assign var='stateExist' value=false}
@@ -137,6 +137,7 @@ $(document).ready(function() {
 							document.location = '#account-creation';
 						});
 					});
+					$(".firstStep").fadeOut("slow");
 				}
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown)

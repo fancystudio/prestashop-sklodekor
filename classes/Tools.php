@@ -899,7 +899,7 @@ class ToolsCore
 				foreach ($categories as $category)
 				{
 					$full_path .=
-					(($n < $n_categories || $link_on_the_item) ? '<a href="'.Tools::safeOutput($context->link->getCategoryLink((int)$category['id_category'], $category['link_rewrite'])).'" title="'.htmlentities($category['name'], ENT_NOQUOTES, 'UTF-8').'">' : '').
+					(($n < $n_categories || $link_on_the_item) ? '<a '.(($category['name'] == "PRODUKTY") ? 'class="hideLink"' : '').' href="'.(($category['name'] == "PRODUKTY") ? 'javascript:void(0)' : Tools::safeOutput($context->link->getCategoryLink((int)$category['id_category'], $category['link_rewrite']))).'" title="'.htmlentities($category['name'], ENT_NOQUOTES, 'UTF-8').'">' : '').
 					htmlentities($category['name'], ENT_NOQUOTES, 'UTF-8').
 					(($n < $n_categories || $link_on_the_item) ? '</a>' : '').
 					(($n++ != $n_categories || !empty($path)) ? '<span class="navigation-pipe">'.$pipe.'</span>' : '');

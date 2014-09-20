@@ -1,5 +1,24 @@
 <?xml version="1.0"?>
 <partners>
+<partner>
+	<name><![CDATA[Ogone]]></name>
+	<module>ogone</module>
+	<checkconfiguration>
+		<key>OGONE_PSPID</key>
+		<key>OGONE_SHA_IN</key>
+		<key>OGONE_SHA_OUT</key>
+	</checkconfiguration>
+	<logo><![CDATA[https://api.prestashop.com/partner/premium/images/ogone.png]]></logo>
+	<labels>
+		<label iso="en"><![CDATA[The right payment method for every business need in Europe]]></label>
+		<label iso="fr"><![CDATA[La bonne méthode de paiement pour tous les besoins de votre commerce en Europe]]></label>
+		<label iso="es"><![CDATA[El mejor medio de pago para cada necesidad de negocio en Europa]]></label>
+		<label iso="it"><![CDATA[Il buon metodo di pagamento per tutte le esigenze commerciali in Europa]]></label>
+		<label iso="de"><![CDATA[Die passenden Zahlungsmethoden für Unternehmen in Europa]]></label>
+		<label iso="nl"><![CDATA[De juiste betaalmethode voor elke behoefte in Europa]]></label>
+		<label iso="ru"><![CDATA[Правильный способ оплаты для деловой потребности бизнеса в Европе]]></label>
+	</labels>
+</partner>
 	<partner>
 		<name><![CDATA[PayPal]]></name>
 		<module>paypal</module>
@@ -8,18 +27,19 @@
 			<key>PAYPAL_API_PASSWORD</key>
 			<key>PAYPAL_API_SIGNATURE</key>
 		</checkconfiguration>
-		<logo><![CDATA[http://api.prestashop.com/partner/premium/images/paypal.png]]></logo>
+		<logo><![CDATA[https://api.prestashop.com/partner/premium/images/paypal.png]]></logo>
 		<labels>
-			<label iso="en"><![CDATA[Accept your first payments no later than today!]]></label>
-			<label iso="es"><![CDATA[Comience a aceptar pagos hoy mismo!]]></label>
-			<label iso="de"><![CDATA[PayPal Business Konto erstellen]]></label>
-			<label iso="fr"><![CDATA[Commencez a accepter des paiements aujourd'hui !]]></label>
-			<label iso="it"><![CDATA[Inizia ad accettare pagamenti oggi stesso.]]></label>
+			<label iso="en"><![CDATA[Start accepting your first payments today]]></label>
+			<label iso="fr"><![CDATA[Commencez à accepter vos premiers paiements dès aujourd'hui]]></label>
+			<label iso="es"><![CDATA[Empieza a recibir tus primeros pagos hoy]]></label>
+			<label iso="it"><![CDATA[Accettate da ora i primi pagamenti]]></label>
+			<label iso="pl"><![CDATA[Zaakceptuj Twoje pierwsze płatności, już dziś]]></label>
+			<label iso="ru"><![CDATA[Вы уже можете начать принимать свои первые платежи]]></label>
 		</labels>
 		<optionals>
-			<optional iso="es"><![CDATA[http://api.prestashop.com/partner/premium/images/paypal/es.png]]></optional>
-			<optional iso="fr"><![CDATA[http://api.prestashop.com/partner/premium/images/paypal/fr.png]]></optional>
-			<optional iso="it"><![CDATA[http://api.prestashop.com/partner/premium/images/paypal/it.png]]></optional>
+			<optional iso="es"><![CDATA[https://api.prestashop.com/partner/premium/images/paypal/es.png]]></optional>
+			<optional iso="fr"><![CDATA[https://api.prestashop.com/partner/premium/images/paypal/fr.png]]></optional>
+			<optional iso="it"><![CDATA[https://api.prestashop.com/partner/premium/images/paypal/it.png]]></optional>
 		</optionals>
 		<descriptions>
 			<description iso="en"><![CDATA[
@@ -88,20 +108,5 @@
 			]]></description>
 		</descriptions>
 	</partner>
-<partner>
-	<name><![CDATA[MoneyBookers by Skrill]]></name>
-	<module>moneybookers</module>
-	<checkconfiguration>
-		<key>MB_SECRET_WORD</key>
-	</checkconfiguration>
-	<logo>http://api.prestashop.com/partner/premium/images/moneybookers.png</logo>
-	<labels>
-		<label iso="en"><![CDATA[Accept local payments by Skrill]]></label>
-		<label iso="de"><![CDATA[Annehmen Sie Zahlungen mit Skrill]]></label>
-		<label iso="fr"><![CDATA[Acceptez les paiements localement via Skrill]]></label>
-	</labels>
-	<descriptions>
-	</descriptions>
-</partner>
 
 </partners>

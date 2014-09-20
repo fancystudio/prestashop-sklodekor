@@ -833,28 +833,33 @@ function hideVzor(){
 	selectedPiesok = $(".typSklaClass a[title='vzorovo pieskované']").attr("class");
 	selectedGrafika = $(".typSklaClass a[title='pieskované s grafickou potlačou']").attr("class");
 	
-	if(selectedCire.indexOf("selected") != -1){
-		$(".vzorHidden").val("");
-		$("#idVzor").val("");
-		typVzoruActual = 0;
-		$(".vzoryClass").fadeOut(300);		
+	if(selectedCire != undefined){
+		if(selectedCire.indexOf("selected") != -1){
+			$(".vzorHidden").val("");
+			$("#idVzor").val("");
+			typVzoruActual = 0;
+			$(".vzoryClass").fadeOut(300);		
+		}
 	}
-	
-	if(selectedCeloPiekovane.indexOf("selected") != -1){
-		$(".vzorHidden").val("");
-		$("#idVzor").val("");
-		typVzoruActual = 0;
-		$(".vzoryClass").fadeOut(300);		
+	if(selectedCeloPiekovane != undefined){
+		if(selectedCeloPiekovane.indexOf("selected") != -1){
+			$(".vzorHidden").val("");
+			$("#idVzor").val("");
+			typVzoruActual = 0;
+			$(".vzoryClass").fadeOut(300);		
+		}
 	}
-	
-	if(selectedGrafika.indexOf("selected") != -1){
-		$(".vzoryClass .piesok").fadeOut(300);
-		$(".vzoryClass .grafika").fadeIn(300);
+	if(selectedGrafika != undefined){
+		if(selectedGrafika.indexOf("selected") != -1){
+			$(".vzoryClass .piesok").fadeOut(300);
+			$(".vzoryClass .grafika").fadeIn(300);
+		}
 	}
-	
-	if(selectedPiesok.indexOf("selected") != -1){
-		$(".vzoryClass .piesok").fadeIn(300);
-		$(".vzoryClass .grafika").fadeOut(300);			
+	if(selectedPiesok != undefined){
+		if(selectedPiesok.indexOf("selected") != -1){
+			$(".vzoryClass .piesok").fadeIn(300);
+			$(".vzoryClass .grafika").fadeOut(300);			
+		}
 	}
 	
 }
